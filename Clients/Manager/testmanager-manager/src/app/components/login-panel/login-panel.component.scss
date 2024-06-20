@@ -1,0 +1,86 @@
+$fore-text-color: rgb(94, 190, 94);
+$foreground-color: rgb(120, 182, 120);
+$foreground-hover-color: rgb(155, 197, 126);
+$button-disabled-color: rgb(173, 192, 160);
+
+$text-color: rgb(30, 0, 0);
+$placeholder-color: rgba(30, 0, 0, 0.692);
+
+$hover-transition-time: .1s;
+
+:host {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header {
+        margin: 90px;
+
+        & > h1 {
+            font-size: 70px;
+            color: $fore-text-color;
+        }
+    }
+
+    .login-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-button {
+        margin: 20px;
+    }
+
+    .input-data {
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        background: transparent;
+        transition: border-bottom $hover-transition-time ease, transform $hover-transition-time;
+        border-bottom: 3px solid $foreground-color;
+        color: $text-color;
+        width: 400px;
+
+        &:focus {
+            transition: border-bottom $hover-transition-time ease, transform $hover-transition-time;
+            border-bottom: 3px solid $foreground-hover-color;
+        }
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+    }
+
+    .login-button {
+        margin-top: 80px;
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $foreground-color;
+        border: none;
+        padding: 10px 20px;
+        font-weight: 600;
+        font-size: 26px;
+        color: $text-color;
+        border-radius: 10px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $foreground-hover-color;
+        }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $button-disabled-color;
+        }
+    }
+}
