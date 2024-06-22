@@ -1,0 +1,35 @@
+:host {
+    @import "../../../../../variables";
+
+    h1 {
+        color: $fore-text-color;
+    }
+
+    .question-base-box {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .question-base-choose {
+        color: $fore-text-color;
+        font-size: 30px;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+        margin: 15px;
+        text-align: center;
+        padding: 12px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+            cursor: pointer;
+        }
+    }
+
+    table {
+        border: 1px solid black;
+    }
+}

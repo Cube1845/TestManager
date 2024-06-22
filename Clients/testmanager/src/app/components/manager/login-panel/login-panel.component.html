@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="header">
+        <h1>Logowanie</h1>
+    </div>
+
+    <div class="login-panel" [formGroup]="loginFormGroup">
+        <input type="text" class="input-data" placeholder="Email" formControlName="email" />
+        <input type="password" class="input-data" placeholder="Hasło" formControlName="password" />
+
+        <button type="button" class="login-button" [disabled]="loginFormGroup.invalid" (click)="loginUser()">Zaloguj się</button>
+    </div>
+
+    @if (error) {
+        <div class="error-box">
+            <h1>Błąd: {{ error }}</h1>
+        </div>
+    }
+</div>
