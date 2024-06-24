@@ -1,12 +1,20 @@
 :host {
     @import "../../../../../variables";
 
+    body, html {
+        width: 100vw;
+    }
+
     h1 {
         color: $fore-text-color;
     }
 
+    .container {
+        width: 100%;
+    }
+
     .question-base-box {
-        margin: 20px;
+        margin: 30px;
         display: flex;
         flex-direction: row;
     }
@@ -29,7 +37,96 @@
         }
     }
 
+    td, th {
+        border: 0.5px solid $background-color;
+        padding: 6px;
+    }
+
     table {
-        border: 1px solid black;
+        border: 1px solid $background-color;
+        border-collapse: collapse;
+        display: block;
+        max-height: 300px;
+        overflow: auto;
+        background-color: $table-color;
+        margin: 30px;
+        margin-top: 50px;
+        color: $text-color;
+
+        &::-webkit-scrollbar {
+            background-color: $nav-bar-hover-color;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $nav-bar-color;
+        }
+    }
+
+    .question-edit-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .question-edit-box {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .question-input-box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .question-edit-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0;
+    }
+
+    .question-input {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $table-color;
+        outline: none;
+        border: 0.5px solid $background-color;
+        color: $text-color;
+        font-size: 16px;
+        border-radius: 5px;
+
+        &:focus {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $table-hover-color;
+        }
+    }
+
+    .question-input-label {
+        color: $text-color;
+    }
+
+    .save-question-button {
+        background-color: $nav-bar-color;
+        border: none;
+        width: min-content;
+        padding: 15px 30px;
+        color: $fore-text-color;
+        font-size: 20px;
+        margin: 20px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+        }
+    }
+
+    .answer {
+        width: 100%;
+    }
+
+    .question {
+        width: 98.7%;
     }
 }

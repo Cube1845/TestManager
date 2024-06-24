@@ -1,27 +1,95 @@
 <div class="container">
     <div class="question-base-box">
         <h1>Baza pytań: </h1>
-        <div class="question-base-choose">Techniczne &#8595;</div>
+        <div class="question-base-choose" (click)="chooseQuestionBase()">Techniczne &#8595;</div>
     </div>
 
-    <div class="question-base">
-        <table>
-            <tr>
-                <th>Pytanie</th>
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-                <th>Poprawna odpowiedz</th>
-            </tr>
-            <tr>
-                <td>Tresc</td>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-                <td>d</td>
-                <td>a</td>
-            </tr>
-        </table>
-    </div>
+    @if (questions != null) {
+        <div class="question-base">
+            <table>
+                <thead>
+                    <th>L.p.</th>
+                    <th>Pytanie</th>
+                    <th>Odpowiedz A</th>
+                    <th>Odpowiedz B</th>
+                    <th>Odpowiedz C</th>
+                    <th>Odpowiedz D</th>
+                    <th>Poprawna odpowiedz</th>
+                </thead>
+
+                <tbody>
+                    @for (question of questions; track $index) {
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ question.content }}</td>
+                            
+                            @for (answer of question.answers; track $index) {
+                                <td>{{ answer }}</td>
+                            }
+
+                            @switch (question.answers.length) {
+                                @case (3) {
+                                    <td></td>
+                                }
+                                @case (2) {
+                                    <td></td><td></td>
+                                }
+                                @case (1) {
+                                    <td></td><td></td><td></td>
+                                }
+                            }
+
+                            <td>{{ question.correctAnswer }}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table> 
+        </div>
+
+        <div class="question-edit-container">
+            <div class="question-edit-box question">
+                <label class="question-input-label" >Pytanie</label>
+                <input type="text" class="question-input" />
+            </div>
+
+            <div class="question-edit-row">
+                <div class="question-edit-box answer">
+                    <div class="question-input-box">
+                        <label class="question-input-label">Odpowiedź A</label>
+                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                    </div>
+                    <input type="text" class="question-input" />
+                </div>
+
+                <div class="question-edit-box answer">
+                    <div class="question-input-box">
+                        <label class="question-input-label">Odpowiedź B</label>
+                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                    </div>
+                    <input type="text" class="question-input" />
+                </div>
+            </div>
+
+            <div class="question-edit-row">
+                <div class="question-edit-box answer">
+                    <div class="question-input-box">
+                        <label class="question-input-label">Odpowiedź C</label>
+                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                    </div>
+                    <input type="text" class="question-input" />
+                </div>
+
+                <div class="question-edit-box answer">
+                    <div class="question-input-box">
+                        <label class="question-input-label">Odpowiedź D</label>
+                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                    </div>
+                    <input type="text" class="question-input" />
+                </div>
+            </div>
+
+            <button type="button" class="save-question-button">Zapisz</button>
+        </div>
+    }
+
 </div>
