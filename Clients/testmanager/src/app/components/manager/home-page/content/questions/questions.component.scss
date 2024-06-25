@@ -50,7 +50,8 @@
         overflow: auto;
         background-color: $table-color;
         margin: 30px;
-        margin-top: 50px;
+        margin-top: 40px;
+        margin-bottom: 20px;
         color: $text-color;
 
         &::-webkit-scrollbar {
@@ -107,18 +108,22 @@
         color: $text-color;
     }
 
-    .save-question-button {
+    .modify-question-button {
         background-color: $nav-bar-color;
         border: none;
-        width: min-content;
-        padding: 15px 30px;
+        padding: 10px 25px;
         color: $fore-text-color;
-        font-size: 20px;
+        font-size: 18px;
         margin: 20px;
 
         &:hover {
             transition: background-color $hover-transition-time ease, transform $hover-transition-time;
             background-color: $nav-bar-hover-color;
+        }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $function-button-disabled-color;
         }
     }
 
@@ -128,5 +133,50 @@
 
     .question {
         width: 98.7%;
+    }
+
+    .lp {
+        width: 10%;
+        margin-bottom: 5px;
+    }
+
+    .correct-answer-check {
+        appearance: none;
+        background-color: $table-color;
+        margin-left: 20px;
+        color: $background-color;
+        width: 16px;
+        height: 16px;
+        border: 0.5px solid $background-color;
+        border-radius: 50%;
+
+        display: grid;
+        place-content: center;
+
+        &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em $background-color;
+        }
+
+        &:checked::before {
+            transform: scale(1);
+        }
+    }
+
+    .button-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+
+        button {
+            margin: 10px;
+        }
     }
 }

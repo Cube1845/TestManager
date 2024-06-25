@@ -7,6 +7,10 @@ import { Question } from '../../models/types/question';
 export class QuestionApiService {
   constructor() { }
 
+  saveQuestion(question: Question, index: number) {
+    
+  }
+
   getQuestionBase(baseName: string): Question[] {
     return [
       { 
@@ -35,6 +39,7 @@ export class QuestionApiService {
           'Odp a2',
           'Odp b2',
           'Odp c2',
+          ''
         ],
         correctAnswer: 'b'
       },
@@ -42,7 +47,10 @@ export class QuestionApiService {
         content: 'Pytanie 4 cos tam cos tam',
         answers: [
           'Odp a3',
-          'Odp b3'
+          'Odp b3',
+          '',
+          ''
+
         ],
         correctAnswer: 'd'
       },

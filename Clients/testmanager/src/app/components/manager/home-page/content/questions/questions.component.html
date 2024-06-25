@@ -1,7 +1,7 @@
 <div class="container">
     <div class="question-base-box">
         <h1>Baza pytań: </h1>
-        <div class="question-base-choose" (click)="chooseQuestionBase()">Techniczne &#8595;</div>
+        <div class="question-base-choose" (click)="displayQuestionBase('dupa')">Techniczne &#8595;</div>
     </div>
 
     @if (questions != null) {
@@ -10,33 +10,24 @@
                 <thead>
                     <th>L.p.</th>
                     <th>Pytanie</th>
-                    <th>Odpowiedz A</th>
-                    <th>Odpowiedz B</th>
-                    <th>Odpowiedz C</th>
-                    <th>Odpowiedz D</th>
-                    <th>Poprawna odpowiedz</th>
+                    <th>Odpowiedź A</th>
+                    <th>Odpowiedź B</th>
+                    <th>Odpowiedź C</th>
+                    <th>Odpowiedź D</th>
+                    <th>Poprawna odpowiedź</th>
                 </thead>
 
                 <tbody>
                     @for (question of questions; track $index) {
-                        <tr>
+                        <tr (click)="selectQuestion($index)" 
+                        [ngStyle]="{'background-color': getValidColor($index), 'transition': 'background-color 0.1s ease, transform 0.1s'}"
+                        (mouseover)="hoveredRow = $index"
+                        (mouseleave)="hoveredRow = -1">
                             <td>{{ $index + 1 }}</td>
                             <td>{{ question.content }}</td>
                             
                             @for (answer of question.answers; track $index) {
                                 <td>{{ answer }}</td>
-                            }
-
-                            @switch (question.answers.length) {
-                                @case (3) {
-                                    <td></td>
-                                }
-                                @case (2) {
-                                    <td></td><td></td>
-                                }
-                                @case (1) {
-                                    <td></td><td></td><td></td>
-                                }
                             }
 
                             <td>{{ question.correctAnswer }}</td>
@@ -46,27 +37,30 @@
             </table> 
         </div>
 
-        <div class="question-edit-container">
+        <div class="question-edit-container" [formGroup]="questionFormGroup">
             <div class="question-edit-box question">
+                <label class="question-input-label" >L.p.</label>
+                <input type="text" class="question-input lp" readonly formControlName="index"/>
+
                 <label class="question-input-label" >Pytanie</label>
-                <input type="text" class="question-input" />
+                <input type="text" class="question-input" formControlName="content"/>
             </div>
 
             <div class="question-edit-row">
                 <div class="question-edit-box answer">
                     <div class="question-input-box">
                         <label class="question-input-label">Odpowiedź A</label>
-                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                        <input type="radio" class="correct-answer-check" name="correctAnswer" formControlName="correctAnswer" value="a" checked>
                     </div>
-                    <input type="text" class="question-input" />
+                    <input type="text" class="question-input" formControlName="answerA"/>
                 </div>
 
                 <div class="question-edit-box answer">
                     <div class="question-input-box">
                         <label class="question-input-label">Odpowiedź B</label>
-                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                        <input type="radio" class="correct-answer-check" name="correctAnswer" formControlName="correctAnswer" value="b">
                     </div>
-                    <input type="text" class="question-input" />
+                    <input type="text" class="question-input" formControlName="answerB"/>
                 </div>
             </div>
 
@@ -74,21 +68,25 @@
                 <div class="question-edit-box answer">
                     <div class="question-input-box">
                         <label class="question-input-label">Odpowiedź C</label>
-                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                        <input type="radio" class="correct-answer-check" name="correctAnswer" formControlName="correctAnswer" value="c">
                     </div>
-                    <input type="text" class="question-input" />
+                    <input type="text" class="question-input" formControlName="answerC"/>
                 </div>
 
                 <div class="question-edit-box answer">
                     <div class="question-input-box">
                         <label class="question-input-label">Odpowiedź D</label>
-                        <input type="radio" class="correct-answer-check" name="correct-anwer">
+                        <input type="radio" class="correct-answer-check" name="correctAnswer" formControlName="correctAnswer" value="d">
                     </div>
-                    <input type="text" class="question-input" />
+                    <input type="text" class="question-input" formControlName="answerD"/>
                 </div>
             </div>
 
-            <button type="button" class="save-question-button">Zapisz</button>
+            <div class="button-row">
+                <button type="button" class="modify-question-button" (click)="removeSelectedQuestion()" [disabled]="!isAnyQuestionSelected()">Usuń to pytanie</button>
+                <button type="button" class="modify-question-button" (click)="saveSelectedQuestion()" [disabled]="questionFormGroup.invalid">Zapisz</button>
+                <button type="button" class="modify-question-button" (click)="addNewQuestion()">Nowe pytanie</button>
+            </div>
         </div>
     }
 
