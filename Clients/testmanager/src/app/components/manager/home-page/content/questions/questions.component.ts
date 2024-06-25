@@ -101,6 +101,8 @@ export class QuestionsComponent {
     this.questionFormGroup.controls.answerC.setValue('');
     this.questionFormGroup.controls.answerD.setValue('');
     this.questionFormGroup.controls.correctAnswer.setValue('a');
+
+    this.questionFormGroup.setValue({""});
   }
 
   isAnyQuestionSelected(): boolean {
