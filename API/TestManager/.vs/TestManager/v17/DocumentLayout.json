@@ -14,9 +14,6 @@
       "RelativeMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Migrations\\20240628124828_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\persistence\\tables\\questionbases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -24,6 +21,9 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\persistence\\managerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\migrations\\20240628124828_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -63,7 +63,7 @@
               "RelativeDocumentMoniker": "..\\Manager\\Authentication\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Authentication\\Controllers\\AuthController.cs",
               "RelativeToolTip": "..\\Manager\\Authentication\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-28T14:58:06.252Z",
               "EditorCaption": ""
@@ -78,12 +78,11 @@
               "RelativeToolTip": "AuthController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T14:57:47.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T14:57:47.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "20240628124828_Initial.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Migrations\\20240628124828_Initial.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Migrations\\20240628124828_Initial.cs",
@@ -91,12 +90,11 @@
               "RelativeToolTip": "..\\Manager\\Migrations\\20240628124828_Initial.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T12:48:28.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T12:48:28.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\Question.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\Question.cs",
@@ -104,12 +102,11 @@
               "RelativeToolTip": "..\\Manager\\Questions\\Models\\Question.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:55:39.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T11:55:39.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "QuestionBases.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Persistence\\Tables\\QuestionBases.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Persistence\\Tables\\QuestionBases.cs",
@@ -117,12 +114,11 @@
               "RelativeToolTip": "..\\Manager\\Persistence\\Tables\\QuestionBases.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAArwA4AAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:53:43.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T11:53:43.041Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ManagerDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Persistence\\ManagerDbContext.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Persistence\\ManagerDbContext.cs",
@@ -130,8 +126,7 @@
               "RelativeToolTip": "..\\Manager\\Persistence\\ManagerDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:46:13.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T11:46:13.51Z"
             },
             {
               "$type": "Document",
@@ -143,8 +138,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T22:01:59.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-27T22:01:59.742Z"
             }
           ]
         }

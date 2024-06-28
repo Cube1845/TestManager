@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthApiService } from '../../../../services/auth/auth-api.service';
 import { NgStyle } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login-panel',
@@ -12,8 +13,17 @@ import { Router } from '@angular/router';
   templateUrl: './login-panel.component.html',
   styleUrl: './login-panel.component.scss'
 })
-export class LoginPanelComponent {
-  constructor(private readonly authApiService: AuthApiService, private readonly router: Router) {}
+export class LoginPanelComponent implements OnInit {
+  constructor(private readonly authApiService: AuthApiService, private readonly router: Router, private readonly authService: AuthService) {}
+  
+  ngOnInit(): void {
+    this.authApiService
+      .isUserAuthorized()
+      .pipe(catchError((err) => of(err)))
+      .subscribe((response) => {
+        this.authService.goToHomePageIfUserIsAuthorized(response);
+      });
+  }
 
   error: string | null = null;
 
@@ -67,7 +77,6 @@ export class LoginPanelComponent {
   private goToHomePage(): void {
     this.loginFormGroup.reset();
     this.router.navigateByUrl('home');
-    this.authApiService.isUserAuthorized().subscribe((x) => console.log(x));
   }
 
   private isEmailCorrectFormat(email: string): boolean {

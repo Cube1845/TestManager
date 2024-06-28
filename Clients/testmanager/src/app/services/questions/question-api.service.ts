@@ -34,7 +34,7 @@ export class QuestionApiService {
         correctAnswer: 'c'
       },
       { 
-        content: 'Pytanie 3 cos tam cos tam awdawd awdAw Afaw AWdAwdA wdAWdAWd AWdAW AWdawdawd fAwd AWdawd AWd AwdAwd awad',
+        content: 'Pytanie 3 cos tam cos tam',
         answers: [
           'Odp a2',
           'Odp b2',

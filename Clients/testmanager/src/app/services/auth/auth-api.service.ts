@@ -27,7 +27,7 @@ export class AuthApiService {
     };
 
     return this.http.post<any>(this.apiUrl + "/register", authDto);
-  }
+  } 
 
   isUserAuthorized(): Observable<boolean> {
     return this.http.get<boolean>(this.apiUrl + "/Auth/IsUserAuthorized");

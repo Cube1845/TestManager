@@ -3,6 +3,8 @@ import { HeaderComponent } from './header/header.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Router, RouterOutlet } from '@angular/router';
 import { AuthApiService } from '../../../services/auth/auth-api.service';
+import { catchError, of } from 'rxjs';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,9 +14,14 @@ import { AuthApiService } from '../../../services/auth/auth-api.service';
   styleUrl: './home-page.component.scss'
 }) 
 export class HomePageComponent implements OnInit {
-  constructor(private readonly authApiService: AuthApiService) {}
+  constructor(private readonly authApiService: AuthApiService, private readonly authService: AuthService) {}
 
   ngOnInit(): void {
-    
+    this.authApiService
+      .isUserAuthorized()
+      .pipe(catchError((err) => of(err)))
+      .subscribe((response) => {
+        this.authService.returnToLoginIfUserIsNotAuthorized(response);
+      });
   }
 }

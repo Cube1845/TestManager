@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -8,16 +8,26 @@ import {
 import { AuthApiService } from '../../../../services/auth/auth-api.service';
 import { catchError, map, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-register-panel',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ ReactiveFormsModule ],
   templateUrl: './register-panel.component.html',
   styleUrl: './register-panel.component.scss',
 })
-export class RegisterPanelComponent {
-  constructor(private readonly authApiService: AuthApiService, private readonly router: Router) {}
+export class RegisterPanelComponent implements OnInit {
+  constructor(private readonly authApiService: AuthApiService, private readonly router: Router, private readonly authService: AuthService ) {}
+
+  ngOnInit(): void {
+    this.authApiService
+      .isUserAuthorized()
+      .pipe(catchError((err) => of(err)))
+      .subscribe((response) => {
+        this.authService.goToHomePageIfUserIsAuthorized(response);
+      });
+  }
 
   error: string | null = null;
 
