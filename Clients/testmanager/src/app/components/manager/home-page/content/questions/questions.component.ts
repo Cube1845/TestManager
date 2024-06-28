@@ -33,15 +33,15 @@ export class QuestionsComponent {
   }
 
   getTableRowSelectedColor(index: number) {
-    return 'rgb(92, 97, 99)';
+    return '#445B73';
   }
 
   getTableRowHoveredColor(index: number) {
-    return 'rgb(79, 85, 87)';
+    return '#344B63';
   }
 
   getTableRowColor(index: number) {
-    return 'rgb(68, 76, 78)';
+    return '#243B53';
   }
 
   getValidColor(index: number) {
@@ -61,13 +61,15 @@ export class QuestionsComponent {
   }
 
   selectQuestion(index: number) {
-    this.questionFormGroup.controls.index.setValue((index + 1).toString());
-    this.questionFormGroup.controls.content.setValue(this.questions![index].content);
-    this.questionFormGroup.controls.answerA.setValue(this.questions![index].answers[0]);
-    this.questionFormGroup.controls.answerB.setValue(this.questions![index].answers[1]);
-    this.questionFormGroup.controls.answerC.setValue(this.questions![index].answers[2]);
-    this.questionFormGroup.controls.answerD.setValue(this.questions![index].answers[3]);
-    this.questionFormGroup.controls.correctAnswer.setValue(this.questions![index].correctAnswer);
+    this.questionFormGroup.setValue({
+      index: (index + 1).toString(),
+      content: this.questions![index].content,
+      answerA: this.questions![index].answers[0],
+      answerB: this.questions![index].answers[1],
+      answerC: this.questions![index].answers[2],
+      answerD: this.questions![index].answers[3],
+      correctAnswer: this.questions![index].correctAnswer
+    });
   }
 
   saveSelectedQuestion(): void {
@@ -94,15 +96,15 @@ export class QuestionsComponent {
   }
 
   addNewQuestion(): void {
-    this.questionFormGroup.controls.index.setValue((this.questions!.length + 1).toString());
-    this.questionFormGroup.controls.content.setValue('Pytanie ' + (this.questions!.length + 1).toString());
-    this.questionFormGroup.controls.answerA.setValue('');
-    this.questionFormGroup.controls.answerB.setValue('');
-    this.questionFormGroup.controls.answerC.setValue('');
-    this.questionFormGroup.controls.answerD.setValue('');
-    this.questionFormGroup.controls.correctAnswer.setValue('a');
-
-    this.questionFormGroup.setValue({""});
+    this.questionFormGroup.setValue({
+      index: (this.questions!.length + 1).toString(),
+      content: 'Pytanie ' + (this.questions!.length + 1).toString(),
+      answerA: '',
+      answerB: '',
+      answerC: '',
+      answerD: '',
+      correctAnswer: 'a'
+    });
   }
 
   isAnyQuestionSelected(): boolean {

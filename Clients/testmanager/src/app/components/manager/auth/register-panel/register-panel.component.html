@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="header">
+        <h1>Rejestracja</h1>
+    </div>
+
+    <div class="login-panel" [formGroup]="registerFormGroup">
+        <input type="text" class="input-data" placeholder="Email" formControlName="email" />
+        <input type="password" class="input-data" placeholder="Hasło" formControlName="password" />
+        <input type="password" class="input-data" placeholder="Powtórz hasło" formControlName="repeatPassword" />
+
+        <button type="button" class="login-button" [disabled]="registerFormGroup.invalid" (click)="loginUser()">Zarejestruj się</button>
+    </div>
+
+    @if (error) {
+        <div class="error-box">
+            <h1>Błąd: {{ error }}</h1>
+        </div>
+    }
+</div>

@@ -1,5 +1,5 @@
 :host {
-    @import "../../../variables";
+    @import "../../../../variables";
 
     body, .container {
         width: 100%;
@@ -56,6 +56,10 @@
         &::placeholder {
             color: $placeholder-color;
         }
+
+        &[type=text] {
+            margin-bottom: 30px;
+        }
     }
 
     .login-button {
@@ -63,7 +67,7 @@
         transition: background-color $hover-transition-time ease, transform $hover-transition-time;
         background-color: $foreground-color;
         border: none;
-        padding: 10px 20px;
+        padding: 15px 20px;
         font-weight: 600;
         font-size: 26px;
         color: $placeholder-color;
@@ -81,7 +85,9 @@
     }
 
     .error-box {
-        margin: 10px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
         background-color: $error-back-color;
         max-width: 25%;
         border-radius: 10px;
@@ -89,7 +95,7 @@
 
         & > h1 {
             color: $error-text-color;
-            padding: 0px 40px;
+            padding: 5px 40px;
             font-size: 20px;
         }
     }

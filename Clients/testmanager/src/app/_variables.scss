@@ -1,25 +1,27 @@
-$site-color: rgb(72, 85, 88);
+$site-color: #334E68;
 
-$background-color: rgb(32, 43, 46);
+$background-color: #102A43;
 
-$fore-text-color: rgb(68, 150, 68);
-$foreground-color: rgb(86, 161, 86);
-$foreground-hover-color: rgb(155, 197, 126);
-$button-disabled-color: rgba(86, 161, 86, .5);
+$fore-text-color: #D9E2EC;
+$foreground-color: #102A43;
+$foreground-hover-color: #203A53;
+$button-disabled-color: rgba(16, 42, 75, .5);
 
-$text-color: rgb(20, 0, 0);
-$placeholder-color: rgba(20, 0, 0, .7);
+$text-color: #BCCCDC;
+$placeholder-color: #D9E2EC;
 
-$error-back-color: rgba(185, 97, 97, .9);
-$error-text-color: rgba(136, 8, 8, 0.9);
+$radio-button-color: #9FB3C8;
 
-$nav-bar-color: rgb(51, 58, 59);
-$nav-bar-hover-color: rgb(62, 71, 73);
+$error-back-color: rgba(185, 97, 97, .8);
+$error-text-color: rgba(136, 8, 8, 0.5);
 
-$function-button-disabled-color: rgba(68, 72, 73, 0.575);
+$nav-bar-color: #243B53;
+$nav-bar-hover-color: #344B63;
 
-$table-color: rgb(68, 76, 78);
-$table-hover-color: rgb(79, 85, 87);
-$table-selected-color: rgb(92, 97, 99);
+$function-button-disabled-color: #344B63;
+
+$table-color: $nav-bar-color;
+$table-hover-color: $nav-bar-hover-color;
+$table-selected-color: #445B73;
 
 $hover-transition-time: .1s;

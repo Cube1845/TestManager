@@ -11,5 +11,5 @@ namespace Manager.Persistence;
 
 public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : IdentityDbContext<IdentityUser>(options)
 {
-
+    
 }
