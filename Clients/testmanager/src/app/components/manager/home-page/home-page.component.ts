@@ -9,19 +9,8 @@ import { AuthService } from '../../../services/auth/auth.service';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [ HeaderComponent, NavBarComponent, RouterOutlet ],
+  imports: [HeaderComponent, NavBarComponent, RouterOutlet],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
-}) 
-export class HomePageComponent implements OnInit {
-  constructor(private readonly authApiService: AuthApiService, private readonly authService: AuthService) {}
-
-  ngOnInit(): void {
-    this.authApiService
-      .isUserAuthorized()
-      .pipe(catchError((err) => of(err)))
-      .subscribe((response) => {
-        this.authService.returnToLoginIfUserIsNotAuthorized(response);
-      });
-  }
-}
+  styleUrl: './home-page.component.scss',
+})
+export class HomePageComponent {}

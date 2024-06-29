@@ -8,7 +8,7 @@
         <input type="password" class="input-data" placeholder="Hasło" formControlName="password" />
         <input type="password" class="input-data" placeholder="Powtórz hasło" formControlName="repeatPassword" />
 
-        <button type="button" class="login-button" [disabled]="registerFormGroup.invalid" (click)="loginUser()">Zarejestruj się</button>
+        <button type="button" class="login-button" [disabled]="registerFormGroup.invalid" (click)="registerUser()">Zarejestruj się</button>
     </div>
 
     @if (error) {

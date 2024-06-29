@@ -22,29 +22,19 @@ import { QuestionService } from '../../../../../services/questions/question.serv
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionsComponent {
   constructor(
     private readonly questionApiService: QuestionApiService,
     private readonly questionService: QuestionService,
-    private readonly authApiService: AuthApiService,
-    private readonly router: Router,
-    private readonly authService: AuthService
   ) {}
-
-  ngOnInit(): void {
-    this.authApiService
-      .isUserAuthorized()
-      .pipe(catchError((err) => of(err)))
-      .subscribe((response) => {
-        this.authService.returnToLoginIfUserIsNotAuthorized(response);
-      });
-  }
 
   getQuestions(): Question[] {
     return this.questionService.getQuestions()!;
   }
 
   displayQuestionBase() {
-    this.questionService.setQuestions(this.questionApiService.getQuestionBase('d'));
+    this.questionService.setQuestions(
+      this.questionApiService.getQuestionBase('d')
+    );
   }
 }

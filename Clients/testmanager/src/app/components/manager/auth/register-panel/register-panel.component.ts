@@ -13,34 +13,29 @@ import { AuthService } from '../../../../services/auth/auth.service';
 @Component({
   selector: 'app-register-panel',
   standalone: true,
-  imports: [ ReactiveFormsModule ],
+  imports: [ReactiveFormsModule],
   templateUrl: './register-panel.component.html',
   styleUrl: './register-panel.component.scss',
 })
-export class RegisterPanelComponent implements OnInit {
-  constructor(private readonly authApiService: AuthApiService, private readonly router: Router, private readonly authService: AuthService ) {}
-
-  ngOnInit(): void {
-    this.authApiService
-      .isUserAuthorized()
-      .pipe(catchError((err) => of(err)))
-      .subscribe((response) => {
-        this.authService.goToHomePageIfUserIsAuthorized(response);
-      });
-  }
+export class RegisterPanelComponent {
+  constructor(
+    private readonly router: Router,
+    private readonly authService: AuthService
+  ) {}
 
   error: string | null = null;
 
   registerFormGroup = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     repeatPassword: new FormControl('', Validators.required),
   });
 
-  loginUser(): void {
+  registerUser(): void {
     var email = this.registerFormGroup.controls.email.value!;
     var password = this.registerFormGroup.controls.password.value!;
-    var repeatedPassword = this.registerFormGroup.controls.repeatPassword.value!;
+    var repeatedPassword =
+      this.registerFormGroup.controls.repeatPassword.value!;
 
     this.error = null;
 
@@ -49,47 +44,15 @@ export class RegisterPanelComponent implements OnInit {
       return;
     }
 
-    if (!this.isEmailCorrectFormat(email)) {
-      this.error = 'Niepoprawny format emaila';
-      return;
-    }
-
-    this.authApiService
-      .registerUserWithEmailAndPassword(email, password)
-      .pipe(catchError((err) => of(err)))
-      .subscribe((response) => {
-        this.checkForErrors(response);
-      },
-      );
-  }
-
-  private checkForErrors(data: any): void {
-    if (data == null) {
-      this.goToLoginPanel();
-    }
-
-    var errors = data.error.errors;
-
-    if (errors.PasswordTooShort != null) {
-      this.error = "Hasło musi mieć przynajmniej 8 znaków";
-      return;
-    }
-
-    if (errors.PasswordRequiresDigit != null) {
-      this.error = "Hasło musi mieć przynajmniej jedną cyfrę";
-      return;
-    }
-
-    return;
+    this.authService.registerUser(email, password).subscribe((response) => {
+      if (response == null) {
+        this.goToLoginPanel;
+      }
+    });
   }
 
   private goToLoginPanel(): void {
-    this.registerFormGroup.reset();
     this.router.navigateByUrl('login');
-    alert("Zostałeś zarajestrowany, teraz się zaloguj");
-  }
-
-  private isEmailCorrectFormat(email: string): boolean {
-    return email.includes('@') && email.includes('.');
+    alert('Zostałeś zarajestrowany, teraz się zaloguj');
   }
 }
