@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../../models/types/question';
-import { QuestionApiService } from './question-api.service';
+import { Question } from '../../../models/types/question';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionService {
-  constructor() { }
+  constructor() {}
 
   private questions: Question[] | null = null;
 

@@ -33,15 +33,14 @@ export class AuthService {
     return this.authApiService.registerUser(authDto);
   }
 
-  private saveTokens(data: any): void {
+  saveTokens(data: any): void {
     var accessToken = data.accessToken;
     var refreshToken = data.refreshToken;
 
     let currentDate = new Date();
     let currentTimeInMilliseconds = currentDate.getTime();
     let secondsToAdd = data.expiresIn;
-    let updatedTimeInMilliseconds =
-      currentTimeInMilliseconds + secondsToAdd * 1000;
+    let updatedTimeInMilliseconds = currentTimeInMilliseconds + 60 * 1000;
     let expires = new Date(updatedTimeInMilliseconds);
 
     localStorage.setItem('accessToken', accessToken);

@@ -10,6 +10,7 @@ import { NgStyle } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../services/auth/auth.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 
 @Component({
   selector: 'app-login-panel',
@@ -21,10 +22,9 @@ import { AuthService } from '../../../../services/auth/auth.service';
 export class LoginPanelComponent {
   constructor(
     private readonly router: Router,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly toaster: ToasterService
   ) {}
-
-  error: string | null = null;
 
   loginFormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -35,10 +35,13 @@ export class LoginPanelComponent {
     var email = this.loginFormGroup.controls.email.value!;
     var password = this.loginFormGroup.controls.password.value!;
 
-    this.error = null;
+    this.authService
+      .loginUser(email, password)
+      .pipe(catchError((err) => of(err)))
+      .subscribe((response) => {
+        this.toaster.displayError('error');
 
-    this.authService.loginUser(email, password).subscribe((response) => {
-      this.router.navigateByUrl('home');
-    });
+        this.router.navigateByUrl('home');
+      });
   }
 }

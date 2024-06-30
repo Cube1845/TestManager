@@ -12,8 +12,8 @@ namespace Manager.Persistence.Tables
     {
         [Key]
         public int Id { get; set; }
-        public List<string> Owners { get; set; } = [];
+        public List<string> Owners { get; set; } = new List<string>();
         public string Name { get; set; } = "";
-        public List<Question>? Questions { get; set; } = null;
+        public List<Question> Questions { get; set; } = new List<Question>();
     }
 }

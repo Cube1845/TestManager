@@ -1,21 +1,46 @@
-import { Component } from '@angular/core';
-import { QuestionService } from '../../../../../../services/questions/question.service';
-import { QuestionApiService } from '../../../../../../services/questions/question-api.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { QuestionService } from '../../../../../../services/questions/questions/question.service';
+import { QuestionApiService } from '../../../../../../services/questions/questions/question-api.service';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Question } from '../../../../../../models/types/question';
 import { NgStyle } from '@angular/common';
+import { AuthService } from '../../../../../../services/auth/auth.service';
+import { TableColorService } from '../../../../../../services/questions/table-color.service';
 
 @Component({
   selector: 'app-question-base-edit',
   standalone: true,
   imports: [ReactiveFormsModule, NgStyle],
   templateUrl: './question-base-edit.component.html',
-  styleUrl: './question-base-edit.component.scss'
+  styleUrl: './question-base-edit.component.scss',
 })
-export class QuestionBaseEditComponent {
-  constructor(private readonly questionService: QuestionService, private readonly questionApiService: QuestionApiService) {}
+export class QuestionBaseEditComponent implements OnInit {
+  constructor(
+    private readonly questionService: QuestionService,
+    private readonly questionApiService: QuestionApiService,
+    private readonly tableColorService: TableColorService
+  ) {}
 
-  hoveredRow: number = -1;
+  ngOnInit(): void {
+    this.questionService.setQuestions(
+      this.questionApiService.getQuestionBase('')
+    );
+  }
+
+  getValidColor(index: number): string {
+    const selectedIndex =
+      Number(this.questionFormGroup.controls.index.value!) - 1;
+    return this.tableColorService.getValidColor(index, selectedIndex);
+  }
+
+  setHoveredRow(index: number): void {
+    this.tableColorService.setHoveredRow(index);
+  }
 
   questionFormGroup = new FormGroup({
     index: new FormControl(''),
@@ -28,40 +53,12 @@ export class QuestionBaseEditComponent {
   });
 
   displayQuestionBase(baseName: string): void {
-    var questions = this.questionApiService.getQuestionBase(baseName); 
+    var questions = this.questionApiService.getQuestionBase(baseName);
     this.questionService.setQuestions(questions);
   }
 
   getQuestions(): Question[] {
     return this.questionService.getQuestions()!;
-  }
-
-  isTableRowSelected(index: number) {
-    return Number(this.questionFormGroup.controls.index.value!) - 1 == index;
-  }
-
-  getTableRowSelectedColor(index: number) {
-    return '#445B73';
-  }
-
-  getTableRowHoveredColor(index: number) {
-    return '#344B63';
-  }
-
-  getTableRowColor(index: number) {
-    return '#243B53';
-  }
-
-  getValidColor(index: number) {
-    if (this.isTableRowSelected(index)) {
-      return this.getTableRowSelectedColor(index);
-    } else {
-      if (this.hoveredRow === index) {
-        return this.getTableRowHoveredColor(index);
-      } else {
-        return this.getTableRowColor(index);
-      }
-    }
   }
 
   selectQuestion(index: number) {

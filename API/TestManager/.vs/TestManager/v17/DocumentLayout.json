@@ -3,17 +3,25 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\persistence\\tables\\questionbases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\persistence\\tables\\questionbases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\testmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\testmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\testmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\persistence\\managerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\testmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E79E964-0AEB-4859-95DA-73A435B49963}|TestManager.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,7 +55,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-30T13:16:13.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T13:09:55.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-30T11:58:43.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\Question.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\Question.cs",
@@ -55,25 +100,24 @@
               "RelativeToolTip": "..\\Manager\\Questions\\Models\\Question.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:55:39.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T11:55:39.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "QuestionBases.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Persistence\\Tables\\QuestionBases.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Persistence\\Tables\\QuestionBases.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Persistence\\Tables\\QuestionBases.cs",
               "RelativeToolTip": "..\\Manager\\Persistence\\Tables\\QuestionBases.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAArwA4AAAA2AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAArwA4AAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-28T11:53:43.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ManagerDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Persistence\\ManagerDbContext.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Persistence\\ManagerDbContext.cs",
@@ -81,21 +125,7 @@
               "RelativeToolTip": "..\\Manager\\Persistence\\ManagerDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:46:13.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T22:01:59.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-28T11:46:13.51Z"
             }
           ]
         }

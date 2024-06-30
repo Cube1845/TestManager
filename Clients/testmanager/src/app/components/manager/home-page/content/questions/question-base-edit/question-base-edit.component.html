@@ -13,8 +13,8 @@
         @for (question of getQuestions(); track $index) {
             <tr (click)="selectQuestion($index)" 
             [ngStyle]="{'background-color': getValidColor($index), 'transition': 'background-color 0.1s ease, transform 0.1s'}"
-            (mouseover)="hoveredRow = $index"
-            (mouseleave)="hoveredRow = -1">
+            (mouseover)="setHoveredRow($index)"
+            (mouseleave)="setHoveredRow(-1)">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ question.content }}</td>
                         

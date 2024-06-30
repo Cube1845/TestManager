@@ -1,10 +1,8 @@
 <div class="container">
     <div class="question-base-box">
         <h1>Baza pytań: </h1>
-        <div class="question-base-choose" (click)="displayQuestionBase()">Techniczne &#8595;</div>
+        <div class="question-base-choose" (click)="displayQuestionBaseManager()">Wybierz &#8595;</div>
     </div>
 
-    @if (getQuestions() != null) {
-        <app-question-base-edit></app-question-base-edit>
-    }
+    <router-outlet></router-outlet>
 </div>

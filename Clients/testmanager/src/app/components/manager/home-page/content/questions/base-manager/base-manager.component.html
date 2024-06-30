@@ -1,0 +1,36 @@
+
+    <div class="question-base-table">
+        <table>
+            <tr>
+                <th>L.p.</th>
+                <th>Nazwa</th>
+            </tr>
+
+            @for (base of getUsersBases(); track $index) {
+                <tr (click)="selectBase($index)" 
+                [ngStyle]="{'background-color': getValidColor($index), 'transition': 'background-color 0.1s ease, transform 0.1s'}"
+                (mouseover)="setHoveredRow($index)"
+                (mouseleave)="setHoveredRow(-1)">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ base }}</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="base-edit-container" [formGroup]="baseFormGroup">
+        <div class="base-edit-box">
+            <label class="base-input-label" >L.p.</label>
+            <input type="text" class="base-input lp" readonly formControlName="index"/>
+
+            <label class="base-input-label" >Nazwa</label>
+            <input type="text" class="base-input name" formControlName="name"/>
+        </div>
+
+        <div class="button-row">
+            <button type="button" class="modify-question-button" (click)="removeSelectedQuestionBase()">Usuń tą bazę pytań</button>
+            <button type="button" class="modify-question-button" (click)="saveSelectedQuestionBase()">Zapisz</button>
+            <button type="button" class="modify-question-button" (click)="addNewQuestion()">Dodaj bazę pytań</button>
+        </div>
+    </div>
+

@@ -10,10 +10,4 @@
 
         <button type="button" class="login-button" [disabled]="registerFormGroup.invalid" (click)="registerUser()">Zarejestruj się</button>
     </div>
-
-    @if (error) {
-        <div class="error-box">
-            <h1>Błąd: {{ error }}</h1>
-        </div>
-    }
 </div>

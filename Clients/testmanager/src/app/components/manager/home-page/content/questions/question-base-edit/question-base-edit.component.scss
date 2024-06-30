@@ -4,8 +4,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    height: min-content;
 
+    tr:hover {
+        cursor: pointer;
+    }
 
     td, th {
         border: 0.5px solid $background-color;

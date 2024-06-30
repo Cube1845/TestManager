@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Question } from '../../../../../models/types/question';
-import { QuestionApiService } from '../../../../../services/questions/question-api.service';
+import { QuestionApiService } from '../../../../../services/questions/questions/question-api.service';
 import {
   FormControl,
   FormGroup,
@@ -8,17 +8,19 @@ import {
   Validators,
 } from '@angular/forms';
 import { NgStyle } from '@angular/common';
-import { AuthApiService } from '../../../../../services/auth/auth-api.service';
-import { catchError, of } from 'rxjs';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../../../services/auth/auth.service';
+import { Router, RouterOutlet } from '@angular/router';
 import { QuestionBaseEditComponent } from './question-base-edit/question-base-edit.component';
-import { QuestionService } from '../../../../../services/questions/question.service';
+import { QuestionService } from '../../../../../services/questions/questions/question.service';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [ReactiveFormsModule, NgStyle, QuestionBaseEditComponent],
+  imports: [
+    ReactiveFormsModule,
+    NgStyle,
+    QuestionBaseEditComponent,
+    RouterOutlet,
+  ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
 })
@@ -26,15 +28,14 @@ export class QuestionsComponent {
   constructor(
     private readonly questionApiService: QuestionApiService,
     private readonly questionService: QuestionService,
+    private readonly router: Router
   ) {}
 
   getQuestions(): Question[] {
     return this.questionService.getQuestions()!;
   }
 
-  displayQuestionBase() {
-    this.questionService.setQuestions(
-      this.questionApiService.getQuestionBase('d')
-    );
+  displayQuestionBaseManager() {
+    this.router.navigateByUrl('home/questions/base-manager');
   }
 }
