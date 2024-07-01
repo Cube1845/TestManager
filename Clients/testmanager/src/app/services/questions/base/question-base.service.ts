@@ -7,21 +7,30 @@ import { QuestionBase } from '../../../models/types/questionBase';
 export class QuestionBaseService {
   constructor() {}
 
-  private questionBases: string[] | null = null;
+  private questionBaseNames: string[] | null = null;
+  private selectedQuestionBase: string | null = null;
 
-  getQuestionBases(): string[] | null {
-    return this.questionBases;
+  getQuestionBasesNames(): string[] | null {
+    return this.questionBaseNames;
   }
 
-  setQuestionBases(questionBases: string[]): void {
-    this.questionBases = questionBases;
+  setQuestionBasesNames(questionBasesNames: string[]): void {
+    this.questionBaseNames = questionBasesNames;
   }
 
-  addQuestionBase(questionBase: string): void {
-    this.questionBases!.push(questionBase);
+  addQuestionBaseName(questionBaseName: string): void {
+    this.questionBaseNames!.push(questionBaseName);
   }
 
-  removeQuestionBase(index: number): void {
-    this.questionBases!.splice(index, 1);
+  removeQuestionBaseName(index: number): void {
+    this.questionBaseNames!.splice(index, 1);
+  }
+
+  selectQuestionBase(questionBaseName: string | null): void {
+    this.selectedQuestionBase = questionBaseName;
+  }
+
+  getSelectedQuestionBase(): string | null {
+    return this.selectedQuestionBase;
   }
 }

@@ -9,8 +9,8 @@ import {
 } from '@angular/forms';
 import { Question } from '../../../../../../models/types/question';
 import { NgStyle } from '@angular/common';
-import { AuthService } from '../../../../../../services/auth/auth.service';
-import { TableColorService } from '../../../../../../services/questions/table-color.service';
+import { TableColorService } from '../../../../../../services/cosmetics/table-color.service';
+import { QuestionBaseService } from '../../../../../../services/questions/base/question-base.service';
 
 @Component({
   selector: 'app-question-base-edit',
@@ -23,12 +23,15 @@ export class QuestionBaseEditComponent implements OnInit {
   constructor(
     private readonly questionService: QuestionService,
     private readonly questionApiService: QuestionApiService,
-    private readonly tableColorService: TableColorService
+    private readonly tableColorService: TableColorService,
+    private readonly questionBaseService: QuestionBaseService
   ) {}
 
   ngOnInit(): void {
     this.questionService.setQuestions(
-      this.questionApiService.getQuestionBase('')
+      this.questionApiService.getQuestionBase(
+        this.questionBaseService.getSelectedQuestionBase()!
+      )
     );
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TableColorService } from '../../../../../../services/questions/table-color.service';
+import { TableColorService } from '../../../../../../services/cosmetics/table-color.service';
 import { QuestionBaseApiService } from '../../../../../../services/questions/base/question-base-api.service';
 import { QuestionBase } from '../../../../../../models/types/questionBase';
 import { NgStyle } from '@angular/common';
@@ -10,6 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { QuestionBaseService } from '../../../../../../services/questions/base/question-base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-base-manager',
@@ -22,11 +23,12 @@ export class BaseManagerComponent implements OnInit {
   constructor(
     private readonly tableColorService: TableColorService,
     private readonly questionBaseApiService: QuestionBaseApiService,
-    private readonly questionBaseService: QuestionBaseService
+    private readonly questionBaseService: QuestionBaseService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
-    this.questionBaseService.setQuestionBases(
+    this.questionBaseService.setQuestionBasesNames(
       this.questionBaseApiService.getUsersBases()
     );
   }
@@ -39,13 +41,20 @@ export class BaseManagerComponent implements OnInit {
   selectBase(index: number): void {
     this.baseFormGroup.setValue({
       index: (index + 1).toString(),
-      name: this.questionBaseApiService.getUsersBases()[index],
+      name: this.questionBaseService.getQuestionBasesNames()![index],
     });
     return;
   }
 
+  goToQuestionBaseEditor(): void {
+    this.questionBaseService.selectQuestionBase(
+      this.baseFormGroup.controls.name.value!
+    );
+    this.router.navigateByUrl('home/questions/base-edit');
+  }
+
   getUsersBases(): string[] {
-    return this.questionBaseService.getQuestionBases()!;
+    return this.questionBaseService.getQuestionBasesNames()!;
   }
 
   getValidColor(index: number): string {
@@ -58,7 +67,7 @@ export class BaseManagerComponent implements OnInit {
   }
 
   addNewQuestion(): void {
-    var questions = this.questionBaseApiService.getUsersBases();
+    var questions = this.questionBaseService.getQuestionBasesNames();
 
     this.baseFormGroup.setValue({
       index: (questions!.length + 1).toString(),
@@ -71,19 +80,23 @@ export class BaseManagerComponent implements OnInit {
     var index = Number(this.baseFormGroup.controls.index.value!) - 1;
 
     //move to api service
-    var questionBases = this.questionBaseService.getQuestionBases();
+    var questionBases = this.questionBaseService.getQuestionBasesNames();
 
     if (questionBases!.length < index + 1) {
-      this.questionBaseService.addQuestionBase(questionBaseName);
+      this.questionBaseService.addQuestionBaseName(questionBaseName);
     } else {
       questionBases![index] = questionBaseName;
-      this.questionBaseService.setQuestionBases(questionBases!);
+      this.questionBaseService.setQuestionBasesNames(questionBases!);
     }
   }
 
   removeSelectedQuestionBase() {
     var index = Number(this.baseFormGroup.controls.index.value!) - 1;
-    this.questionBaseService.removeQuestionBase(index);
+    this.questionBaseService.removeQuestionBaseName(index);
     this.baseFormGroup.reset();
+  }
+
+  isAnyQuestionBaseSelected(): boolean {
+    return this.baseFormGroup.controls.index.value != '';
   }
 }

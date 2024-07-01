@@ -18,6 +18,7 @@
         justify-content: start;
         align-items: start;
         margin: 10px 30px;
+        width: max-content;
     }
 
     table {
@@ -28,6 +29,7 @@
         overflow: auto;
         color: $text-color;
         background-color: $table-color;
+        width: 100%;
 
         &::-webkit-scrollbar {
             background-color: $nav-bar-hover-color;
@@ -36,6 +38,10 @@
         &::-webkit-scrollbar-thumb {
             background-color: $nav-bar-color;
         }
+    }
+
+    tr:hover {
+        cursor: pointer;
     }
 
     td, th {
@@ -101,7 +107,7 @@
         color: $text-color;
     }
 
-    .modify-question-button {
+    .modify-base-button {
         background-color: $nav-bar-color;
         border: none;
         padding: 10px 25px;
@@ -131,5 +137,9 @@
         button {
             margin: 10px 0px;
         }
+    }
+
+    .edit-button {
+        margin-left: 0;
     }
 }

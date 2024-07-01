@@ -1,7 +1,9 @@
 <div class="container">
     <div class="question-base-box">
         <h1>Baza pytań: </h1>
-        <div class="question-base-choose" (click)="displayQuestionBaseManager()">Wybierz &#8595;</div>
+        <div class="question-base-choose" (click)="displayQuestionBaseManager()">
+            {{ getSelectedBaseName() }} &#8595;
+        </div>
     </div>
 
     <router-outlet></router-outlet>

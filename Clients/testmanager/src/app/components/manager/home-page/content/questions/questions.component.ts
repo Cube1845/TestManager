@@ -11,6 +11,7 @@ import { NgStyle } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { QuestionBaseEditComponent } from './question-base-edit/question-base-edit.component';
 import { QuestionService } from '../../../../../services/questions/questions/question.service';
+import { QuestionBaseService } from '../../../../../services/questions/base/question-base.service';
 
 @Component({
   selector: 'app-questions',
@@ -28,7 +29,8 @@ export class QuestionsComponent {
   constructor(
     private readonly questionApiService: QuestionApiService,
     private readonly questionService: QuestionService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly questionBaseService: QuestionBaseService
   ) {}
 
   getQuestions(): Question[] {
@@ -36,6 +38,17 @@ export class QuestionsComponent {
   }
 
   displayQuestionBaseManager() {
+    this.questionBaseService.selectQuestionBase(null);
     this.router.navigateByUrl('home/questions/base-manager');
+  }
+
+  getSelectedBaseName(): string {
+    const baseName = this.questionBaseService.getSelectedQuestionBase();
+
+    if (baseName == null) {
+      return 'Wybierz';
+    }
+
+    return baseName;
   }
 }
