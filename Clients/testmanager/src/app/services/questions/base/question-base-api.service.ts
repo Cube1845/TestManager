@@ -39,7 +39,7 @@ export class QuestionBaseApiService {
       newQuestionBaseName: newBaseName,
     };
 
-    return this.http.post<string[]>(
+    return this.http.put<string[]>(
       this.apiUrl + '/UpdateQuestionBaseNameAndGetUsersQuestionBasesNames',
       data
     );

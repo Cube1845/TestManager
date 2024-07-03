@@ -87,7 +87,7 @@ namespace Manager.Questions.QuestionBase
         }
 
         [Authorize]
-        [HttpPost("[action]")]
+        [HttpPut("[action]")]
         public async Task<IActionResult> UpdateQuestionBaseNameAndGetUsersQuestionBasesNames([FromBody] UpdateQuestionBaseNameDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;

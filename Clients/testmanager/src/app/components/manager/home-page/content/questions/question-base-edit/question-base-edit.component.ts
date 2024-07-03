@@ -22,16 +22,15 @@ import { QuestionBaseService } from '../../../../../../services/questions/base/q
 export class QuestionBaseEditComponent implements OnInit {
   constructor(
     private readonly questionService: QuestionService,
-    private readonly questionApiService: QuestionApiService,
     private readonly tableColorService: TableColorService,
     private readonly questionBaseService: QuestionBaseService
   ) {}
 
   ngOnInit(): void {
-    this.questionService.setQuestions(
-      this.questionApiService.getQuestionBase(
-        this.questionBaseService.getSelectedQuestionBase()!
-      )
+    var selectedQuestionBaseName =
+      this.questionBaseService.getSelectedQuestionBase();
+    this.questionService.loadQuestionsFromUsersQuestionBase(
+      selectedQuestionBaseName!
     );
   }
 
@@ -55,13 +54,8 @@ export class QuestionBaseEditComponent implements OnInit {
     correctAnswer: new FormControl('', Validators.required),
   });
 
-  displayQuestionBase(baseName: string): void {
-    var questions = this.questionApiService.getQuestionBase(baseName);
-    this.questionService.setQuestions(questions);
-  }
-
   getQuestions(): Question[] {
-    return this.questionService.getQuestions()!;
+    return this.questionService.getQuestions();
   }
 
   selectQuestion(index: number) {
@@ -89,18 +83,20 @@ export class QuestionBaseEditComponent implements OnInit {
       ],
       correctAnswer: this.questionFormGroup.controls.correctAnswer.value!,
     };
-    var index = Number(this.questionFormGroup.controls.index.value!) - 1;
 
-    this.questionApiService.saveQuestion(question, index);
+    var index = Number(this.questionFormGroup.controls.index.value!);
 
     //move to api service
     var questions = this.questionService.getQuestions();
+    var selectedQuestionBaseName =
+      this.questionBaseService.getSelectedQuestionBase();
 
-    if (questions!.length < index + 1) {
-      this.questionService.addQuestion(question);
+    if (questions.length < index) {
+      this.questionService.addQuestionToQuestionBaseAndLoadQuestions(
+        selectedQuestionBaseName!,
+        question
+      );
     } else {
-      questions![index] = question;
-      this.questionService.setQuestions(questions!);
     }
   }
 
@@ -120,11 +116,5 @@ export class QuestionBaseEditComponent implements OnInit {
 
   isAnyQuestionSelected(): boolean {
     return this.questionFormGroup.controls.index.value != '';
-  }
-
-  removeSelectedQuestion() {
-    var index = Number(this.questionFormGroup.controls.index.value!) - 1;
-    this.questionService.removeQuestion(index);
-    this.questionFormGroup.reset();
   }
 }

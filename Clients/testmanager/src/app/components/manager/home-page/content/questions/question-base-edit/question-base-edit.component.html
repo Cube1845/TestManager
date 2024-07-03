@@ -74,7 +74,7 @@
     </div>
 
     <div class="button-row">
-        <button type="button" class="modify-question-button" (click)="removeSelectedQuestion()" [disabled]="!isAnyQuestionSelected()">Usuń to pytanie</button>
+        <button type="button" class="modify-question-button" [disabled]="!isAnyQuestionSelected()">Usuń to pytanie</button>
         <button type="button" class="modify-question-button" (click)="saveSelectedQuestion()" [disabled]="questionFormGroup.invalid">Zapisz</button>
         <button type="button" class="modify-question-button" (click)="addNewQuestion()">Nowe pytanie</button>
     </div>
