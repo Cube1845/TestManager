@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Manager.Persistence.Tables;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,5 +12,5 @@ namespace Manager.Persistence;
 
 public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : IdentityDbContext<IdentityUser>(options)
 {
-    
+    public DbSet<QuestionBases> QuestionBases { get; set; }
 }

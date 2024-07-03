@@ -143,3 +143,4 @@ C:\Users\Jakub\Desktop\TestManager\TestManager\API\TestManager\obj\Debug\net8.0\
 C:\Users\Jakub\Desktop\TestManager\TestManager\API\TestManager\obj\Debug\net8.0\ref\TestManager.dll
 C:\Users\Jakub\Desktop\TestManager\TestManager\API\TestManager\bin\Debug\net8.0\Manager.dll
 C:\Users\Jakub\Desktop\TestManager\TestManager\API\TestManager\bin\Debug\net8.0\Manager.pdb
+C:\Users\Jakub\Desktop\TestManager\TestManager\API\TestManager\bin\Debug\net8.0\Newtonsoft.Json.dll

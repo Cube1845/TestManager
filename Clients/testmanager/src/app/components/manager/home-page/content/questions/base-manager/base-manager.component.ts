@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableColorService } from '../../../../../../services/cosmetics/table-color.service';
 import { QuestionBaseApiService } from '../../../../../../services/questions/base/question-base-api.service';
-import { QuestionBase } from '../../../../../../models/types/questionBase';
 import { NgStyle } from '@angular/common';
 import {
   FormControl,
@@ -22,15 +21,12 @@ import { Router } from '@angular/router';
 export class BaseManagerComponent implements OnInit {
   constructor(
     private readonly tableColorService: TableColorService,
-    private readonly questionBaseApiService: QuestionBaseApiService,
     private readonly questionBaseService: QuestionBaseService,
     private readonly router: Router
   ) {}
 
   ngOnInit(): void {
-    this.questionBaseService.setQuestionBasesNames(
-      this.questionBaseApiService.getUsersBases()
-    );
+    this.questionBaseService.loadQuestionBasesNames();
   }
 
   baseFormGroup = new FormGroup({
@@ -77,22 +73,25 @@ export class BaseManagerComponent implements OnInit {
 
   saveSelectedQuestionBase(): void {
     var questionBaseName = this.baseFormGroup.controls.name.value!;
-    var index = Number(this.baseFormGroup.controls.index.value!) - 1;
+    var index = Number(this.baseFormGroup.controls.index.value!);
 
-    //move to api service
-    var questionBases = this.questionBaseService.getQuestionBasesNames();
+    var questionBasesNames = this.questionBaseService.getQuestionBasesNames();
 
-    if (questionBases!.length < index + 1) {
-      this.questionBaseService.addQuestionBaseName(questionBaseName);
+    if (questionBasesNames!.length < index) {
+      this.questionBaseService.createNewQuestionBaseAndLoadBasesNames(
+        questionBaseName
+      );
     } else {
-      questionBases![index] = questionBaseName;
-      this.questionBaseService.setQuestionBasesNames(questionBases!);
+      this.questionBaseService.updateQuestionBaseNameAndLoadBasesNames(
+        questionBasesNames![index - 1],
+        questionBaseName
+      );
     }
   }
 
   removeSelectedQuestionBase() {
     var index = Number(this.baseFormGroup.controls.index.value!) - 1;
-    this.questionBaseService.removeQuestionBaseName(index);
+    this.questionBaseService.removeQuestionBaseAndLoadBasesNames(index);
     this.baseFormGroup.reset();
   }
 

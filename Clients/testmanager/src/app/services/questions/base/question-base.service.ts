@@ -1,29 +1,57 @@
 import { Injectable } from '@angular/core';
-import { QuestionBase } from '../../../models/types/questionBase';
+import { QuestionBaseApiService } from './question-base-api.service';
+import { catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionBaseService {
-  constructor() {}
+  constructor(private readonly apiService: QuestionBaseApiService) {}
 
-  private questionBaseNames: string[] | null = null;
+  private questionBaseNames: string[] = [];
   private selectedQuestionBase: string | null = null;
 
-  getQuestionBasesNames(): string[] | null {
+  //API
+
+  createNewQuestionBaseAndLoadBasesNames(baseName: string): void {
+    this.apiService
+      .createQuestionBaseAndGetAllUsersBases(baseName)
+      .subscribe((response) => {
+        this.questionBaseNames = response;
+      });
+  }
+
+  loadQuestionBasesNames(): void {
+    this.apiService.getUsersQuestionBases().subscribe((response) => {
+      this.questionBaseNames = response;
+    });
+  }
+
+  updateQuestionBaseNameAndLoadBasesNames(
+    oldBaseName: string,
+    newBaseName: string
+  ): void {
+    this.apiService
+      .updateQuestionBaseNameAndGetAllUsersBases(oldBaseName, newBaseName)
+      .subscribe((response) => {
+        this.questionBaseNames = response;
+      });
+  }
+
+  removeQuestionBaseAndLoadBasesNames(index: number) {
+    var baseName = this.getQuestionBasesNames()[index];
+
+    this.apiService
+      .removeQuestionBaseAndGetAllUsersBases(baseName)
+      .subscribe((response) => {
+        this.questionBaseNames = response;
+      });
+  }
+
+  //Non API
+
+  getQuestionBasesNames(): string[] {
     return this.questionBaseNames;
-  }
-
-  setQuestionBasesNames(questionBasesNames: string[]): void {
-    this.questionBaseNames = questionBasesNames;
-  }
-
-  addQuestionBaseName(questionBaseName: string): void {
-    this.questionBaseNames!.push(questionBaseName);
-  }
-
-  removeQuestionBaseName(index: number): void {
-    this.questionBaseNames!.splice(index, 1);
   }
 
   selectQuestionBase(questionBaseName: string | null): void {

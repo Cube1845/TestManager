@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Manager.Questions.Models
 {
-    public class Question
+    public record Question
     {
-
+        public string Content = "";
+        public List<string> Answers = new List<string>();
+        public string CorrectAnswer = "";
     }
 }
