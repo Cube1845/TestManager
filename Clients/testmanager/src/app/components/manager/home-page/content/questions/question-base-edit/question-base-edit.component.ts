@@ -97,6 +97,11 @@ export class QuestionBaseEditComponent implements OnInit {
         question
       );
     } else {
+      this.questionService.updateQuestionInQuestionBaseAndLoadQuestions(
+        selectedQuestionBaseName!,
+        index - 1,
+        question
+      );
     }
   }
 
@@ -112,6 +117,18 @@ export class QuestionBaseEditComponent implements OnInit {
       answerD: '',
       correctAnswer: 'a',
     });
+  }
+
+  removeSelectedQuestion(): void {
+    var index = Number(this.questionFormGroup.controls.index.value!);
+    var selectedQuestionBaseName =
+      this.questionBaseService.getSelectedQuestionBase()!;
+
+    this.questionService.removeQuestionFromQuestionBaseAndLoadQuestions(
+      selectedQuestionBaseName,
+      index - 1
+    );
+    this.questionFormGroup.reset();
   }
 
   isAnyQuestionSelected(): boolean {

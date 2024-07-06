@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Manager.Questions.Models.DTOs
+namespace Manager.Questions.Models.DTOs.QuestionEdit
 {
-    public record QuestionBaseNameDTO
+    public record AddQuestionToQuestionBaseDTO
     {
         public string QuestionBaseName { get; set; } = "";
+        public Question Question { get; set; } = new Question();
     }
 }

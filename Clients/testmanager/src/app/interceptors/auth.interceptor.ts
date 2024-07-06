@@ -1,57 +1,65 @@
 import {
   HttpClient,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpHandlerFn,
   HttpInterceptorFn,
   HttpParams,
+  HttpRequest,
 } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
-import { map, tap } from 'rxjs';
+import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { inject } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const apiUrl: string = 'https://localhost:7037';
   const accessToken = localStorage.getItem('accessToken');
-  const url = environment.apiUrl;
-  const authService = inject(AuthService);
-  const http = inject(HttpClient);
+  const expires = localStorage.getItem('expires');
 
-  if (accessToken != null) {
-    var expires = localStorage.getItem('expires')!;
-    var expireDate = new Date(expires);
-    var now = new Date();
+  if (accessToken && expires) {
+    const expiresDate = new Date(expires);
 
-    if (expireDate < now) {
-      var refreshToken = localStorage.getItem('refreshToken')!;
-
-      const refreshReq = req.clone({
-        url: url + '/refresh',
-        params: new HttpParams().set('refreshToken', refreshToken),
-      });
-
-      next(refreshReq).pipe(
-        tap((response) => {
-          authService.saveTokens(response);
-          const accessToken = localStorage.getItem('accessToken');
-
-          const modReq = req.clone({
-            setHeaders: {
-              Authorization: 'Bearer ' + accessToken,
-            },
-          });
-
-          return next(modReq);
+    if (expiresDate > new Date()) {
+      req = addAuthorizationHeader(req, accessToken);
+    } else {
+      return refreshToken().pipe(
+        tap((response: any) => {
+          localStorage.setItem('accessToken', response.accessToken);
+          req = addAuthorizationHeader(req, response.accessToken);
+          return next(req);
+        }),
+        catchError((error: any) => {
+          console.error('Token refresh failed', error);
+          return throwError(error);
         })
       );
     }
-
-    const modReq = req.clone({
-      setHeaders: {
-        Authorization: 'Bearer ' + accessToken,
-      },
-    });
-
-    return next(modReq);
   }
 
   return next(req);
 };
+
+function addAuthorizationHeader(
+  request: HttpRequest<any>,
+  accessToken: string
+): HttpRequest<any> {
+  return request.clone({
+    setHeaders: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+}
+
+function refreshToken(): Observable<any> {
+  const refreshToken = localStorage.getItem('refreshToken');
+  const http = inject(HttpClient);
+
+  if (!refreshToken) {
+    return throwError('No refresh token available');
+  }
+
+  const body = { refreshToken };
+  const url = environment.apiUrl + '/refresh';
+
+  return http.post<any>(url, body);
+}

@@ -61,7 +61,7 @@ public class QuestionEditService(ManagerDbContext context)
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateQuestionInQuestionBase(string ownerEmail, string questionBaseName, Question oldQuestion, Question updatedQuestion)
+    public async Task UpdateQuestionInQuestionBase(string ownerEmail, string questionBaseName, int questionIndex, Question updatedQuestion)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -73,31 +73,16 @@ public class QuestionEditService(ManagerDbContext context)
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
-        var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList);
+        var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList)!;
 
-        int wantedQuestionIndex = -1;
-
-        for (int i = 0; i < questionList!.Count; i++)
-        {
-            if (questionList[i].Content == oldQuestion.Content)
-            {
-                wantedQuestionIndex = i;
-            }
-        }
-
-        if (wantedQuestionIndex == -1)
-        {
-            throw new Exception("Could not find question to edit");
-        }
-
-        questionList[wantedQuestionIndex] = updatedQuestion;
+        questionList[questionIndex] = updatedQuestion;
         serializedQuestionList = JsonConvert.SerializeObject(questionList);
 
         questionBaseDb.Questions = serializedQuestionList;
         await _context.SaveChangesAsync();
     }
 
-    public async Task RemoveQuestionFromQuestionBase(string ownerEmail, string questionBaseName, Question questionToRemove)
+    public async Task RemoveQuestionFromQuestionBase(string ownerEmail, string questionBaseName, int questionIndex)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -109,24 +94,9 @@ public class QuestionEditService(ManagerDbContext context)
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
-        var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList);
+        var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList)!;
 
-        int wantedQuestionIndex = -1;
-
-        for (int i = 0; i < questionList!.Count; i++)
-        {
-            if (questionList[i].Content == questionToRemove.Content)
-            {
-                wantedQuestionIndex = i;
-            }
-        }
-
-        if (wantedQuestionIndex == -1)
-        {
-            throw new Exception("Could not find question to remove");
-        }
-
-        questionList.RemoveAt(wantedQuestionIndex);
+        questionList.RemoveAt(questionIndex);
         serializedQuestionList = JsonConvert.SerializeObject(questionList);
 
         questionBaseDb.Questions = serializedQuestionList;

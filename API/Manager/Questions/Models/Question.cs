@@ -8,8 +8,8 @@ namespace Manager.Questions.Models
 {
     public record Question
     {
-        public string Content = "";
-        public List<string> Answers = new List<string>();
-        public string CorrectAnswer = "";
+        public string Content { get; set; } = "";
+        public List<string> Answers { get; set; } = new List<string>();
+        public string CorrectAnswer { get; set; } = "";
     }
 }

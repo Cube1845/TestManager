@@ -1,5 +1,6 @@
 ﻿using Manager.Questions.Models;
-using Manager.Questions.Models.DTOs;
+using Manager.Questions.Models.DTOs.QuestionBase;
+using Manager.Questions.Models.DTOs.QuestionEdit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,15 +14,15 @@ namespace Manager.Questions.QuestionEdit
         private readonly QuestionEditService _questionEditService = questionEditService;
 
         [Authorize]
-        [HttpPost("[action]")]
-        public async Task<IActionResult> GetQuestionsFromQuestionBase([FromBody] QuestionBaseNameDTO dto)
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetQuestionsFromQuestionBase([FromQuery] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
             try
             {
                 List<Question> questions = 
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
+                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
                 return Ok(questions);
             }
             catch (Exception ex)
@@ -32,7 +33,7 @@ namespace Manager.Questions.QuestionEdit
 
         [Authorize]
         [HttpPost("[action]")]
-        public async Task<IActionResult> AddQuestionToQuestionBaseAndGetQuestions([FromBody] EditQuestionsInQuestionBaseDTO dto)
+        public async Task<IActionResult> AddQuestionToQuestionBaseAndGetQuestions([FromBody] AddQuestionToQuestionBaseDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
@@ -58,14 +59,14 @@ namespace Manager.Questions.QuestionEdit
         }
 
         [Authorize]
-        [HttpPost("[action]")]
-        public async Task<IActionResult> RemoveQuestionFromQuestionBaseAndGetQuestions([FromBody] EditQuestionsInQuestionBaseDTO dto)
+        [HttpDelete("[action]")]
+        public async Task<IActionResult> RemoveQuestionFromQuestionBaseAndGetQuestions([FromQuery] string questionBaseName, int questionToRemoveIndex)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
             try
             {
-                await _questionEditService.RemoveQuestionFromQuestionBase(userEmail, dto.QuestionBaseName, dto.Question);
+                await _questionEditService.RemoveQuestionFromQuestionBase(userEmail, questionBaseName, questionToRemoveIndex);
             }
             catch (Exception ex)
             {
@@ -75,7 +76,7 @@ namespace Manager.Questions.QuestionEdit
             try
             {
                 List<Question> questions =
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
+                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
                 return Ok(questions);
             }
             catch (Exception ex)
@@ -93,7 +94,7 @@ namespace Manager.Questions.QuestionEdit
             try
             {
                 await _questionEditService
-                    .UpdateQuestionInQuestionBase(userEmail, dto.QuestionBaseName, dto.OldQuestion, dto.UpdatedQuestion);
+                    .UpdateQuestionInQuestionBase(userEmail, dto.QuestionBaseName, dto.QuestionIndex, dto.UpdatedQuestion);
             }
             catch (Exception ex)
             {

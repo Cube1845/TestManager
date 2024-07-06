@@ -3,9 +3,10 @@ import { Question } from '../../../models/types/question';
 import { environment } from '../../../../environments/environment.development';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { QuestionBaseNameDTO } from '../../../models/DTOs/questionBaseNameDto';
-import { EditQuestionsInQuestionBaseDTO } from '../../../models/DTOs/editQuestionsInQuestionBaseDto';
-import { UpdateQuestionInQuestionBaseDTO } from '../../../models/DTOs/updateQuestionInQuestionBaseDto';
+import { QuestionBaseNameDTO } from '../../../models/DTOs/question-base/questionBaseNameDto';
+import { EditQuestionsInQuestionBaseDTO } from '../../../models/DTOs/question-edit/editQuestionsInQuestionBaseDto';
+import { UpdateQuestionInQuestionBaseDTO } from '../../../models/DTOs/question-edit/updateQuestionInQuestionBaseDto';
+import { RemoveQuestionFromQuestionBaseDTO } from '../../../models/DTOs/question-edit/removeQuestionFromQuestionBaseDto';
 
 @Injectable({
   providedIn: 'root',
@@ -16,13 +17,10 @@ export class QuestionApiService {
   private readonly apiUrl = environment.apiUrl + '/QuestionEdit';
 
   getQuestionsFromQuestionBase(baseName: string): Observable<Question[]> {
-    var data: QuestionBaseNameDTO = {
-      questionBaseName: baseName,
-    };
-
-    return this.http.post<Question[]>(
-      this.apiUrl + '/GetQuestionsFromQuestionBase',
-      data
+    return this.http.get<Question[]>(
+      this.apiUrl +
+        '/GetQuestionsFromQuestionBase' +
+        `?questionBaseName=${baseName}`
     );
   }
 
@@ -43,27 +41,23 @@ export class QuestionApiService {
 
   removeQuestionFromQuestionBaseAndGetQuestions(
     baseName: string,
-    questionToRemove: Question
+    questionToRemoveIndex: number
   ): Observable<Question[]> {
-    var data: EditQuestionsInQuestionBaseDTO = {
-      questionBaseName: baseName,
-      question: questionToRemove,
-    };
-
-    return this.http.post<Question[]>(
-      this.apiUrl + '/RemoveQuestionFromQuestionBaseAndGetQuestions',
-      data
+    return this.http.delete<Question[]>(
+      this.apiUrl +
+        '/RemoveQuestionFromQuestionBaseAndGetQuestions' +
+        `?questionBaseName=${baseName}&questionToRemoveIndex=${questionToRemoveIndex}`
     );
   }
 
   updateQuestionInQuestionBaseAndGetQuestions(
     baseName: string,
-    oldQuestion: Question,
+    questionIndex: number,
     updatedQuestion: Question
   ): Observable<Question[]> {
     var data: UpdateQuestionInQuestionBaseDTO = {
       questionBaseName: baseName,
-      oldQuestion: oldQuestion,
+      questionIndex: questionIndex,
       updatedQuestion: updatedQuestion,
     };
 

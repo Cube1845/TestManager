@@ -29,13 +29,13 @@ export class QuestionService {
 
   updateQuestionInQuestionBaseAndLoadQuestions(
     baseName: string,
-    oldQuestion: Question,
+    questionIndex: number,
     updatedQuestion: Question
   ): void {
     this.apiService
       .updateQuestionInQuestionBaseAndGetQuestions(
         baseName,
-        oldQuestion,
+        questionIndex,
         updatedQuestion
       )
       .subscribe((response) => (this.questions = response));
@@ -43,10 +43,13 @@ export class QuestionService {
 
   removeQuestionFromQuestionBaseAndLoadQuestions(
     baseName: string,
-    questionToRemove: Question
+    questionToRemoveIndex: number
   ): void {
     this.apiService
-      .removeQuestionFromQuestionBaseAndGetQuestions(baseName, questionToRemove)
+      .removeQuestionFromQuestionBaseAndGetQuestions(
+        baseName,
+        questionToRemoveIndex
+      )
       .subscribe((response) => (this.questions = response));
   }
 

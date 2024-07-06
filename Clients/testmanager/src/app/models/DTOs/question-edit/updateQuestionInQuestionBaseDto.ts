@@ -1,7 +1,7 @@
-import { Question } from '../types/question';
+import { Question } from '../../types/question';
 
 export type UpdateQuestionInQuestionBaseDTO = {
   questionBaseName: string;
-  oldQuestion: Question;
+  questionIndex: number;
   updatedQuestion: Question;
 };

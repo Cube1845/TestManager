@@ -1,4 +1,4 @@
-﻿using Manager.Questions.Models.DTOs;
+﻿using Manager.Questions.Models.DTOs.QuestionBase;
 using Manager.Questions.QuestionBase;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,13 +32,13 @@ namespace Manager.Questions.QuestionBase
 
         [Authorize]
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateNewQuestionBaseAndGetUsersQuestionBasesNames([FromBody] QuestionBaseNameDTO dto)
+        public async Task<IActionResult> CreateNewQuestionBaseAndGetUsersQuestionBasesNames([FromBody] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
             try
             {
-                await _questionBaseService.CreateNewQuestionBase(userEmail, dto.QuestionBaseName);
+                await _questionBaseService.CreateNewQuestionBase(userEmail, questionBaseName);
             }
             catch (Exception ex)
             {
@@ -59,14 +59,14 @@ namespace Manager.Questions.QuestionBase
         }
 
         [Authorize]
-        [HttpPost("[action]")]
-        public async Task<IActionResult> RemoveQuestionBaseAndGetUsersQuestionBasesNames([FromBody] QuestionBaseNameDTO dto)
+        [HttpDelete("[action]")]
+        public async Task<IActionResult> RemoveQuestionBaseAndGetUsersQuestionBasesNames([FromQuery] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
             try
             {
-                await _questionBaseService.RemoveQuestionBase(userEmail, dto.QuestionBaseName);
+                await _questionBaseService.RemoveQuestionBase(userEmail, questionBaseName);
             }
             catch (Exception ex)
             {

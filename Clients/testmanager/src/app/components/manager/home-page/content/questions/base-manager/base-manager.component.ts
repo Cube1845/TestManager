@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { QuestionBaseService } from '../../../../../../services/questions/base/question-base.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-base-manager',
@@ -22,7 +24,8 @@ export class BaseManagerComponent implements OnInit {
   constructor(
     private readonly tableColorService: TableColorService,
     private readonly questionBaseService: QuestionBaseService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +50,8 @@ export class BaseManagerComponent implements OnInit {
       this.baseFormGroup.controls.name.value!
     );
     this.router.navigateByUrl('home/questions/base-edit');
+
+    //this.http.post(environment.apiUrl + '/refresh');
   }
 
   getUsersBases(): string[] {

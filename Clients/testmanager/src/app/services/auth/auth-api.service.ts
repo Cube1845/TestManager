@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthDto } from '../../models/DTOs/authDto';
+import { AuthDto } from '../../models/DTOs/auth/authDto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';

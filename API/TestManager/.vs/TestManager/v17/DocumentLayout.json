@@ -3,25 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionedit\\questioneditcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionedit\\questioneditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionbase\\questionbasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\dtos\\updatequestioninquestionbasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionedit\\questioneditcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\dtos\\questionedit\\addquestiontoquestionbasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionbase\\questionbaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\dtos\\questionbasenamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\questions\\questionedit\\questioneditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,92 +49,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UpdateQuestionInQuestionBaseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\UpdateQuestionInQuestionBaseDTO.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\DTOs\\UpdateQuestionInQuestionBaseDTO.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\UpdateQuestionInQuestionBaseDTO.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\Models\\DTOs\\UpdateQuestionInQuestionBaseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T21:09:11.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "QuestionBaseController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowD0AAAAeAAAA",
+              "Title": "AddQuestionToQuestionBaseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\QuestionEdit\\AddQuestionToQuestionBaseDTO.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\DTOs\\QuestionEdit\\AddQuestionToQuestionBaseDTO.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\QuestionEdit\\AddQuestionToQuestionBaseDTO.cs",
+              "RelativeToolTip": "..\\Manager\\Questions\\Models\\DTOs\\QuestionEdit\\AddQuestionToQuestionBaseDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T21:04:00.042Z",
+              "WhenOpened": "2024-07-06T13:48:51.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "QuestionBaseService.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T20:47:19.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "QuestionBaseNameDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\QuestionBaseNameDTO.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\DTOs\\QuestionBaseNameDTO.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\DTOs\\QuestionBaseNameDTO.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\Models\\DTOs\\QuestionBaseNameDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T11:49:37.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Question.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\Models\\Question.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\Models\\Question.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\Models\\Question.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T11:47:36.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "QuestionEditController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
-              "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCMAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T11:45:24.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "QuestionEditService.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditService.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditService.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditService.cs",
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditService.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwCMAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T11:43:06.392Z",
+              "WhenOpened": "2024-07-06T13:41:57.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuestionBaseService.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
+              "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T13:41:57.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuestionEditController.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
+              "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowDUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T13:41:54.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuestionBaseController.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
+              "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T13:41:54.205Z",
               "EditorCaption": ""
             }
           ]

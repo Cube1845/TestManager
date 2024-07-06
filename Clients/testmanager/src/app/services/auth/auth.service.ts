@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthDto } from '../../models/DTOs/authDto';
+import { AuthDto } from '../../models/DTOs/auth/authDto';
 import { AuthApiService } from './auth-api.service';
 import { Observable, tap } from 'rxjs';
 
@@ -39,8 +39,9 @@ export class AuthService {
 
     let currentDate = new Date();
     let currentTimeInMilliseconds = currentDate.getTime();
-    let secondsToAdd = data.expiresIn;
-    let updatedTimeInMilliseconds = currentTimeInMilliseconds + 60 * 1000;
+    let secondsToAdd = 20; //data.expiresIn;
+    let updatedTimeInMilliseconds =
+      currentTimeInMilliseconds + secondsToAdd * 1000;
     let expires = new Date(updatedTimeInMilliseconds);
 
     localStorage.setItem('accessToken', accessToken);

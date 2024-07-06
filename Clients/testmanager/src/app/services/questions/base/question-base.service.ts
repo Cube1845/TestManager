@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { QuestionBaseApiService } from './question-base-api.service';
 import { catchError, of } from 'rxjs';
+import { SelectedQuesitonBaseSingletonService } from '../../singletons/selected-quesiton-base-singleton.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionBaseService {
-  constructor(private readonly apiService: QuestionBaseApiService) {}
+  constructor(
+    private readonly apiService: QuestionBaseApiService,
+    private readonly singleton: SelectedQuesitonBaseSingletonService
+  ) {}
 
   private questionBaseNames: string[] = [];
-  private selectedQuestionBase: string | null = null;
 
   //API
 
@@ -55,10 +58,10 @@ export class QuestionBaseService {
   }
 
   selectQuestionBase(questionBaseName: string | null): void {
-    this.selectedQuestionBase = questionBaseName;
+    this.singleton.setSelectedQuestionBaseName(questionBaseName);
   }
 
   getSelectedQuestionBase(): string | null {
-    return this.selectedQuestionBase;
+    return this.singleton.getSelectedQuestionBaseName();
   }
 }

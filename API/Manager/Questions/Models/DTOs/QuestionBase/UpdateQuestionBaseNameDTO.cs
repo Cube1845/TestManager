@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Manager.Questions.Models.DTOs
+namespace Manager.Questions.Models.DTOs.QuestionBase
 {
     public record UpdateQuestionBaseNameDTO
     {
