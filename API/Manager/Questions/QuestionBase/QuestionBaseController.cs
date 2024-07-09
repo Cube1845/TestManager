@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Manager.Questions.QuestionBase
 {
-    [Route("[controller]")]
+    [Route("api/questions/base")]
     [ApiController]
     public class QuestionBaseController(QuestionBaseService questionBaseService) : ControllerBase
     {
         private readonly QuestionBaseService _questionBaseService = questionBaseService;
 
         [Authorize]
-        [HttpGet("[action]")]
+        [HttpGet("")]
         public async Task<IActionResult> GetUsersQuestionBases()
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -31,7 +31,7 @@ namespace Manager.Questions.QuestionBase
         }
 
         [Authorize]
-        [HttpPost("[action]")]
+        [HttpPost("")]
         public async Task<IActionResult> CreateNewQuestionBaseAndGetUsersQuestionBasesNames([FromBody] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -59,7 +59,7 @@ namespace Manager.Questions.QuestionBase
         }
 
         [Authorize]
-        [HttpDelete("[action]")]
+        [HttpDelete("")]
         public async Task<IActionResult> RemoveQuestionBaseAndGetUsersQuestionBasesNames([FromQuery] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -87,7 +87,7 @@ namespace Manager.Questions.QuestionBase
         }
 
         [Authorize]
-        [HttpPut("[action]")]
+        [HttpPut("")]
         public async Task<IActionResult> UpdateQuestionBaseNameAndGetUsersQuestionBasesNames([FromBody] UpdateQuestionBaseNameDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;

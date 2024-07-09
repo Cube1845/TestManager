@@ -12,13 +12,11 @@ import { UpdateQuestionInQuestionBaseDTO } from '../../../models/DTOs/question-e
 export class QuestionApiService {
   constructor(private readonly http: HttpClient) {}
 
-  private readonly apiUrl = environment.apiUrl + '/QuestionEdit';
+  private readonly apiUrl = environment.apiUrl + '/api/questions/edit';
 
   getQuestionsFromQuestionBase(baseName: string): Observable<Question[]> {
     return this.http.get<Question[]>(
-      this.apiUrl +
-        '/GetQuestionsFromQuestionBase' +
-        `?questionBaseName=${baseName}`
+      this.apiUrl + `?questionBaseName=${baseName}`
     );
   }
 
@@ -31,10 +29,7 @@ export class QuestionApiService {
       question: questionToAdd,
     };
 
-    return this.http.post<Question[]>(
-      this.apiUrl + '/AddQuestionToQuestionBaseAndGetQuestions',
-      data
-    );
+    return this.http.post<Question[]>(this.apiUrl, data);
   }
 
   removeQuestionFromQuestionBaseAndGetQuestions(
@@ -43,7 +38,6 @@ export class QuestionApiService {
   ): Observable<Question[]> {
     return this.http.delete<Question[]>(
       this.apiUrl +
-        '/RemoveQuestionFromQuestionBaseAndGetQuestions' +
         `?questionBaseName=${baseName}&questionToRemoveIndex=${questionToRemoveIndex}`
     );
   }
@@ -59,9 +53,6 @@ export class QuestionApiService {
       updatedQuestion: updatedQuestion,
     };
 
-    return this.http.put<Question[]>(
-      this.apiUrl + '/UpdateQuestionInDataBaseAndGetQuestions',
-      data
-    );
+    return this.http.put<Question[]>(this.apiUrl, data);
   }
 }

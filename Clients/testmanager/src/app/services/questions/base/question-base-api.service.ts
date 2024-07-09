@@ -10,10 +10,10 @@ import { UpdateQuestionBaseNameDTO } from '../../../models/DTOs/question-base/up
 export class QuestionBaseApiService {
   constructor(private readonly http: HttpClient) {}
 
-  private readonly apiUrl = environment.apiUrl + '/QuestionBase';
+  private readonly apiUrl = environment.apiUrl + '/api/questions/base';
 
   getUsersQuestionBases(): Observable<string[]> {
-    return this.http.get<string[]>(this.apiUrl + '/GetUsersQuestionBases');
+    return this.http.get<string[]>(this.apiUrl);
   }
 
   createQuestionBaseAndGetAllUsersBases(
@@ -21,7 +21,7 @@ export class QuestionBaseApiService {
   ): Observable<string[]> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<string[]>(
-      this.apiUrl + '/CreateNewQuestionBaseAndGetUsersQuestionBasesNames',
+      this.apiUrl,
       JSON.stringify(questionBaseName),
       { headers }
     );
@@ -31,9 +31,7 @@ export class QuestionBaseApiService {
     baseName: string
   ): Observable<string[]> {
     return this.http.delete<string[]>(
-      this.apiUrl +
-        '/RemoveQuestionBaseAndGetUsersQuestionBasesNames' +
-        `?questionBaseName=${baseName}`
+      this.apiUrl + `?questionBaseName=${baseName}`
     );
   }
 
@@ -46,9 +44,6 @@ export class QuestionBaseApiService {
       newQuestionBaseName: newBaseName,
     };
 
-    return this.http.put<string[]>(
-      this.apiUrl + '/UpdateQuestionBaseNameAndGetUsersQuestionBasesNames',
-      data
-    );
+    return this.http.put<string[]>(this.apiUrl, data);
   }
 }

@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Manager.Questions.QuestionEdit
 {
-    [Route("[controller]")]
+    [Route("api/questions/edit")]
     [ApiController]
     public class QuestionEditController(QuestionEditService questionEditService) : ControllerBase
     {
         private readonly QuestionEditService _questionEditService = questionEditService;
 
         [Authorize]
-        [HttpGet("[action]")]
+        [HttpGet("")]
         public async Task<IActionResult> GetQuestionsFromQuestionBase([FromQuery] string questionBaseName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -32,7 +32,7 @@ namespace Manager.Questions.QuestionEdit
         }
 
         [Authorize]
-        [HttpPost("[action]")]
+        [HttpPost("")]
         public async Task<IActionResult> AddQuestionToQuestionBaseAndGetQuestions([FromBody] AddQuestionToQuestionBaseDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -59,7 +59,7 @@ namespace Manager.Questions.QuestionEdit
         }
 
         [Authorize]
-        [HttpDelete("[action]")]
+        [HttpDelete("")]
         public async Task<IActionResult> RemoveQuestionFromQuestionBaseAndGetQuestions([FromQuery] string questionBaseName, int questionToRemoveIndex)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -86,7 +86,7 @@ namespace Manager.Questions.QuestionEdit
         }
 
         [Authorize]
-        [HttpPut("[action]")]
+        [HttpPut("")]
         public async Task<IActionResult> UpdateQuestionInDataBaseAndGetQuestions([FromBody] UpdateQuestionInQuestionBaseDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
