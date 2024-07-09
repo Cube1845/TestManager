@@ -7,6 +7,7 @@ import { mustBeLoggedInGuard } from './guards/auth/must-be-logged-in.guard';
 import { mustNotBeLoggedInGuard } from './guards/auth/must-not-be-logged-in.guard';
 import { QuestionBaseEditComponent } from './components/manager/home-page/content/questions/question-base-edit/question-base-edit.component';
 import { BaseManagerComponent } from './components/manager/home-page/content/questions/base-manager/base-manager.component';
+import { questionBaseMustBeSelectedGuard } from './guards/questions/question-base-must-be-selected.guard';
 
 export const routes: Routes = [
   {
@@ -28,7 +29,11 @@ export const routes: Routes = [
         path: 'questions',
         component: QuestionsComponent,
         children: [
-          { path: 'base-edit', component: QuestionBaseEditComponent },
+          {
+            path: 'base-edit',
+            component: QuestionBaseEditComponent,
+            canActivate: [questionBaseMustBeSelectedGuard],
+          },
           { path: 'base-manager', component: BaseManagerComponent },
         ],
       },

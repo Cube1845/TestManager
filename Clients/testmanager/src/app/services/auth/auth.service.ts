@@ -8,10 +8,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    private readonly router: Router,
-    private readonly authApiService: AuthApiService
-  ) {}
+  constructor(private readonly authApiService: AuthApiService) {}
 
   loginUser(email: string, password: string): Observable<any> {
     const authDto: AuthDto = {
@@ -39,22 +36,22 @@ export class AuthService {
 
     let currentDate = new Date();
     let currentTimeInMilliseconds = currentDate.getTime();
-    let secondsToAdd = 20; //data.expiresIn;
+    let secondsToAdd = data.expiresIn;
     let updatedTimeInMilliseconds =
       currentTimeInMilliseconds + secondsToAdd * 1000;
     let expires = new Date(updatedTimeInMilliseconds);
 
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refreshToken', refreshToken);
-    localStorage.setItem('expires', expires.toISOString());
+    sessionStorage.setItem('accessToken', accessToken);
+    sessionStorage.setItem('refreshToken', refreshToken);
+    sessionStorage.setItem('expires', expires.toISOString());
   }
 
   signUserOut(): void {
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
   isLoggedIn(): boolean {
-    const accessToken = localStorage.getItem('accessToken')!;
+    const accessToken = sessionStorage.getItem('accessToken')!;
     return !!accessToken;
   }
 }

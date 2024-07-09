@@ -3,10 +3,8 @@ import { Question } from '../../../models/types/question';
 import { environment } from '../../../../environments/environment.development';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { QuestionBaseNameDTO } from '../../../models/DTOs/question-base/questionBaseNameDto';
 import { EditQuestionsInQuestionBaseDTO } from '../../../models/DTOs/question-edit/editQuestionsInQuestionBaseDto';
 import { UpdateQuestionInQuestionBaseDTO } from '../../../models/DTOs/question-edit/updateQuestionInQuestionBaseDto';
-import { RemoveQuestionFromQuestionBaseDTO } from '../../../models/DTOs/question-edit/removeQuestionFromQuestionBaseDto';
 
 @Injectable({
   providedIn: 'root',

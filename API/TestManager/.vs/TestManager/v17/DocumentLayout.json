@@ -57,8 +57,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\Models\\DTOs\\QuestionEdit\\AddQuestionToQuestionBaseDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T13:48:51.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-06T13:48:51.778Z"
             },
             {
               "$type": "Document",
@@ -70,8 +69,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T13:41:57.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-06T13:41:57.908Z"
             },
             {
               "$type": "Document",
@@ -83,8 +81,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T13:41:57.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-06T13:41:57.169Z"
             },
             {
               "$type": "Document",
@@ -96,8 +93,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
               "ViewState": "AQIAADYAAAAAAAAAAAAowDUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T13:41:54.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-06T13:41:54.83Z"
             },
             {
               "$type": "Document",
@@ -107,7 +103,7 @@
               "RelativeDocumentMoniker": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB4AAAAJAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-06T13:41:54.205Z",
               "EditorCaption": ""

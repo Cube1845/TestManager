@@ -50,8 +50,6 @@ export class BaseManagerComponent implements OnInit {
       this.baseFormGroup.controls.name.value!
     );
     this.router.navigateByUrl('home/questions/base-edit');
-
-    //this.http.post(environment.apiUrl + '/refresh');
   }
 
   getUsersBases(): string[] {
@@ -72,7 +70,7 @@ export class BaseManagerComponent implements OnInit {
 
     this.baseFormGroup.setValue({
       index: (questions!.length + 1).toString(),
-      name: 'Baza pytań',
+      name: 'Baza pytań ' + (questions!.length + 1).toString(),
     });
   }
 

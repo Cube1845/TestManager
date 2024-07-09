@@ -30,6 +30,7 @@
         height: 300px;
         overflow: auto;
         color: $text-color;
+        background-color: $table-color;
 
         &::-webkit-scrollbar {
             background-color: $nav-bar-hover-color;

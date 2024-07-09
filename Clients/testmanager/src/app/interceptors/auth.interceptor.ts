@@ -1,65 +1,66 @@
 import {
   HttpClient,
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpHandlerFn,
   HttpInterceptorFn,
-  HttpParams,
   HttpRequest,
 } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
-import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
+import { AuthService } from '../services/auth/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const accessToken = localStorage.getItem('accessToken');
-  const expires = localStorage.getItem('expires');
-
-  if (accessToken && expires) {
-    const expiresDate = new Date(expires);
-
-    if (expiresDate > new Date()) {
-      req = addAuthorizationHeader(req, accessToken);
-    } else {
-      return refreshToken().pipe(
-        tap((response: any) => {
-          localStorage.setItem('accessToken', response.accessToken);
-          req = addAuthorizationHeader(req, response.accessToken);
-          return next(req);
-        }),
-        catchError((error: any) => {
-          console.error('Token refresh failed', error);
-          return throwError(error);
-        })
-      );
-    }
+  if (req.headers.get('skipAuth')) {
+    return next(req);
   }
 
-  return next(req);
+  var accessToken = sessionStorage.getItem('accessToken');
+
+  if (accessToken == null) {
+    return next(req);
+  }
+
+  const expiresString = sessionStorage.getItem('expires');
+  const expires = new Date(expiresString!);
+
+  if (expires > new Date()) {
+    return next(getRequestWithAuthHeader(req, accessToken));
+  } else {
+    const authService = inject(AuthService);
+
+    refreshTokens().subscribe((response) => {
+      if (response == null || response == undefined) {
+        authService.signUserOut();
+        return;
+      }
+
+      authService.saveTokens(response);
+      return next(getRequestWithAuthHeader(req, response.accessToken));
+    });
+  }
+
+  return next(getRequestWithAuthHeader(req, accessToken));
 };
 
-function addAuthorizationHeader(
-  request: HttpRequest<any>,
+function getRequestWithAuthHeader(
+  request: HttpRequest<unknown>,
   accessToken: string
-): HttpRequest<any> {
-  return request.clone({
-    setHeaders: {
-      Authorization: `Bearer ${accessToken}`,
-    },
+): HttpRequest<unknown> {
+  const modReq = request.clone({
+    setHeaders: { Authorization: `Bearer ${accessToken}` },
   });
+
+  return modReq;
 }
 
-function refreshToken(): Observable<any> {
-  const refreshToken = localStorage.getItem('refreshToken');
+function refreshTokens(): Observable<any> {
   const http = inject(HttpClient);
 
-  if (!refreshToken) {
-    return throwError('No refresh token available');
-  }
+  const apiUrl = environment.apiUrl + '/refresh';
+  const refreshToken = sessionStorage.getItem('refreshToken');
 
-  const body = { refreshToken };
-  const url = environment.apiUrl + '/refresh';
+  const body = {
+    refreshToken: refreshToken,
+  };
 
-  return http.post<any>(url, body);
+  return http.post<any>(apiUrl, body, { headers: { skipAuth: 'true' } });
 }
