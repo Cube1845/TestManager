@@ -1,0 +1,39 @@
+
+<div class="test-table">
+    <table>
+        <tr>
+            <th>L.p.</th>
+            <th>Nazwa</th>
+        </tr>
+
+        @for (base of getUsersTests(); track $index) {
+            <tr (click)="selectTest($index)" 
+            [ngStyle]="{'background-color': getValidColor($index), 'transition': 'background-color 0.1s ease, transform 0.1s'}"
+            (mouseover)="setHoveredRow($index)"
+            (mouseleave)="setHoveredRow(-1)">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ base }}</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="test-edit-container" [formGroup]="testFormGroup">
+    <div class="test-edit-box">
+        <label class="test-input-label" >L.p.</label>
+        <input type="text" class="test-input lp" readonly formControlName="index"/>
+
+        <label class="test-input-label" >Nazwa</label>
+        <input type="text" class="test-input name" formControlName="name"/>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="modify-test-button">Usuń tą bazę pytań</button>
+        <button type="button" class="modify-test-button">Zapisz</button>
+        <button type="button" class="modify-test-button">Dodaj bazę pytań</button>
+    </div>
+
+    <button type="button" class="modify-test-button edit-button">Edytuj pytania w tej bazie</button>
+</div>
+
+

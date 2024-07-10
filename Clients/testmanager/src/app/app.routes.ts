@@ -8,6 +8,9 @@ import { mustNotBeLoggedInGuard } from './guards/auth/must-not-be-logged-in.guar
 import { QuestionBaseEditComponent } from './components/manager/home-page/content/questions/question-base-edit/question-base-edit.component';
 import { BaseManagerComponent } from './components/manager/home-page/content/questions/base-manager/base-manager.component';
 import { questionBaseMustBeSelectedGuard } from './guards/questions/question-base-must-be-selected.guard';
+import { TestsComponent } from './components/manager/home-page/content/tests/tests.component';
+import { TestEditComponent } from './components/manager/home-page/content/tests/test-edit/test-edit.component';
+import { TestManagerComponent } from './components/manager/home-page/content/tests/test-manager/test-manager.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +38,14 @@ export const routes: Routes = [
             canActivate: [questionBaseMustBeSelectedGuard],
           },
           { path: 'base-manager', component: BaseManagerComponent },
+        ],
+      },
+      {
+        path: 'tests',
+        component: TestsComponent,
+        children: [
+          { path: 'manager', component: TestManagerComponent },
+          { path: 'edit', component: TestEditComponent },
         ],
       },
     ],

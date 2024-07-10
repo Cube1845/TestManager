@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { QuestionService } from '../../../../../../services/questions/questions/question.service';
 import { QuestionApiService } from '../../../../../../services/questions/questions/question-api.service';
 import {
@@ -19,7 +19,7 @@ import { QuestionBaseService } from '../../../../../../services/questions/base/q
   templateUrl: './question-base-edit.component.html',
   styleUrl: './question-base-edit.component.scss',
 })
-export class QuestionBaseEditComponent implements OnInit {
+export class QuestionBaseEditComponent implements OnInit, OnDestroy {
   constructor(
     private readonly questionService: QuestionService,
     private readonly tableColorService: TableColorService,
@@ -32,6 +32,10 @@ export class QuestionBaseEditComponent implements OnInit {
     this.questionService.loadQuestionsFromUsersQuestionBase(
       selectedQuestionBaseName!
     );
+  }
+
+  ngOnDestroy(): void {
+    this.questionBaseService.selectQuestionBase(null);
   }
 
   getValidColor(index: number): string {
