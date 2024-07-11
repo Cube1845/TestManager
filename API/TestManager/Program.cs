@@ -1,6 +1,8 @@
 using Manager.Persistence;
 using Manager.Questions.QuestionBase;
 using Manager.Questions.QuestionEdit;
+using Manager.Tests.TestManager;
+using Manager.Tests.TestSettingsEdit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<QuestionBaseService>();
 builder.Services.AddScoped<QuestionEditService>();
+builder.Services.AddScoped<TestManagerService>();
+builder.Services.AddScoped<TestSettingsEditService>();
 
 builder.Services.AddCors(options =>
 {

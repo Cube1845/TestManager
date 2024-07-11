@@ -46,4 +46,39 @@ export class TestManagerComponent implements OnInit {
   setHoveredRow(index: number): void {
     this.tableColorService.setHoveredRow(index);
   }
+
+  addNewTest(): void {
+    var tests = this.testManagerService.getUsersTestNames();
+
+    this.testFormGroup.setValue({
+      index: (tests.length + 1).toString(),
+      name: 'Test ' + (tests.length + 1).toString(),
+    });
+  }
+
+  saveSelectedTest(): void {
+    var testName = this.testFormGroup.controls.name.value!;
+    var index = Number(this.testFormGroup.controls.index.value!);
+
+    var testNames = this.testManagerService.getUsersTestNames();
+
+    if (testNames!.length < index) {
+      this.testManagerService.createNewTestAndLoadTests(testName);
+    } else {
+      this.testManagerService.updateTestNameAndLoadTests(
+        testNames[index - 1],
+        testName
+      );
+    }
+  }
+
+  removeSelectedTest(): void {
+    var index = Number(this.testFormGroup.controls.index.value!) - 1;
+    this.testManagerService.removeTestAndLoadTests(index);
+    this.testFormGroup.reset();
+  }
+
+  isAnyTestSelected(): boolean {
+    return this.testFormGroup.controls.index.value != '';
+  }
 }

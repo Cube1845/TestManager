@@ -12,7 +12,35 @@ export class TestManagerService {
   //API
 
   loadUsersTests(): void {
-    this.testNames = this.apiService.getUsersTests();
+    this.apiService.getUsersTests().subscribe((response) => {
+      this.testNames = response;
+    });
+  }
+
+  createNewTestAndLoadTests(testName: string): void {
+    this.apiService
+      .createNewTestAndGetUsersTests(testName)
+      .subscribe((response) => {
+        this.testNames = response;
+      });
+  }
+
+  removeTestAndLoadTests(index: number): void {
+    var testName = this.getUsersTestNames()[index];
+
+    this.apiService
+      .removeTestAndGetUsersTests(testName)
+      .subscribe((response) => {
+        this.testNames = response;
+      });
+  }
+
+  updateTestNameAndLoadTests(oldName: string, newName: string): void {
+    this.apiService
+      .updateTestNameAndGetUsersTests(oldName, newName)
+      .subscribe((response) => {
+        this.testNames = response;
+      });
   }
 
   //NON API

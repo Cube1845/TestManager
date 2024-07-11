@@ -13,4 +13,5 @@ namespace Manager.Persistence;
 public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : IdentityDbContext<IdentityUser>(options)
 {
     public DbSet<QuestionBases> QuestionBases { get; set; }
+    public DbSet<Tables.Tests> Tests { get; set; }
 }

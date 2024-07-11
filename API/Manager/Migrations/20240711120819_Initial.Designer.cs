@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manager.Migrations
 {
     [DbContext(typeof(ManagerDbContext))]
-    [Migration("20240701213257_Initial")]
+    [Migration("20240711120819_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -48,6 +48,31 @@ namespace Manager.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("QuestionBases");
+                });
+
+            modelBuilder.Entity("Manager.Persistence.Tables.Tests", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Settings")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tests");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

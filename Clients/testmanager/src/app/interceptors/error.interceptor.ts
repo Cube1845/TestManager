@@ -19,6 +19,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
           authService.signUserOut();
           router.navigateByUrl('login');
         }
+        console.error(response);
       }
     })
   );
