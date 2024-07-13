@@ -92,6 +92,7 @@
     }
 
     .modify-question-button {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
         background-color: $nav-bar-color;
         border: none;
         padding: 10px 25px;

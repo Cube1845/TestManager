@@ -1,0 +1,11 @@
+<div class="combobox">
+    <div class="combobox-input" (click)="toggleDropdown()">
+      <input type="text" placeholder="Wybierz" [value]="selectedOptions.join(', ')" readonly>
+    </div>
+    <div class="dropdown" [class.show]="dropdownVisible">
+      <div *ngFor="let option of options" class="dropdown-option">
+        <input type="checkbox" [id]="option" [value]="option" (change)="onCheckboxChange($event)">
+        <label [for]="option">{{ option }}</label>
+      </div>
+    </div>
+</div>

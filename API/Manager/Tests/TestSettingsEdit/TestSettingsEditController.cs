@@ -18,7 +18,7 @@ namespace Manager.Tests.TestSettingsEdit
 
         [Authorize]
         [HttpGet("")]
-        public async Task<IActionResult> GetUsersTests([FromQuery] string testName)
+        public async Task<IActionResult> GetTestSettings([FromQuery] string testName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
@@ -36,7 +36,7 @@ namespace Manager.Tests.TestSettingsEdit
 
         [Authorize]
         [HttpPut("")]
-        public async Task<IActionResult> UpdateTestNametAndGetUsersTests([FromBody] UpdateTestSettingsDTO dto)
+        public async Task<IActionResult> UpdateTestSettingsAndGetSettings([FromBody] UpdateTestSettingsDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
 

@@ -3,6 +3,7 @@ import { TestManagerService } from '../../../../../../services/tests/manager/tes
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TableColorService } from '../../../../../../services/cosmetics/table-color.service';
 import { NgStyle } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-manager',
@@ -14,7 +15,8 @@ import { NgStyle } from '@angular/common';
 export class TestManagerComponent implements OnInit {
   constructor(
     private readonly testManagerService: TestManagerService,
-    private readonly tableColorService: TableColorService
+    private readonly tableColorService: TableColorService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -80,5 +82,13 @@ export class TestManagerComponent implements OnInit {
 
   isAnyTestSelected(): boolean {
     return this.testFormGroup.controls.index.value != '';
+  }
+
+  goToTestEditor(): void {
+    this.testManagerService.selectTestName(
+      this.testFormGroup.controls.name.value!
+    );
+
+    this.router.navigateByUrl('home/tests/edit');
   }
 }

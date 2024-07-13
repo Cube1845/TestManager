@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { TestManagerApiService } from './test-manager-api.service';
+import { SelectedTestSingletonService } from '../../singletons/selected-test-singleton.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestManagerService {
-  constructor(private readonly apiService: TestManagerApiService) {}
+  constructor(
+    private readonly apiService: TestManagerApiService,
+    private readonly singleton: SelectedTestSingletonService
+  ) {}
 
   private testNames: string[] = [];
 
@@ -47,5 +51,13 @@ export class TestManagerService {
 
   getUsersTestNames(): string[] {
     return this.testNames;
+  }
+
+  getSelectedTestName(): string | null {
+    return this.singleton.getSelectedTestName();
+  }
+
+  selectTestName(testName: string | null): void {
+    this.singleton.setSelectedTestName(testName);
   }
 }

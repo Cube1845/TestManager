@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { SelectedTestSingletonService } from '../../../../../services/singletons/selected-test-singleton.service';
+import { TestManagerService } from '../../../../../services/tests/manager/test-manager.service';
 
 @Component({
   selector: 'app-tests',
@@ -12,15 +13,16 @@ import { SelectedTestSingletonService } from '../../../../../services/singletons
 export class TestsComponent {
   constructor(
     private readonly router: Router,
-    private readonly singleton: SelectedTestSingletonService
+    private readonly testManagerService: TestManagerService
   ) {}
 
   displayTestManager(): void {
     this.router.navigateByUrl('home/tests/manager');
+    this.testManagerService.selectTestName(null);
   }
 
   getSelectedTestName(): string {
-    var testName = this.singleton.getSelectedTestName();
+    var testName = this.testManagerService.getSelectedTestName();
 
     if (testName == null) {
       testName = 'Wybierz';

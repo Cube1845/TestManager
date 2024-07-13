@@ -1,7 +1,63 @@
 :host {
+    @import "../../../../../../variables";
+
     width: 100%;
     height: min-content;
     margin-bottom: 0;
 
-    
+    .container {
+        margin: 0px 30px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    .settings-input-box {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px 0px 0px;
+        width: 100%;
+    }
+
+    .settings-input {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $table-color;
+        outline: none;
+        border: 0.5px solid $background-color;
+        color: $text-color;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 5px;
+        width: 100%;
+
+        &:focus {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $table-hover-color;
+        }
+    }
+
+    .settings-input-label {
+        color: $text-color;
+    }
+
+    .save-button {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+        border: none;
+        padding: 10px 25px;
+        color: $fore-text-color;
+        font-size: 18px;
+        margin: 50px 0px 20px 0px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+        }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $function-button-disabled-color;
+        }
+    }
 }

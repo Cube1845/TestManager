@@ -1,0 +1,77 @@
+:host {
+    @import "../../../../../../../variables";
+
+    .combobox {
+        position: relative;
+        display: inline-block;
+        width: 300px;
+    
+        .combobox-input {
+            input {
+                border: 0.5px solid $background-color;
+                cursor: pointer;
+                transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+                background-color: $table-color;
+                outline: none;
+                color: $text-color;
+                font-size: 16px;
+                border-radius: 5px;
+                padding: 5px;
+                width: 100%;
+
+                &::placeholder {
+                    color: $text-color;
+                    font-size: 16px;
+                }
+
+                &:focus {
+                    transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+                    background-color: $table-hover-color;
+                }
+
+                &:hover {
+                    transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+                    background-color: $table-hover-color;
+                }
+            }
+        }
+
+        input[type="checkbox"] {
+            accent-color: $table-hover-color;
+        }
+    
+        .dropdown {
+            position: absolute;
+            width: 100%;
+            border: 0.5px solid $background-color;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: $table-color;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            color: $text-color;
+        
+            &.show {
+                display: block;
+            }
+        
+            .dropdown-option {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        
+                &:hover {
+                    transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+                    background-color: $table-hover-color;
+                }
+        
+                input {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

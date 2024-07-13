@@ -33,7 +33,7 @@
         <button type="button" class="modify-test-button" (click)="addNewTest()">Dodaj test</button>
     </div>
 
-    <button type="button" class="modify-test-button edit-button">Edytuj test</button>
+    <button type="button" class="modify-test-button edit-button" (click)="goToTestEditor()" [disabled]="!isAnyTestSelected()">Edytuj test</button>
 </div>
 
 

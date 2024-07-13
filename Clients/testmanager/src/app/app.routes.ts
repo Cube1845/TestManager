@@ -11,6 +11,7 @@ import { questionBaseMustBeSelectedGuard } from './guards/questions/question-bas
 import { TestsComponent } from './components/manager/home-page/content/tests/tests.component';
 import { TestEditComponent } from './components/manager/home-page/content/tests/test-edit/test-edit.component';
 import { TestManagerComponent } from './components/manager/home-page/content/tests/test-manager/test-manager.component';
+import { testMustBeSelectedGuard } from './guards/tests/test-must-be-selected.guard';
 
 export const routes: Routes = [
   {
@@ -45,7 +46,11 @@ export const routes: Routes = [
         component: TestsComponent,
         children: [
           { path: 'manager', component: TestManagerComponent },
-          { path: 'edit', component: TestEditComponent },
+          {
+            path: 'edit',
+            component: TestEditComponent,
+            canActivate: [testMustBeSelectedGuard],
+          },
         ],
       },
     ],
