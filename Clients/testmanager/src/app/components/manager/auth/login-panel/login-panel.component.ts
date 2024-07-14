@@ -35,13 +35,8 @@ export class LoginPanelComponent {
     var email = this.loginFormGroup.controls.email.value!;
     var password = this.loginFormGroup.controls.password.value!;
 
-    this.authService
-      .loginUser(email, password)
-      .pipe(catchError((err) => of(err)))
-      .subscribe((response) => {
-        this.toaster.displayError('error');
-
-        this.router.navigateByUrl('home');
-      });
+    this.authService.loginUser(email, password).subscribe((response) => {
+      this.router.navigateByUrl('home');
+    });
   }
 }

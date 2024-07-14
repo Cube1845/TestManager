@@ -11,8 +11,8 @@ namespace Manager.Persistence.Tables
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; } = "";
-        public string OwnerEmail { get; set; } = "";
-        public string Settings { get; set; } = "";
+        public string Name { get; set; } = string.Empty;
+        public string OwnerEmail { get; set; } = string.Empty;
+        public string Settings { get; set; } = string.Empty;
     }
 }

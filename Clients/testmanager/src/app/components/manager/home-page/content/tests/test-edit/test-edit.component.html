@@ -6,8 +6,8 @@
 
     <div class="settings-input-box">
         <label class="settings-input-label" >Użyte bazy pytań</label>
-        <app-combo-box [options]="usersQuestionBases" [selectedOptions]="getTestSettings().usedQuestionBases"></app-combo-box>
+        <app-combo-box [options]="usersQuestionBases" formControlName="usedQuestionBases"></app-combo-box>
     </div>
 
-    <button type="button" class="save-button">Zapisz</button>
+    <button type="button" class="save-button" (click)="saveSettings()">Zapisz</button>
 </div>

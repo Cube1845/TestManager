@@ -1,5 +1,14 @@
 import { NgFor } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
+import { TestEditService } from '../../../../../../../services/tests/edit/test-edit.service';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-combo-box',
@@ -7,10 +16,25 @@ import { Component, HostListener, Input } from '@angular/core';
   imports: [NgFor],
   templateUrl: './combo-box.component.html',
   styleUrl: './combo-box.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ComboBoxComponent),
+      multi: true,
+    },
+  ],
 })
-export class ComboBoxComponent {
+export class ComboBoxComponent implements ControlValueAccessor {
+  private onChange!: (value: any) => void;
+
+  constructor(private readonly testEditService: TestEditService) {
+    this.testEditService.$settingsLoaded.subscribe((response) => {
+      this.selectedOptions = response.usedQuestionBases;
+    });
+  }
+
   @Input({ required: true }) options!: string[];
-  @Input() selectedOptions: string[] = [];
+  selectedOptions: string[] = [];
   dropdownVisible: boolean = false;
 
   toggleDropdown(): void {
@@ -19,6 +43,7 @@ export class ComboBoxComponent {
 
   onCheckboxChange(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
+
     if (checkbox.checked) {
       this.selectedOptions.push(checkbox.value);
     } else {
@@ -26,6 +51,8 @@ export class ComboBoxComponent {
         (option) => option !== checkbox.value
       );
     }
+
+    this.onChange(this.selectedOptions);
   }
 
   @HostListener('document:click', ['$event'])
@@ -35,4 +62,15 @@ export class ComboBoxComponent {
       this.dropdownVisible = false;
     }
   }
+
+  writeValue(obj: any): void {
+    this.selectedOptions = obj;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {}
+  setDisabledState?(isDisabled: boolean): void {}
 }

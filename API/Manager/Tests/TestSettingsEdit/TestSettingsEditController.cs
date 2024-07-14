@@ -43,17 +43,7 @@ namespace Manager.Tests.TestSettingsEdit
             try
             {
                 await _testSettingsEditService.UpdateTestSettings(userEmail, dto.Name, dto.Settings);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
-            try
-            {
-                TestSettings settings =
-                    await _testSettingsEditService.GetTestsSettings(userEmail, dto.Name);
-                return Ok(settings);
+                return NoContent();
             }
             catch (Exception ex)
             {

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TestSettings } from '../../../models/types/testSettings';
 import { environment } from '../../../../environments/environment.development';
-import { UpdateTestSettingsDTO } from '../../../models/DTOs/test-edit/updateTestSettingsDTO';
+import { UpdateTestSettingsDTO } from '../../../models/DTOs/test-edit/updateTestSettingsDto';
 
 @Injectable({
   providedIn: 'root',

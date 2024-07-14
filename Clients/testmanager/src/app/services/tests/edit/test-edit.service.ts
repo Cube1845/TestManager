@@ -2,33 +2,37 @@ import { Injectable, OnInit } from '@angular/core';
 import { TestEditApiService } from './test-edit-api.service';
 import { TestSettings } from '../../../models/types/testSettings';
 import { TestManagerService } from '../manager/test-manager.service';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TestEditService implements OnInit {
+export class TestEditService {
   constructor(
     private readonly testEditApiService: TestEditApiService,
     private readonly testManagerService: TestManagerService
   ) {}
 
-  ngOnInit(): void {
-    this.loadTestSettings(this.testManagerService.getSelectedTestName()!);
-  }
-
-  private testSettings!: TestSettings;
+  private settingsLoadedSubject = new Subject<TestSettings>();
+  $settingsLoaded = this.settingsLoadedSubject.asObservable();
 
   //API
 
   loadTestSettings(testName: string): void {
     this.testEditApiService.getTestSettings(testName).subscribe((response) => {
-      this.testSettings = response;
+      this.settingsLoadedSubject.next(response);
     });
   }
 
-  //NON API
-
-  getTestSettings(): TestSettings {
-    return this.testSettings;
+  saveTestSettings(
+    testName: string,
+    testSettings: TestSettings
+  ): Observable<TestSettings> {
+    return this.testEditApiService.updateTestSettingsAndGetSettings(
+      testName,
+      testSettings
+    );
   }
+
+  //NON API
 }

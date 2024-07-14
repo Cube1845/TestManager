@@ -3,10 +3,12 @@ import { inject } from '@angular/core';
 import { catchError, of, tap } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { ToasterService } from '../services/toaster/toaster.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const router = inject(Router);
+  const toaster = inject(ToasterService);
 
   return next(req).pipe(
     catchError((err) => of(err)),
@@ -19,6 +21,8 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
           authService.signUserOut();
           router.navigateByUrl('login');
         }
+
+        toaster.displayError(response.message);
         console.error(response);
       }
     })
