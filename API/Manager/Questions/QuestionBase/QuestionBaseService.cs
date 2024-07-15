@@ -1,4 +1,5 @@
-﻿using Manager.Persistence;
+﻿using Manager.Infrastructure;
+using Manager.Persistence;
 using Manager.Persistence.Tables;
 using Manager.Questions.Models;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ namespace Manager.Questions.QuestionBase
     {
         private readonly ManagerDbContext _context = context;
 
-        public async Task<List<string>> GetUsersQuestionBasesNames(string ownerEmail)
+        public async Task<Result<List<string>>> GetUsersQuestionBasesNames(string ownerEmail)
         {
             var questionBases = await _context.QuestionBases.ToListAsync();
             var usersQuestionBases = questionBases.Where(questionBase => questionBase.OwnerEmail == ownerEmail);
@@ -26,10 +27,10 @@ namespace Manager.Questions.QuestionBase
                 usersQuestionBasesNames.Add(usersQuestionBase.Name);
             }
 
-            return usersQuestionBasesNames;
+            return Result<List<string>>.Success(usersQuestionBasesNames);
         }
         
-        public async Task CreateNewQuestionBase(string ownerEmail, string baseName)
+        public async Task<Result> CreateNewQuestionBase(string ownerEmail, string baseName)
         {
             var questionBaseDb = await _context.QuestionBases
                 .FirstOrDefaultAsync(questionBase => 
@@ -38,7 +39,7 @@ namespace Manager.Questions.QuestionBase
 
             if (questionBaseDb != null)
             {
-                throw new Exception("This question base already exists");
+                return Result.Error("Ta baza pytań już istnieje");
             }
 
             var questionBase = new QuestionBases()
@@ -50,9 +51,11 @@ namespace Manager.Questions.QuestionBase
 
             await _context.QuestionBases.AddAsync(questionBase);
             await _context.SaveChangesAsync();
+
+            return Result.Success("Dodano nową bazę pytań");
         }
 
-        public async Task RemoveQuestionBase(string ownerEmail, string baseName)
+        public async Task<Result> RemoveQuestionBase(string ownerEmail, string baseName)
         {
             var questionBaseDb = await _context.QuestionBases
                 .FirstOrDefaultAsync(questionBase =>
@@ -61,14 +64,16 @@ namespace Manager.Questions.QuestionBase
 
             if (questionBaseDb == null)
             {
-                throw new Exception("This question base does not exist");
+                return Result.Error("Ta baza pytań nie istnieje");
             }
 
             _context.QuestionBases.Remove(questionBaseDb);
             await _context.SaveChangesAsync();
+
+            return Result.Success("Usunięto bazę pytań: " + baseName);
         }
 
-        public async Task UpdateQuestionBaseName(string ownerEmail, string oldBaseName, string newBaseName)
+        public async Task<Result> UpdateQuestionBaseName(string ownerEmail, string oldBaseName, string newBaseName)
         {
             var questionBaseDb = await _context.QuestionBases
                 .FirstOrDefaultAsync(questionBase =>
@@ -77,7 +82,7 @@ namespace Manager.Questions.QuestionBase
 
             if (questionBaseDb != null)
             {
-                throw new Exception("Question base with this name already exists");
+                return Result.Error("Baza pytań z taką nazwą już istnieje");
             }
 
             questionBaseDb = await _context.QuestionBases
@@ -87,11 +92,13 @@ namespace Manager.Questions.QuestionBase
 
             if (questionBaseDb == null)
             {
-                throw new Exception("This question base does not exist");
+                return Result.Error("Ta baza pytań nie istnieje");
             }
 
-            questionBaseDb.Name = newBaseName;
+            questionBaseDb!.Name = newBaseName;
             await _context.SaveChangesAsync();
+
+            return Result.Success("Zapisano");
         }
     }
 }

@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
     provideToastr({
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-bottom-left',
       preventDuplicates: true,
     }),
     importProvidersFrom([NoopAnimationsModule]),

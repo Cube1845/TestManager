@@ -1,4 +1,5 @@
-﻿using Manager.Persistence;
+﻿using Manager.Infrastructure;
+using Manager.Persistence;
 using Manager.Questions.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
@@ -15,7 +16,7 @@ public class QuestionEditService(ManagerDbContext context)
 {
     private readonly ManagerDbContext _context = context;
 
-    public async Task<List<Question>> GetUsersQuestionsFromQuestionBase(string ownerEmail, string questionBaseName)
+    public async Task<Result<List<Question>>> GetUsersQuestionsFromQuestionBase(string ownerEmail, string questionBaseName)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -23,16 +24,16 @@ public class QuestionEditService(ManagerDbContext context)
 
         if (questionBaseDb == null)
         {
-            throw new Exception("This question base does not exist");
+            return Result<List<Question>>.Error("Ta baza pytań nie istnieje");
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
         var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList);
 
-        return questionList!;
+        return Result<List<Question>>.Success(questionList!);
     }
 
-    public async Task AddQuestionToQuestionBase(string ownerEmail, string questionBaseName, Question questionToAdd)
+    public async Task<Result> AddQuestionToQuestionBase(string ownerEmail, string questionBaseName, Question questionToAdd)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -40,7 +41,7 @@ public class QuestionEditService(ManagerDbContext context)
 
         if (questionBaseDb == null)
         {
-            throw new Exception("This question base does not exist");
+            return Result.Error("Ta baza pytań nie istnieje");
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
@@ -50,7 +51,7 @@ public class QuestionEditService(ManagerDbContext context)
         {
             if (question.Content == questionToAdd.Content)
             {
-                throw new Exception("This question already exist");
+                return Result.Error("Takie pytanie już istnieje");
             }
         }
 
@@ -59,9 +60,11 @@ public class QuestionEditService(ManagerDbContext context)
 
         questionBaseDb.Questions = serializedQuestionList;
         await _context.SaveChangesAsync();
+
+        return Result.Success("Dodano pytanie");
     }
 
-    public async Task UpdateQuestionInQuestionBase(string ownerEmail, string questionBaseName, int questionIndex, Question updatedQuestion)
+    public async Task<Result> UpdateQuestionInQuestionBase(string ownerEmail, string questionBaseName, int questionIndex, Question updatedQuestion)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -69,7 +72,7 @@ public class QuestionEditService(ManagerDbContext context)
 
         if (questionBaseDb == null)
         {
-            throw new Exception("This question base does not exist");
+            return Result.Error("Ta baza pytań nie istnieje");
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
@@ -80,9 +83,11 @@ public class QuestionEditService(ManagerDbContext context)
 
         questionBaseDb.Questions = serializedQuestionList;
         await _context.SaveChangesAsync();
+
+        return Result.Success("Zapisano");
     }
 
-    public async Task RemoveQuestionFromQuestionBase(string ownerEmail, string questionBaseName, int questionIndex)
+    public async Task<Result> RemoveQuestionFromQuestionBase(string ownerEmail, string questionBaseName, int questionIndex)
     {
         var questionBaseDb = await _context.QuestionBases.FirstOrDefaultAsync(questionBase =>
             (questionBase.Name == questionBaseName && questionBase.OwnerEmail == ownerEmail)
@@ -90,7 +95,7 @@ public class QuestionEditService(ManagerDbContext context)
 
         if (questionBaseDb == null)
         {
-            throw new Exception("This question base does not exist");
+            return Result.Error("Ta baza pytań nie istnieje");
         }
 
         var serializedQuestionList = questionBaseDb.Questions;
@@ -101,5 +106,7 @@ public class QuestionEditService(ManagerDbContext context)
 
         questionBaseDb.Questions = serializedQuestionList;
         await _context.SaveChangesAsync();
+
+        return Result.Success("Usunięto pytanie");
     }
 }

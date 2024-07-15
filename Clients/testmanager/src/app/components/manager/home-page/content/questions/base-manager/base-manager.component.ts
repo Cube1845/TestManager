@@ -46,8 +46,15 @@ export class BaseManagerComponent implements OnInit {
   }
 
   goToQuestionBaseEditor(): void {
+    var usersQuestionBases = this.questionBaseService.getQuestionBasesNames();
+    var selectedIndex = Number(this.baseFormGroup.controls.index.value!);
+
+    if (usersQuestionBases.length < selectedIndex) {
+      return;
+    }
+
     this.questionBaseService.selectQuestionBase(
-      this.baseFormGroup.controls.name.value!
+      usersQuestionBases[selectedIndex - 1]
     );
     this.router.navigateByUrl('home/questions/base-edit');
   }

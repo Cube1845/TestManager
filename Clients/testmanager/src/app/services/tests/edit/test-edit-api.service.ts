@@ -20,12 +20,12 @@ export class TestEditApiService {
   updateTestSettingsAndGetSettings(
     testName: string,
     settings: TestSettings
-  ): Observable<TestSettings> {
+  ): Observable<void> {
     var data: UpdateTestSettingsDTO = {
       name: testName,
       settings: settings,
     };
 
-    return this.http.put<TestSettings>(this.apiUrl, data);
+    return this.http.put<void>(this.apiUrl, data);
   }
 }

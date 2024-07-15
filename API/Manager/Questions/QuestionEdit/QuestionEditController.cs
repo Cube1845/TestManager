@@ -1,4 +1,5 @@
-﻿using Manager.Questions.Models;
+﻿using Manager.Infrastructure;
+using Manager.Questions.Models;
 using Manager.Questions.Models.DTOs.QuestionBase;
 using Manager.Questions.Models.DTOs.QuestionEdit;
 using Microsoft.AspNetCore.Authorization;
@@ -19,16 +20,15 @@ namespace Manager.Questions.QuestionEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result<List<Question>> result = 
+                await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
+
+            if (!result.IsSuccess)
             {
-                List<Question> questions = 
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
-                return Ok(questions);
+                return BadRequest(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(result);
         }
 
         [Authorize]
@@ -37,25 +37,23 @@ namespace Manager.Questions.QuestionEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
-            {
+            Result result =
                 await _questionEditService.AddQuestionToQuestionBase(userEmail, dto.QuestionBaseName, dto.Question);
-            }
-            catch (Exception ex)
+
+            if (!result.IsSuccess)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<Question>> outputResult =
+                await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
+
+            if (!outputResult.IsSuccess)
             {
-                List<Question> questions =
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
-                return Ok(questions);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<Question>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
@@ -64,25 +62,23 @@ namespace Manager.Questions.QuestionEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
-            {
+            Result result =
                 await _questionEditService.RemoveQuestionFromQuestionBase(userEmail, questionBaseName, questionToRemoveIndex);
-            }
-            catch (Exception ex)
+
+            if (!result.IsSuccess)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<Question>> outputResult =
+                await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
+
+            if (!outputResult.IsSuccess)
             {
-                List<Question> questions =
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, questionBaseName);
-                return Ok(questions);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<Question>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
@@ -91,26 +87,23 @@ namespace Manager.Questions.QuestionEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result =
+                await _questionEditService.UpdateQuestionInQuestionBase(userEmail, dto.QuestionBaseName, dto.QuestionIndex, dto.UpdatedQuestion);
+
+            if (!result.IsSuccess)
             {
-                await _questionEditService
-                    .UpdateQuestionInQuestionBase(userEmail, dto.QuestionBaseName, dto.QuestionIndex, dto.UpdatedQuestion);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<Question>> outputResult =
+                await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
+
+            if (!outputResult.IsSuccess)
             {
-                List<Question> questions =
-                    await _questionEditService.GetUsersQuestionsFromQuestionBase(userEmail, dto.QuestionBaseName);
-                return Ok(questions);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<Question>>.Success(outputResult.Value!, result.Message));
         }
     }
 }

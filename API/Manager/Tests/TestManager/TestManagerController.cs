@@ -1,4 +1,5 @@
-﻿using Manager.Questions.Models;
+﻿using Manager.Infrastructure;
+using Manager.Questions.Models;
 using Manager.Questions.Models.DTOs.QuestionBase;
 using Manager.Questions.Models.DTOs.QuestionEdit;
 using Manager.Tests.Models.DTOs.Manager;
@@ -20,16 +21,14 @@ namespace Manager.Tests.TestManager
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result<List<string>> result = await _testManagerService.GetUsersTestNames(userEmail);
+
+            if (!result.IsSuccess)
             {
-                List<string> tests = 
-                    await _testManagerService.GetUsersTestNames(userEmail);
-                return Ok(tests);
+                return BadRequest(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(result);
         }
 
         [Authorize]
@@ -38,25 +37,21 @@ namespace Manager.Tests.TestManager
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result = await _testManagerService.CreateNewTest(userEmail, testName);
+
+            if (!result.IsSuccess)
             {
-                await _testManagerService.CreateNewTest(userEmail, testName);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<string>> outputResult = await _testManagerService.GetUsersTestNames(userEmail);
+
+            if (!outputResult.IsSuccess)
             {
-                List<string> tests =
-                    await _testManagerService.GetUsersTestNames(userEmail);
-                return Ok(tests);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
@@ -65,52 +60,44 @@ namespace Manager.Tests.TestManager
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result = await _testManagerService.RemoveTest(userEmail, testName);
+
+            if (!result.IsSuccess)
             {
-                await _testManagerService.RemoveTest(userEmail, testName);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<string>> outputResult = await _testManagerService.GetUsersTestNames(userEmail);
+
+            if (!outputResult.IsSuccess)
             {
-                List<string> tests =
-                    await _testManagerService.GetUsersTestNames(userEmail);
-                return Ok(tests);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
         [HttpPut("")]
-        public async Task<IActionResult> UpdateTestNametAndGetUsersTests([FromBody] UpdateTestNameDTO dto)
+        public async Task<IActionResult> UpdateTestNameAndGetUsersTests([FromBody] UpdateTestNameDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
+                
+            Result result = await _testManagerService.UpdateTestName(userEmail, dto.OldName, dto.NewName);
 
-            try
+            if (!result.IsSuccess)
             {
-                await _testManagerService.UpdateTestName(userEmail, dto.OldName, dto.NewName);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            try
+            Result<List<string>> outputResult = await _testManagerService.GetUsersTestNames(userEmail);
+
+            if (!outputResult.IsSuccess)
             {
-                List<string> tests =
-                    await _testManagerService.GetUsersTestNames(userEmail);
-                return Ok(tests);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
     }
 }

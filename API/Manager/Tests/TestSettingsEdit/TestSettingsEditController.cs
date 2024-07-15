@@ -1,4 +1,5 @@
-﻿using Manager.Questions.Models;
+﻿using Manager.Infrastructure;
+using Manager.Questions.Models;
 using Manager.Questions.Models.DTOs.QuestionBase;
 using Manager.Questions.Models.DTOs.QuestionEdit;
 using Manager.Tests.Models;
@@ -22,16 +23,14 @@ namespace Manager.Tests.TestSettingsEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result<TestSettings> result = await _testSettingsEditService.GetTestsSettings(userEmail, testName);
+
+            if (!result.IsSuccess)
             {
-                TestSettings settings =
-                    await _testSettingsEditService.GetTestsSettings(userEmail, testName);
-                return Ok(settings);
+                return BadRequest(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(result);
         }
 
         [Authorize]
@@ -40,15 +39,14 @@ namespace Manager.Tests.TestSettingsEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result = await _testSettingsEditService.UpdateTestSettings(userEmail, dto.Name, dto.Settings);
+
+            if (!result.IsSuccess)
             {
-                await _testSettingsEditService.UpdateTestSettings(userEmail, dto.Name, dto.Settings);
-                return NoContent();
+                return BadRequest(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(result);
         }
     }
 }

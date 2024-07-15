@@ -14,7 +14,7 @@ export class TestEditService {
   ) {}
 
   private settingsLoadedSubject = new Subject<TestSettings>();
-  $settingsLoaded = this.settingsLoadedSubject.asObservable();
+  settingsLoaded$ = this.settingsLoadedSubject.asObservable();
 
   //API
 
@@ -27,7 +27,7 @@ export class TestEditService {
   saveTestSettings(
     testName: string,
     testSettings: TestSettings
-  ): Observable<TestSettings> {
+  ): Observable<void> {
     return this.testEditApiService.updateTestSettingsAndGetSettings(
       testName,
       testSettings

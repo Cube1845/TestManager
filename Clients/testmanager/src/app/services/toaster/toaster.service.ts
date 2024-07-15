@@ -6,16 +6,19 @@ import { timeout } from 'rxjs';
   providedIn: 'root',
 })
 export class ToasterService {
-  toastrSetting: Partial<IndividualConfig<any>>;
-
-  constructor(private readonly toastr: ToastrService) {
-    this.toastrSetting = {
-      timeOut: 50000,
-      closeButton: true,
-    };
-  }
+  constructor(private readonly toastr: ToastrService) {}
 
   displayError(message: string): void {
-    this.toastr.error(message, 'Błąd', this.toastrSetting);
+    this.toastr.error(message, 'Błąd', {
+      timeOut: 8000,
+      closeButton: true,
+    });
+  }
+
+  displaySuccess(message: string, timeOut: number = 3000): void {
+    this.toastr.success(message, '', {
+      timeOut: timeOut,
+      closeButton: true,
+    });
   }
 }

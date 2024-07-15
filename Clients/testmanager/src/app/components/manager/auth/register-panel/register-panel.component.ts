@@ -7,28 +7,34 @@ import {
 } from '@angular/forms';
 import { AuthApiService } from '../../../../services/auth/auth-api.service';
 import { catchError, map, of } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../../services/auth/auth.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 
 @Component({
   selector: 'app-register-panel',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register-panel.component.html',
   styleUrl: './register-panel.component.scss',
 })
 export class RegisterPanelComponent {
   constructor(
     private readonly router: Router,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly toasterService: ToasterService
   ) {}
-
-  error: string | null = null;
 
   registerFormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    repeatPassword: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+    repeatPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
   });
 
   registerUser(): void {
@@ -37,22 +43,23 @@ export class RegisterPanelComponent {
     var repeatedPassword =
       this.registerFormGroup.controls.repeatPassword.value!;
 
-    this.error = null;
-
     if (password != repeatedPassword) {
-      this.error = 'Hasła nie są takie same';
+      this.toasterService.displayError('Hasła nie są takie same');
       return;
     }
 
     this.authService.registerUser(email, password).subscribe((response) => {
       if (response == null) {
-        this.goToLoginPanel;
+        this.goToLoginPanel();
       }
     });
   }
 
   private goToLoginPanel(): void {
     this.router.navigateByUrl('login');
-    alert('Zostałeś zarajestrowany, teraz się zaloguj');
+    this.toasterService.displaySuccess(
+      'Zostałeś zarejestrowany, teraz się zaloguj',
+      6000
+    );
   }
 }

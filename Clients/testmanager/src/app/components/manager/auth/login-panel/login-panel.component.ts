@@ -8,14 +8,14 @@ import {
 import { AuthApiService } from '../../../../services/auth/auth-api.service';
 import { NgStyle } from '@angular/common';
 import { catchError, of } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { ToasterService } from '../../../../services/toaster/toaster.service';
 
 @Component({
   selector: 'app-login-panel',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login-panel.component.html',
   styleUrl: './login-panel.component.scss',
 })
@@ -23,7 +23,7 @@ export class LoginPanelComponent {
   constructor(
     private readonly router: Router,
     private readonly authService: AuthService,
-    private readonly toaster: ToasterService
+    private readonly toasterService: ToasterService
   ) {}
 
   loginFormGroup = new FormGroup({
@@ -37,6 +37,7 @@ export class LoginPanelComponent {
 
     this.authService.loginUser(email, password).subscribe((response) => {
       this.router.navigateByUrl('home');
+      this.toasterService.displaySuccess('Zalogowano', 5000);
     });
   }
 }

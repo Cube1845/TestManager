@@ -85,10 +85,14 @@ export class TestManagerComponent implements OnInit {
   }
 
   goToTestEditor(): void {
-    this.testManagerService.selectTestName(
-      this.testFormGroup.controls.name.value!
-    );
+    var usersTests = this.testManagerService.getUsersTestNames();
+    var selectedIndex = Number(this.testFormGroup.controls.index.value!);
 
+    if (usersTests.length < selectedIndex) {
+      return;
+    }
+
+    this.testManagerService.selectTestName(usersTests[selectedIndex - 1]);
     this.router.navigateByUrl('home/tests/edit');
   }
 }

@@ -32,11 +32,24 @@ export class TestEditComponent implements OnInit, OnDestroy {
     private readonly questionBaseApiService: QuestionBaseApiService,
     private readonly testEditService: TestEditService
   ) {
-    this.testEditService.$settingsLoaded
+    this.testEditService.settingsLoaded$
       .pipe(takeUntilDestroyed())
       .subscribe((settings) => {
         this.settingsFormGroup.setValue(settings);
       });
+  }
+
+  ngOnInit(): void {
+    this.questionBaseApiService.getUsersQuestionBases().subscribe((names) => {
+      this.usersQuestionBases = names;
+      this.loadSettings();
+    });
+  }
+
+  private loadSettings(): void {
+    this.testEditService.loadTestSettings(
+      this.testManagerService.getSelectedTestName()!
+    );
   }
 
   usersQuestionBases: string[] = [];
@@ -49,15 +62,6 @@ export class TestEditComponent implements OnInit, OnDestroy {
     ]),
     usedQuestionBases: new FormControl<string[]>([]),
   });
-
-  ngOnInit(): void {
-    this.testEditService.loadTestSettings(
-      this.testManagerService.getSelectedTestName()!
-    );
-    this.questionBaseApiService.getUsersQuestionBases().subscribe((names) => {
-      this.usersQuestionBases = names;
-    });
-  }
 
   ngOnDestroy(): void {
     this.testManagerService.selectTestName(null);
@@ -74,7 +78,6 @@ export class TestEditComponent implements OnInit, OnDestroy {
         this.testManagerService.getSelectedTestName()!,
         settings
       )
-      .pipe(take(1))
       .subscribe();
   }
 }

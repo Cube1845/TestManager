@@ -5,6 +5,7 @@ import {
   forwardRef,
   HostListener,
   Input,
+  OnDestroy,
   Output,
 } from '@angular/core';
 import { TestEditService } from '../../../../../../../services/tests/edit/test-edit.service';
@@ -27,11 +28,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ComboBoxComponent implements ControlValueAccessor {
   private onChange!: (value: any) => void;
 
-  constructor(private readonly testEditService: TestEditService) {
-    this.testEditService.$settingsLoaded.subscribe((response) => {
-      this.selectedOptions = response.usedQuestionBases;
-    });
-  }
+  constructor(private readonly testEditService: TestEditService) {}
 
   @Input({ required: true }) options!: string[];
   selectedOptions: string[] = [];
@@ -39,6 +36,16 @@ export class ComboBoxComponent implements ControlValueAccessor {
 
   toggleDropdown(): void {
     this.dropdownVisible = !this.dropdownVisible;
+  }
+
+  updateCheckboxes(): void {
+    this.options.forEach((option) => {
+      const checkbox = document.getElementById(option) as HTMLInputElement;
+
+      if (checkbox) {
+        checkbox.checked = this.selectedOptions.includes(option);
+      }
+    });
   }
 
   onCheckboxChange(event: Event): void {
@@ -65,6 +72,7 @@ export class ComboBoxComponent implements ControlValueAccessor {
 
   writeValue(obj: any): void {
     this.selectedOptions = obj;
+    this.updateCheckboxes();
   }
 
   registerOnChange(fn: any): void {

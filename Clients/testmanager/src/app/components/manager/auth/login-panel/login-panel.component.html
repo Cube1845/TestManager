@@ -8,5 +8,6 @@
         <input type="password" class="input-data" placeholder="Hasło" formControlName="password" />
 
         <button type="button" class="login-button" [disabled]="loginFormGroup.invalid" (click)="loginUser()">Zaloguj się</button>
+        <a routerLink="../register" class="redirector">Nie masz konta? Zarejestruj się tutaj</a>
     </div>
 </div>

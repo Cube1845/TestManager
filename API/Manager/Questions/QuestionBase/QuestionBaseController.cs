@@ -1,4 +1,5 @@
-﻿using Manager.Questions.Models.DTOs.QuestionBase;
+﻿using Manager.Infrastructure;
+using Manager.Questions.Models.DTOs.QuestionBase;
 using Manager.Questions.QuestionBase;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,17 +18,15 @@ namespace Manager.Questions.QuestionBase
         public async Task<IActionResult> GetUsersQuestionBases()
         {
             string userEmail = User.Claims.ToList()[2].Value;
-            List<string> usersQuestionBasesNames;
 
-            try
+            Result<List<string>> result = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
+
+            if (!result.IsSuccess)
             {
-                usersQuestionBasesNames = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
-                return Ok(usersQuestionBasesNames);
+                return BadRequest(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(result);
         }
 
         [Authorize]
@@ -36,26 +35,21 @@ namespace Manager.Questions.QuestionBase
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result = await _questionBaseService.CreateNewQuestionBase(userEmail, questionBaseName);
+
+            if (!result.IsSuccess)
             {
-                await _questionBaseService.CreateNewQuestionBase(userEmail, questionBaseName);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            List<string> usersQuestionBasesNames;
+            Result<List<string>> outputResult = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
 
-            try
+            if (!outputResult.IsSuccess)
             {
-                usersQuestionBasesNames = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
-                return Ok(usersQuestionBasesNames);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
@@ -64,26 +58,21 @@ namespace Manager.Questions.QuestionBase
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
+            Result result = await _questionBaseService.RemoveQuestionBase(userEmail, questionBaseName); ;
+
+            if (!result.IsSuccess)
             {
-                await _questionBaseService.RemoveQuestionBase(userEmail, questionBaseName);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            List<string> usersQuestionBasesNames;
+            Result<List<string>> outputResult = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
 
-            try
+            if (!outputResult.IsSuccess)
             {
-                usersQuestionBasesNames = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
-                return Ok(usersQuestionBasesNames);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
 
         [Authorize]
@@ -92,26 +81,22 @@ namespace Manager.Questions.QuestionBase
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            try
-            {
+            Result result = 
                 await _questionBaseService.UpdateQuestionBaseName(userEmail, dto.OldQuestionBaseName, dto.NewQuestionBaseName);
-            }
-            catch (Exception ex)
+
+            if (!result.IsSuccess)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(result);
             }
 
-            List<string> usersQuestionBasesNames;
+            Result<List<string>> outputResult = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
 
-            try
+            if (!outputResult.IsSuccess)
             {
-                usersQuestionBasesNames = await _questionBaseService.GetUsersQuestionBasesNames(userEmail);
-                return Ok(usersQuestionBasesNames);
+                return BadRequest(outputResult);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(Result<List<string>>.Success(outputResult.Value!, result.Message));
         }
     }
 }

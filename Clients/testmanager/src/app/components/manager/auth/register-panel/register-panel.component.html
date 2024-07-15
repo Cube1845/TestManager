@@ -9,5 +9,6 @@
         <input type="password" class="input-data" placeholder="Powtórz hasło" formControlName="repeatPassword" />
 
         <button type="button" class="login-button" [disabled]="registerFormGroup.invalid" (click)="registerUser()">Zarejestruj się</button>
+        <a routerLink="../login" class="redirector">Masz już konto? Zaloguj się tutaj</a>
     </div>
 </div>
