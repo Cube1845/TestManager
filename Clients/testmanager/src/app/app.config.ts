@@ -7,10 +7,13 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { authInterceptor } from './interceptors/auth.interceptor';
 import { provideToastr } from 'ngx-toastr';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { errorInterceptor } from './interceptors/error.interceptor';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
+import { authInterceptor } from './manager/interceptors/auth.interceptor';
+import { errorInterceptor } from './manager/interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +23,8 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       positionClass: 'toast-bottom-left',
       preventDuplicates: true,
+      easeTime: 150,
     }),
-    importProvidersFrom([NoopAnimationsModule]),
+    importProvidersFrom([BrowserAnimationsModule]),
   ],
 };

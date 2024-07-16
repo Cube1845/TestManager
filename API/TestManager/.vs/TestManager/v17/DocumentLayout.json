@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "..\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
               "RelativeToolTip": "..\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAADAAAAAeAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACQAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-15T16:08:57.129Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "..\\Manager\\Tests\\TestManager\\TestManagerController.cs",
               "ViewState": "AQIAAEoAAAAAAAAAAAAwwGIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T16:08:43.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-15T16:08:43.823Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
               "ViewState": "AQIAAFAAAAAAAAAAAAAwwGgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T16:08:35.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-15T16:08:35.135Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "..\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwGIAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T16:07:02.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-15T16:07:02.508Z"
             }
           ]
         }

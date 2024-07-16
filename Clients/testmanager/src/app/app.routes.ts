@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { LoginPanelComponent } from './components/manager/auth/login-panel/login-panel.component';
-import { HomePageComponent } from './components/manager/home-page/home-page.component';
-import { QuestionsComponent } from './components/manager/home-page/content/questions/questions.component';
-import { RegisterPanelComponent } from './components/manager/auth/register-panel/register-panel.component';
-import { mustBeLoggedInGuard } from './guards/auth/must-be-logged-in.guard';
-import { mustNotBeLoggedInGuard } from './guards/auth/must-not-be-logged-in.guard';
-import { QuestionBaseEditComponent } from './components/manager/home-page/content/questions/question-base-edit/question-base-edit.component';
-import { BaseManagerComponent } from './components/manager/home-page/content/questions/base-manager/base-manager.component';
-import { questionBaseMustBeSelectedGuard } from './guards/questions/question-base-must-be-selected.guard';
-import { TestsComponent } from './components/manager/home-page/content/tests/tests.component';
-import { TestEditComponent } from './components/manager/home-page/content/tests/test-edit/test-edit.component';
-import { TestManagerComponent } from './components/manager/home-page/content/tests/test-manager/test-manager.component';
-import { testMustBeSelectedGuard } from './guards/tests/test-must-be-selected.guard';
+import { LoginPanelComponent } from './manager/components/auth/login-panel/login-panel.component';
+import { RegisterPanelComponent } from './manager/components/auth/register-panel/register-panel.component';
+import { BaseManagerComponent } from './manager/components/home-page/content/questions/base-manager/base-manager.component';
+import { QuestionBaseEditComponent } from './manager/components/home-page/content/questions/question-base-edit/question-base-edit.component';
+import { QuestionsComponent } from './manager/components/home-page/content/questions/questions.component';
+import { TestEditComponent } from './manager/components/home-page/content/tests/test-edit/test-edit.component';
+import { TestManagerComponent } from './manager/components/home-page/content/tests/test-manager/test-manager.component';
+import { TestsComponent } from './manager/components/home-page/content/tests/tests.component';
+import { HomePageComponent } from './manager/components/home-page/home-page.component';
+import { mustBeLoggedInGuard } from './manager/guards/auth/must-be-logged-in.guard';
+import { mustNotBeLoggedInGuard } from './manager/guards/auth/must-not-be-logged-in.guard';
+import { questionBaseMustBeSelectedGuard } from './manager/guards/questions/question-base-must-be-selected.guard';
+import { testMustBeSelectedGuard } from './manager/guards/tests/test-must-be-selected.guard';
 
 export const routes: Routes = [
   {

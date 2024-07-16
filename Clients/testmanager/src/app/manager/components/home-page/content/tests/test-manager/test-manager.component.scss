@@ -1,0 +1,147 @@
+:host {
+    @import "../../../../../../variables";
+    
+    margin: 0px;
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    .container {
+        margin: 30px;
+        width: 100%;
+    }
+
+    .test-table {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin: 10px 30px;
+        width: max-content;
+    }
+
+    table {
+        border: 1px solid $background-color;
+        border-collapse: collapse;
+        display: block;
+        height: 300px;
+        overflow: auto;
+        color: $text-color;
+        background-color: $table-color;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            background-color: $nav-bar-hover-color;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $nav-bar-color;
+        }
+    }
+
+    tr:hover {
+        cursor: pointer;
+    }
+
+    td, th {
+        border: 0.5px solid $background-color;
+        padding: 7px;
+    }
+
+    th {
+        background-color: $table-color;
+    }
+
+    .test-edit-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 30px;
+        align-items: start;
+        justify-content: center;
+        width: 96%;
+    }
+
+    .test-edit-box {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 40px 0px 0px;
+        width: 100%;
+    }
+
+    .test-input-box {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .test-input {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $table-color;
+        outline: none;
+        border: 0.5px solid $background-color;
+        color: $text-color;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 5px;
+        width: 100%;
+
+        &:focus {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $table-hover-color;
+        }
+
+        
+    }
+
+    .name {
+        width: 99.4%;
+    }
+
+    .lp {
+        width: 15%;
+    }
+
+
+    .test-input-label {
+        color: $text-color;
+    }
+
+    .modify-test-button {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+        border: none;
+        padding: 10px 25px;
+        color: $fore-text-color;
+        font-size: 18px;
+        margin: 20px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+        }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $function-button-disabled-color;
+        }
+    }
+
+    .button-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+
+        button {
+            margin: 10px 0px;
+        }
+    }
+
+    .edit-button {
+        margin-left: 0;
+    }
+}
