@@ -14,5 +14,6 @@ namespace Manager.Persistence.Tables
         public string Name { get; set; } = string.Empty;
         public string OwnerEmail { get; set; } = string.Empty;
         public string Settings { get; set; } = string.Empty;
+        public string Code { get; set; } = string.Empty;
     }
 }

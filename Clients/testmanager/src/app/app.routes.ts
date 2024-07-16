@@ -12,8 +12,11 @@ import { mustBeLoggedInGuard } from './manager/guards/auth/must-be-logged-in.gua
 import { mustNotBeLoggedInGuard } from './manager/guards/auth/must-not-be-logged-in.guard';
 import { questionBaseMustBeSelectedGuard } from './manager/guards/questions/question-base-must-be-selected.guard';
 import { testMustBeSelectedGuard } from './manager/guards/tests/test-must-be-selected.guard';
+import { TestPageComponent } from './user/components/test-page/test-page.component';
+import { StartComponent } from './user/components/test-page/content/start/start.component';
 
 export const routes: Routes = [
+  { path: 'manager', pathMatch: 'full', redirectTo: 'login' },
   {
     path: 'login',
     component: LoginPanelComponent,
@@ -55,5 +58,10 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'login' },
+  {
+    path: 'test',
+    component: TestPageComponent,
+    children: [{ path: 'start', component: StartComponent }],
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'test/start' },
 ];

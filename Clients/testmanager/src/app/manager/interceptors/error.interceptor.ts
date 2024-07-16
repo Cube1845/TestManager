@@ -19,6 +19,10 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((err) => of(err)),
     map((response) => {
+      if (req.headers.get('skipAuth')) {
+        return response;
+      }
+
       if (response instanceof HttpErrorResponse) {
         if (response.status == 401) {
           toaster.displayError('Niepoprawny email lub hasło');

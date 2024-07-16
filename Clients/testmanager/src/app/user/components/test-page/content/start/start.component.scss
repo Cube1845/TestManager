@@ -1,0 +1,91 @@
+:host {
+    @import '../../../../../variables';
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        height: 100%;
+        margin: 0;
+    }
+
+    .header {
+        margin-bottom: 100px;
+
+        h1 {
+            color: $fore-text-color;
+            font-size: 50px;
+        }
+    }
+
+    .input {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $table-color;
+        outline: none;
+        border: 0.5px solid $background-color;
+        color: $text-color;
+        font-size: 20px;
+        border-radius: 5px;
+        padding: 5px;
+        width: 100%;
+        margin: 0;
+
+        &:focus {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $table-hover-color;
+        }
+    }
+
+    .input-label {
+        color: $text-color;
+        margin: 0;
+        display: inline;
+    }
+
+    .code-input-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .code-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    button {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+        border: none;
+        padding: 10px 25px;
+        color: $fore-text-color;
+        font-size: 18px;
+        margin: 50px;
+        border-radius: 5px;
+        width: max-content;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+        }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $function-button-disabled-color;
+        }
+    }
+}
