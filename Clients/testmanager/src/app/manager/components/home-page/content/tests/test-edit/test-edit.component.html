@@ -1,13 +1,23 @@
-<div class="container" [formGroup]="settingsFormGroup">
-    <div class="settings-input-box">
-        <label class="settings-input-label" >Liczba pytań</label>
-        <input type="number" class="settings-input" formControlName="questionCount"/>
+<div class="container">
+    <div class="container-left" [formGroup]="settingsFormGroup">
+        <div class="settings-input-box">
+            <label class="settings-input-label" >Liczba pytań</label>
+            <input type="number" class="settings-input" formControlName="questionCount"/>
+        </div>
+
+        <div class="settings-input-box">
+            <label class="settings-input-label" >Użyte bazy pytań</label>
+            <app-combo-box [options]="usersQuestionBases" formControlName="usedQuestionBases"></app-combo-box>
+        </div>
+
+        <button type="button" class="save-button" (click)="saveSettings()">Zapisz</button>
     </div>
 
-    <div class="settings-input-box">
-        <label class="settings-input-label" >Użyte bazy pytań</label>
-        <app-combo-box [options]="usersQuestionBases" formControlName="usedQuestionBases"></app-combo-box>
+    <div class="container-right">
+        <div class="settings-input-box">
+            <label class="settings-input-label" >Kod</label>
+            <input type="number" class="settings-input" readonly/>
+            <button type="button" class="save-button generate-button">Generuj kod</button>
+        </div>
     </div>
-
-    <button type="button" class="save-button" (click)="saveSettings()">Zapisz</button>
 </div>

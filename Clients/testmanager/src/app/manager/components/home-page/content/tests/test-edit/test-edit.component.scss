@@ -2,11 +2,18 @@
     @import "../../../../../../variables";
 
     width: 100%;
+    height: 100%;
     height: min-content;
     margin-bottom: 0;
 
     .container {
         margin: 0px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        width: 100%;
+        height: 100%;
     }
 
     input[type=number]::-webkit-inner-spin-button {
@@ -59,5 +66,14 @@
             transition: background-color $hover-transition-time ease, transform $hover-transition-time;
             background-color: $function-button-disabled-color;
         }
+    }
+
+    .generate-button {
+        margin-top: 20px;
+        width: max-content;
+    }
+
+    .container-right {
+        margin-top: 100px;
     }
 }

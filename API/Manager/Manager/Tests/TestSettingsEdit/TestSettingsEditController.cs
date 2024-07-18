@@ -14,7 +14,7 @@ namespace Manager.Manager.Tests.TestSettingsEdit
         private readonly TestSettingsEditService _testSettingsEditService = testSettingsEditService;
 
         [Authorize]
-        [HttpGet("")]
+        [HttpGet("edit")]
         public async Task<IActionResult> GetTestSettings([FromQuery] string testName)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -30,7 +30,7 @@ namespace Manager.Manager.Tests.TestSettingsEdit
         }
 
         [Authorize]
-        [HttpPut("")]
+        [HttpPut("edit")]
         public async Task<IActionResult> UpdateTestSettingsAndGetSettings([FromBody] UpdateTestSettingsDTO dto)
         {
             string userEmail = User.Claims.ToList()[2].Value;
@@ -43,6 +43,45 @@ namespace Manager.Manager.Tests.TestSettingsEdit
             }
 
             return Ok(result);
+        }
+
+        [Authorize]
+        [HttpGet("code")]
+        public async Task<IActionResult> GetTestCode([FromQuery] string testName)
+        {
+            string userEmail = User.Claims.ToList()[2].Value;
+
+            Result result = await _testSettingsEditService.GetTestCode(userEmail, testName);
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
+
+        [Authorize]
+        [HttpPost("code")]
+        public async Task<IActionResult> GenerateNewTestCodeAndGetCode([FromBody] string testName)
+        {
+            string userEmail = User.Claims.ToList()[2].Value;
+
+            Result result = await _testSettingsEditService.GenerateNewTestCode(userEmail, testName);
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+
+            Result<string> outputResult = await _testSettingsEditService.GetTestCode(userEmail, testName);
+
+            if (!outputResult.IsSuccess)
+            {
+                return BadRequest(outputResult);
+            }
+
+            return Ok(Result<string>.Success(outputResult.Value!, result.Message));
         }
     }
 }

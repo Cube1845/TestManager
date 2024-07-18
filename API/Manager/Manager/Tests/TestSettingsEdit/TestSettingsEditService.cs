@@ -77,6 +77,13 @@ namespace Manager.Manager.Tests.TestSettingsEdit
                 return Result.Error("Taki test nie istnieje");
             }
 
+            TestSettings settings = JsonConvert.DeserializeObject<TestSettings>(testDb.Settings)!;
+
+            if (settings.UsedQuestionBases.Count < 1)
+            {
+                return Result.Error("Musisz wybrać przynajmniej jedną bazę pytań");
+            }
+
             string newCode = string.Empty;
 
             do
@@ -88,7 +95,7 @@ namespace Manager.Manager.Tests.TestSettingsEdit
             testDb.Code = newCode;
             await _context.SaveChangesAsync();
 
-            return Result.Success();
+            return Result.Success("Wygenerowano nowy kod dla testu: " + testName);
         }
 
         private async Task<bool> CodeAlreadyExist(string code)
