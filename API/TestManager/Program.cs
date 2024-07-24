@@ -3,6 +3,7 @@ using Manager.Manager.Questions.QuestionEdit;
 using Manager.Manager.Tests.TestManager;
 using Manager.Manager.Tests.TestSettingsEdit;
 using Manager.Persistence;
+using Manager.User.Start;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,7 @@ builder.Services.AddScoped<QuestionEditService>();
 builder.Services.AddScoped<TestManagerService>();
 builder.Services.AddScoped<TestSettingsEditService>();
 builder.Services.AddScoped<CodeGeneratorService>();
+builder.Services.AddScoped<StartService>();
 
 builder.Services.AddCors(options =>
 {

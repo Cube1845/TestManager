@@ -16,8 +16,8 @@
     <div class="container-right">
         <div class="settings-input-box">
             <label class="settings-input-label" >Kod</label>
-            <input type="number" class="settings-input" readonly/>
-            <button type="button" class="save-button generate-button">Generuj kod</button>
+            <input type="text" class="settings-input" readonly [formControl]="codeForm"/>
+            <button type="button" class="save-button generate-button" (click)="generateCode()">Generuj kod</button>
         </div>
     </div>
 </div>

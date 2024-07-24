@@ -1,5 +1,4 @@
 ﻿using Manager.Infrastructure;
-using Manager.Manager.Questions.Models;
 using Manager.Persistence;
 using Manager.Persistence.Tables;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,4 @@
 ﻿using Manager.Infrastructure;
-using Manager.Manager.Questions.Models;
 using Manager.Manager.Questions.Models.DTOs.QuestionEdit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

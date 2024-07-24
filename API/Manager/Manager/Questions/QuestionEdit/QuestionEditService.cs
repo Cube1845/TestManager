@@ -1,5 +1,4 @@
 ﻿using Manager.Infrastructure;
-using Manager.Manager.Questions.Models;
 using Manager.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;

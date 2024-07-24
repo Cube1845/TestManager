@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Manager.Manager.Questions.Models
+namespace Manager.Infrastructure
 {
     public record Question
     {

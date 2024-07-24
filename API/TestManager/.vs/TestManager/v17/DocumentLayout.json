@@ -3,13 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\user\\start\\startservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\user\\start\\startcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\tests\\testsettingsedit\\testsettingseditcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\tests\\testsettingsedit\\testsettingseditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\tests\\testsettingsedit\\codegeneratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\tests\\testmanager\\testmanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -31,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,32 +58,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CodeGeneratorService.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\CodeGeneratorService.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\CodeGeneratorService.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\CodeGeneratorService.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\CodeGeneratorService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBkAAAAYAAAA",
+              "DocumentIndex": 1,
+              "Title": "StartController.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\User\\Start\\StartController.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\User\\Start\\StartController.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\User\\Start\\StartController.cs",
+              "RelativeToolTip": "..\\Manager\\User\\Start\\StartController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T16:38:39.105Z"
+              "WhenOpened": "2024-07-24T15:20:31.433Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "StartService.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\User\\Start\\StartService.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\User\\Start\\StartService.cs",
+              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\User\\Start\\StartService.cs",
+              "RelativeToolTip": "..\\Manager\\User\\Start\\StartService.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAiwE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T15:19:54.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TestSettingsEditService.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditService.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditService.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditService.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditService.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAiwGEAAABQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T16:32:16.999Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TestManagerService.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestManager\\TestManagerService.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Tests\\TestManager\\TestManagerService.cs",
@@ -92,20 +109,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TestSettingsEditController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\Tests\\TestSettingsEdit\\TestSettingsEditController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAwFMAAABTAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwC0AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-15T16:08:57.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TestManagerController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Tests\\TestManager\\TestManagerController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Tests\\TestManager\\TestManagerController.cs",
@@ -117,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "QuestionEditController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
@@ -125,11 +142,12 @@
               "RelativeToolTip": "..\\Manager\\Manager\\Questions\\QuestionEdit\\QuestionEditController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T16:08:35.135Z"
+              "WhenOpened": "2024-07-15T16:08:35.135Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "QuestionBaseController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\Questions\\QuestionBase\\QuestionBaseController.cs",

@@ -16,6 +16,9 @@ export class TestEditService {
   private settingsLoadedSubject = new Subject<TestSettings>();
   settingsLoaded$ = this.settingsLoadedSubject.asObservable();
 
+  private codeLoadedSubject = new Subject<string>();
+  codeLoaded$ = this.codeLoadedSubject.asObservable();
+
   //API
 
   loadTestSettings(testName: string): void {
@@ -34,5 +37,17 @@ export class TestEditService {
     );
   }
 
-  //NON API
+  loadTestCode(testName: string): void {
+    this.testEditApiService.getTestCode(testName).subscribe((response) => {
+      this.codeLoadedSubject.next(response);
+    });
+  }
+
+  generateTestCodeAndLoadCode(testName: string): void {
+    this.testEditApiService
+      .generateNewTestCodeAndGetCode(testName)
+      .subscribe((response) => {
+        this.codeLoadedSubject.next(response);
+      });
+  }
 }
