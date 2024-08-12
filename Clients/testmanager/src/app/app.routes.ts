@@ -14,6 +14,8 @@ import { questionBaseMustBeSelectedGuard } from './manager/guards/questions/ques
 import { testMustBeSelectedGuard } from './manager/guards/tests/test-must-be-selected.guard';
 import { TestPageComponent } from './user/components/test-page/test-page.component';
 import { StartComponent } from './user/components/test-page/content/start/start.component';
+import { TestHistoryComponent } from './manager/components/home-page/content/test-history/test-history.component';
+import { TestInterfaceComponent } from './user/components/test-page/content/test-interface/test-interface.component';
 
 export const routes: Routes = [
   { path: 'manager', pathMatch: 'full', redirectTo: 'login' },
@@ -56,12 +58,19 @@ export const routes: Routes = [
           },
         ],
       },
+      {
+        path: 'test-history',
+        component: TestHistoryComponent,
+      },
     ],
   },
   {
     path: 'test',
     component: TestPageComponent,
-    children: [{ path: 'start', component: StartComponent }],
+    children: [
+      { path: 'start', component: StartComponent },
+      { path: 'interface', component: TestInterfaceComponent },
+    ],
   },
   { path: '**', pathMatch: 'full', redirectTo: 'test/start' },
 ];
