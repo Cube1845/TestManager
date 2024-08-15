@@ -1,4 +1,5 @@
-﻿using Manager.Infrastructure;
+﻿using Manager.Common;
+using Manager.Infrastructure;
 using Manager.Manager.Tests.Models.DTOs.Manager;
 using Manager.Manager.Tests.Models.DTOs.SettingsEdit;
 using Manager.Manager.Tests.TestSettingsEdit;

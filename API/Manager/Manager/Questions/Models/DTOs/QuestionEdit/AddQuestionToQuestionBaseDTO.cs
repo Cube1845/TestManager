@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Manager.Infrastructure;
+using Manager.Common;
 
 namespace Manager.Manager.Questions.Models.DTOs.QuestionEdit
 {

@@ -1,4 +1,5 @@
-﻿using Manager.Infrastructure;
+﻿using Manager.Common;
+using Manager.Infrastructure;
 using Manager.Persistence;
 using Manager.Persistence.Tables;
 using Microsoft.EntityFrameworkCore;
@@ -41,11 +42,10 @@ namespace Manager.Manager.Questions.QuestionBase
                 return Result.Error("Ta baza pytań już istnieje");
             }
 
-            var questionBase = new QuestionBases()
+            var questionBase = new Persistence.Tables.QuestionBase()
             {
                 Name = baseName,
-                Questions = JsonConvert.SerializeObject(new List<Question>()),
-                OwnerEmail = ownerEmail,
+                OwnerEmail = ownerEmail
             };
 
             await _context.QuestionBases.AddAsync(questionBase);

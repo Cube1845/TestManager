@@ -35,7 +35,7 @@ namespace Manager.Manager.Tests.TestManager
                 return Result.Error("Test z taką nazwą już istnieje");
             }
 
-            var newTest = new Persistence.Tables.Tests()
+            var newTest = new Persistence.Tables.Test()
             {
                 Name = name,
                 OwnerEmail = ownerEmail,

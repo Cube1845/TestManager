@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Manager.Persistence.Tables
 {
-    public class Tests
+    public class Test
     {
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string OwnerEmail { get; set; } = string.Empty;

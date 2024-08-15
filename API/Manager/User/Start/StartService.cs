@@ -1,4 +1,5 @@
-﻿using Manager.Infrastructure;
+﻿using Manager.Common;
+using Manager.Infrastructure;
 using Manager.Manager.Tests.Models;
 using Manager.Manager.Tests.TestSettingsEdit;
 using Manager.Persistence;
@@ -35,7 +36,7 @@ namespace Manager.User.Start
             List<Question> currentQuestions = new List<Question>();
             List<Question> questionsToChooseFrom = new List<Question>();
 
-            Persistence.Tables.QuestionBases? questionDb;
+            Persistence.Tables.QuestionBase? questionDb;
 
             foreach (string questionBaseName in settings.UsedQuestionBases)
             {
