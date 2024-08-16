@@ -19,10 +19,14 @@
                 <td>{{ question.content }}</td>
                         
                 @for (answer of question.answers; track $index) {
-                    <td>{{ answer }}</td>
+                    <td>{{ answer.text }}</td>
                 }
 
-                <td>{{ question.correctAnswer }}</td>
+                @for (answer of question.answers; track $index) {
+                    @if (answer.isCorrect) {
+                        <td>{{ this.convertDigitToAnswerLetter($index) }}</td>
+                    }
+                }
             </tr>
         }
     </table>

@@ -3,6 +3,7 @@ using Manager.Infrastructure;
 using Manager.Manager.Tests.Models;
 using Manager.Manager.Tests.TestSettingsEdit;
 using Manager.Persistence;
+using Manager.User.Models;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
@@ -17,26 +18,29 @@ namespace Manager.User.Start
     {
         private readonly ManagerDbContext _context = dbContext;
 
-        public async Task<Result<List<Question>>> GetQuesitonSet(string testCode)
+        public async Task<Result<List<ProtectedQuestion>>> GetQuesitonSet(string testCode)
         {
             var testDb = await _context.Tests.FirstOrDefaultAsync(test => test.Code == testCode);
 
             if (testDb == null)
             {
-                return Result<List<Question>>.Error("Taki test nie istnieje");
+                return Result<List<ProtectedQuestion>>.Error("Taki test nie istnieje");
             }
 
             TestSettings settings = JsonConvert.DeserializeObject<TestSettings>(testDb.Settings)!;
 
             if (settings.UsedQuestionBases.Count < 1 || settings.UsedQuestionBases == null)
             {
-                return Result<List<Question>>.Error("Ten test nie ma wybranych pytań");
+                return Result<List<ProtectedQuestion>>.Error("Ten test nie ma wybranych pytań");
             }
 
-            List<Question> currentQuestions = new List<Question>();
-            List<Question> questionsToChooseFrom = new List<Question>();
+            List<ProtectedQuestion> currentQuestions = [];
+            List<ProtectedQuestion> questionsToChooseFrom = [];
 
             Persistence.Tables.QuestionBase? questionDb;
+
+            var allQuestionList = await _context.Questions.ToListAsync();
+            var allAnswerList = await _context.Answers.ToListAsync();
 
             foreach (string questionBaseName in settings.UsedQuestionBases)
             {
@@ -47,26 +51,45 @@ namespace Manager.User.Start
 
                 if (questionDb == null)
                 {
-                    return Result<List<Question>>.Error("Ten test korzysta z nie istniejącej bazy pytań");
+                    return Result<List<ProtectedQuestion>>.Error("Ten test korzysta z nie istniejącej bazy pytań");
                 }
 
-                currentQuestions = JsonConvert.DeserializeObject<List<Question>>(questionDb.Questions)!;
+                var questionsDbModel = allQuestionList.Where(question => question.QuestionBaseId == questionDb.Id);
 
-                foreach (Question question in currentQuestions)
+                foreach (var question in questionsDbModel)
+                {
+                    ProtectedQuestion finalQuestion = new()
+                    {
+                        QuestionId = question.Id,
+                        Content = question.Text,
+                        Answers = []
+                    };
+
+                    var answersToCurrentQuestion = allAnswerList.Where(answer => answer.QuestionId == question.Id).ToList();
+
+                    foreach (var answer in answersToCurrentQuestion)
+                    {
+                        finalQuestion.Answers.Add(answer.Text);
+                    }
+
+                    currentQuestions.Add(finalQuestion);
+                }
+
+                foreach (ProtectedQuestion question in currentQuestions)
                 {
                     questionsToChooseFrom.Add(question);
                 }
             }
 
-            List<Question> finalQuestions = new List<Question>();
+            List<ProtectedQuestion> finalQuestions = [];
 
             if (settings.QuestionCount > questionsToChooseFrom.Count)
             {
-                return Result<List<Question>>.Error("Za mało pytań do wyboru w tym teście");
+                return Result<List<ProtectedQuestion>>.Error("Za mało pytań do wyboru w tym teście");
             }
 
-            Random random = new Random();
-            List<int> disqualifiedIterations = new List<int>();
+            Random random = new();
+            List<int> disqualifiedIterations = [];
             int iteration;
 
             for (int i = 0; i < settings.QuestionCount; i++)
@@ -81,7 +104,7 @@ namespace Manager.User.Start
                 disqualifiedIterations.Add(iteration);
             }
 
-            return Result<List<Question>>.Success(finalQuestions);
+            return Result<List<ProtectedQuestion>>.Success(finalQuestions);
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Question } from '../../../../global/types/question';
+import { Question } from '../../types/question';
 
 export type UpdateQuestionInQuestionBaseDTO = {
   questionBaseName: string;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../../../../global/types/question';
+import { Question } from '../../../models/types/question';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EditQuestionsInQuestionBaseDTO } from '../../../models/DTOs/question-edit/editQuestionsInQuestionBaseDto';

@@ -8,7 +8,7 @@ import {
 import { NgStyle } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { QuestionBaseEditComponent } from './question-base-edit/question-base-edit.component';
-import { Question } from '../../../../../global/types/question';
+import { Question } from '../../../../models/types/question';
 import { QuestionBaseService } from '../../../../services/questions/base/question-base.service';
 import { QuestionApiService } from '../../../../services/questions/questions/question-api.service';
 import { QuestionService } from '../../../../services/questions/questions/question.service';

@@ -22,38 +22,36 @@ public class QuestionEditService(ManagerDbContext context)
             return Result<List<Common.Question>>.Error("Ta baza pytań nie istnieje");
         }
 
-        int questionBaseId = questionBaseDb.Id;
 
         var allQuestionList = await _context.Questions.ToListAsync();
-        var baseQuestionList = allQuestionList.Where(question => question.QuestionBaseId == questionBaseId).ToList();
+        var baseQuestionList = allQuestionList.Where(question => question.QuestionBaseId == questionBaseDb.Id).ToList();
 
         List<Common.Question> questionList = [];
-        var allAnswers = await _context.Answers.ToListAsync();
+
+        var allAnswerList = await _context.Answers.ToListAsync();
+        List<Common.Answer> answers;
+        List<Persistence.Tables.Answer> answersToCurrentQuestion;
 
         foreach (var question in baseQuestionList)
         {
-            int id = question.Id;
-            var answersToCurrentQuestion = allAnswers.Where(answer => answer.QuestionId == id).ToList();
+            answersToCurrentQuestion = allAnswerList.Where(answer => answer.QuestionId == question.Id).ToList();
 
-            List<string> answers = [];
-            int correctAnswerIndex = 0;
+            answers = [];
 
-            for (int i = 0; i < answersToCurrentQuestion.Count; i++)
+            foreach (var answer in answersToCurrentQuestion)
             {
-                answers.Add(answersToCurrentQuestion[i].Text);
-
-                if (answersToCurrentQuestion[i].IsCorrect)
+                answers.Add(new Common.Answer()
                 {
-                    correctAnswerIndex = i;
-                }
+                    Text = answer.Text,
+                    IsCorrect = answer.IsCorrect
+                });
             }
 
             questionList.Add(
                 new Common.Question()
                 {
                     Content = question.Text,
-                    Answers = answers,
-                    CorrectAnswerIndex = correctAnswerIndex
+                    Answers = answers
                 }
             );
         }
@@ -76,29 +74,27 @@ public class QuestionEditService(ManagerDbContext context)
         {
             QuestionBaseId = questionBaseDb.Id,
             Text = questionToAdd.Content,
+            QuestionBase = questionBaseDb,
         };
 
         await _context.Questions.AddAsync(question);
         await _context.SaveChangesAsync();
 
-        Persistence.Tables.Answer answer;
-
-        for (int i = 0; i < questionToAdd.Answers.Count; i++)
+        foreach (var answer in questionToAdd.Answers)
         {
-            answer = new Persistence.Tables.Answer()
+            Persistence.Tables.Answer answerModel = new()
             {
-                Text = questionToAdd.Answers[i],
+                Text = answer.Text,
                 QuestionId = question.Id,
-                IsCorrect = false
+                IsCorrect = answer.IsCorrect,
+                Question = question
             };
 
-            if (questionToAdd.CorrectAnswerIndex == i)
-            {
-                answer.IsCorrect = true;
-            }
-
-            await _context.Answers.AddAsync(answer);
+            await _context.Answers.AddAsync(answerModel);
+            question.Answers.Add(answerModel);
         }
+
+        questionBaseDb.Questions.Add(question);
         
         await _context.SaveChangesAsync();
         return Result.Success("Dodano pytanie");
@@ -115,13 +111,19 @@ public class QuestionEditService(ManagerDbContext context)
             return Result.Error("Ta baza pytań nie istnieje");
         }
 
-        var serializedQuestionList = questionBaseDb.Questions;
-        var questionList = JsonConvert.DeserializeObject<List<Common.Question>>(serializedQuestionList)!;
+        var allQuestionList = await _context.Questions.ToListAsync();
+        var baseQuestionList = allQuestionList.Where(question => question.QuestionBaseId == questionBaseDb.Id).ToList();
+        baseQuestionList[questionIndex].Text = updatedQuestion.Content;
 
-        questionList[questionIndex] = updatedQuestion;
-        serializedQuestionList = JsonConvert.SerializeObject(questionList);
+        var allAnswerList = await _context.Answers.ToListAsync();
+        var answers = allAnswerList.Where(answer => answer.QuestionId == baseQuestionList[questionIndex].Id).ToList();
 
-        questionBaseDb.Questions = serializedQuestionList;
+        for (int i = 0; i < answers.Count; i++)
+        {
+            answers[i].Text = updatedQuestion.Answers[i].Text;
+            answers[i].IsCorrect = updatedQuestion.Answers[i].IsCorrect;
+        }
+
         await _context.SaveChangesAsync();
 
         return Result.Success("Zapisano");
@@ -138,13 +140,9 @@ public class QuestionEditService(ManagerDbContext context)
             return Result.Error("Ta baza pytań nie istnieje");
         }
 
-        var serializedQuestionList = questionBaseDb.Questions;
-        var questionList = JsonConvert.DeserializeObject<List<Question>>(serializedQuestionList)!;
-
+        var questionList = questionBaseDb.Questions;
         questionList.RemoveAt(questionIndex);
-        serializedQuestionList = JsonConvert.SerializeObject(questionList);
 
-        questionBaseDb.Questions = serializedQuestionList;
         await _context.SaveChangesAsync();
 
         return Result.Success("Usunięto pytanie");

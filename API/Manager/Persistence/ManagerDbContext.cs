@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace Manager.Persistence;
 
@@ -14,6 +15,8 @@ public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : Iden
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        base.OnModelCreating(builder);
+
         builder.Entity<QuestionBase>(x => 
         {
             x.HasKey(e => e.Id);

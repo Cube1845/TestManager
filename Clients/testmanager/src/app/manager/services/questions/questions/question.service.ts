@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../../../../global/types/question';
+import { Question } from '../../../models/types/question';
 import { QuestionApiService } from './question-api.service';
 
 @Injectable({
