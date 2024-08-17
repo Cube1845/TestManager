@@ -69,9 +69,14 @@ namespace Manager.User.Start
 
                     foreach (var answer in answersToCurrentQuestion)
                     {
-                        finalQuestion.Answers.Add(answer.Text);
+                        finalQuestion.Answers.Add(new IdentifiedAnswer()
+                        {
+                            Text = answer.Text,
+                            AnswerId = answer.Id
+                        });
                     }
 
+                    finalQuestion.Answers.Shuffle();
                     currentQuestions.Add(finalQuestion);
                 }
 

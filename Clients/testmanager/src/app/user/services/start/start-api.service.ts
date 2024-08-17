@@ -1,9 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ProtectedQuestion } from '../../models/types/protectedQuestion';
+import { map, Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment.development';
+import { Result } from '../../../common/models/types/result';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StartApiService {
+  constructor(private readonly http: HttpClient) {}
 
-  constructor() { }
+  private readonly apiUrl = environment.apiUrl;
+
+  getQuestionSet(testCode: string): Observable<Result<ProtectedQuestion[]>> {
+    return this.http.get<Result<ProtectedQuestion[]>>(
+      this.apiUrl + '/api/user/start' + `?testCode=${testCode}`,
+      { headers: { skipAuth: 'true' } }
+    );
+  }
 }

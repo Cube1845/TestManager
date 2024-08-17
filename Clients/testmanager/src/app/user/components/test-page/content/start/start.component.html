@@ -3,17 +3,17 @@
         <h1>Rozpocznij test</h1>
     </div>
 
-    <div class="code-box">
+    <div class="code-box" [formGroup]="dataFormGroup">
         <div class="code-input-box">
-            <label class="input-label" >Kod</label>
-            <input type="text" class="input"/>
+            <label class="input-label">Kod</label>
+            <input type="text" class="input" formControlName="code"/>
         </div>
 
         <div class="code-input-box">
             <label class="input-label" >Nazwa użytkownika</label>
-            <input type="text" class="input"/>
+            <input type="text" class="input" formControlName="username"/>
         </div>
 
-        <button type="button">Rozpocznij test</button>
+        <button type="button" (click)="startTest()">Rozpocznij test</button>
     </div>
 </div>
