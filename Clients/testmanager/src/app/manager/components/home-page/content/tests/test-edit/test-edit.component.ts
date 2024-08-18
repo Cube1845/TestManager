@@ -17,7 +17,7 @@ import { QuestionBaseApiService } from '../../../../../services/questions/base/q
 import { TestEditService } from '../../../../../services/tests/edit/test-edit.service';
 import { TestManagerService } from '../../../../../services/tests/manager/test-manager.service';
 import { ComboBoxComponent } from './combo-box/combo-box.component';
-import { ToasterService } from '../../../../../services/toaster/toaster.service';
+import { ToasterService } from '../../../../../../common/services/toaster/toaster.service';
 
 @Component({
   selector: 'app-test-edit',

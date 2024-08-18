@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
-import { ToasterService } from '../../../services/toaster/toaster.service';
+import { ToasterService } from '../../../../common/services/toaster/toaster.service';
 
 @Component({
   selector: 'app-register-panel',

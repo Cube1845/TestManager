@@ -5,6 +5,10 @@ import { SelectedAnswer } from '../../models/types/selectedAnswer';
   providedIn: 'root',
 })
 export class SelectedAnswersSingletonService {
+  clearSelectedAnswers(): void {
+    sessionStorage.removeItem('selectedAnswers');
+  }
+
   selectAnswer(questionIndex: number, answerIndex: number): void {
     const stringifiedSelectedAnswers =
       sessionStorage.getItem('selectedAnswers');

@@ -8,7 +8,7 @@ import { inject } from '@angular/core';
 import { catchError, map, of, tap } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { ToasterService } from '../services/toaster/toaster.service';
+import { ToasterService } from '../../common/services/toaster/toaster.service';
 import { isResult } from '../../common/models/types/result';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {

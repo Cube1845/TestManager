@@ -14,6 +14,6 @@
             <input type="text" class="input" formControlName="username"/>
         </div>
 
-        <button type="button" (click)="startTest()">Rozpocznij test</button>
+        <button type="button" (click)="startTest()" [disabled]="dataFormGroup.invalid">Rozpocznij test</button>
     </div>
 </div>

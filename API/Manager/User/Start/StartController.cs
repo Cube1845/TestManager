@@ -21,11 +21,6 @@ namespace Manager.User.Start
         {
             Result<List<ProtectedQuestion>> result = await _startService.GetQuesitonSet(testCode);
 
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result);
-            }
-
             return Ok(result);
         }
     }

@@ -1,6 +1,6 @@
-<app-question-content questionContent="Treść pytania bla bla bla bla" [answers]="['a', 'b', 'c', 'd']"></app-question-content>
+<app-question-content [questionContent]="this.currentQuestionContent" [answers]="this.currentAnswerTexts"></app-question-content>
 
 <div class="navigate-bar">
-    <button class="change-page previous"><</button>
-    <button class="change-page next">></button>
+    <button class="change-page previous" [disabled]="this.currentIndex < 1" (click)="goToPreviousQuestion()"><</button>
+    <button class="change-page next" [disabled]="this.nextPageButtonDisabled" (click)="goToNextQuestion()">></button>
 </div>

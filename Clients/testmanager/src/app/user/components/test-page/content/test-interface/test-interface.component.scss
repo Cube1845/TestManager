@@ -28,5 +28,10 @@
             transition: background-color $hover-transition-time ease, transform $hover-transition-time;
             background-color: $foreground-hover-color;
         }
+
+        &:disabled {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $function-button-disabled-color;
+        }
     }
 }

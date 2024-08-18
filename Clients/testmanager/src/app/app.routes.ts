@@ -16,6 +16,7 @@ import { TestPageComponent } from './user/components/test-page/test-page.compone
 import { StartComponent } from './user/components/test-page/content/start/start.component';
 import { TestHistoryComponent } from './manager/components/home-page/content/test-history/test-history.component';
 import { TestInterfaceComponent } from './user/components/test-page/content/test-interface/test-interface.component';
+import { questionSetMustBeLoadedGuard } from './user/guards/question-set-must-be-loaded.guard';
 
 export const routes: Routes = [
   { path: 'manager', pathMatch: 'full', redirectTo: 'login' },
@@ -69,7 +70,11 @@ export const routes: Routes = [
     component: TestPageComponent,
     children: [
       { path: 'start', component: StartComponent },
-      { path: 'interface', component: TestInterfaceComponent },
+      {
+        path: 'interface',
+        component: TestInterfaceComponent,
+        canActivate: [questionSetMustBeLoadedGuard],
+      },
     ],
   },
   { path: '**', pathMatch: 'full', redirectTo: 'test/start' },
