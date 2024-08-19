@@ -1,6 +1,11 @@
-<app-question-content [questionContent]="this.currentQuestionContent" [answers]="this.currentAnswerTexts"></app-question-content>
+<app-question-content [questionContent]="this.currentQuestion.content" [answers]="this.currentQuestion.answers" (answerClicked)="selectOrDeselectAnswer($event)"></app-question-content>
 
 <div class="navigate-bar">
     <button class="change-page previous" [disabled]="this.currentIndex < 1" (click)="goToPreviousQuestion()"><</button>
+
+    @if (showFinishTestButton) {
+        <button class="finish-test">Zakończ test</button>
+    }
+
     <button class="change-page next" [disabled]="this.nextPageButtonDisabled" (click)="goToNextQuestion()">></button>
 </div>

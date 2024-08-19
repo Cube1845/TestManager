@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class UsernameSingletonService {
   setUsername(username: string | null): void {
+    if (username == null) {
+      sessionStorage.removeItem('username');
+    }
+
     sessionStorage.setItem('username', JSON.stringify(username));
   }
 

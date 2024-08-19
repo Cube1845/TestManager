@@ -9,7 +9,7 @@ export class SelectedAnswersSingletonService {
     sessionStorage.removeItem('selectedAnswers');
   }
 
-  selectAnswer(questionIndex: number, answerIndex: number): void {
+  selectAnswer(questionId: number, answerId: number): void {
     const stringifiedSelectedAnswers =
       sessionStorage.getItem('selectedAnswers');
     var selectedAnswers: SelectedAnswer[];
@@ -18,9 +18,7 @@ export class SelectedAnswersSingletonService {
       stringifiedSelectedAnswers == null ||
       stringifiedSelectedAnswers == ''
     ) {
-      selectedAnswers = [
-        { questionIndex: questionIndex, answerIndex: answerIndex },
-      ];
+      selectedAnswers = [{ questionId: questionId, answerId: answerId }];
 
       sessionStorage.setItem(
         'selectedAnswers',
@@ -30,10 +28,49 @@ export class SelectedAnswersSingletonService {
     }
 
     selectedAnswers = JSON.parse(stringifiedSelectedAnswers);
-    selectedAnswers.push({
-      questionIndex: questionIndex,
-      answerIndex: answerIndex,
+
+    var anyAnswerAlreadySelected = false;
+
+    selectedAnswers.forEach((answer) => {
+      if (answer.questionId == questionId) {
+        answer.answerId = answerId;
+
+        sessionStorage.setItem(
+          'selectedAnswers',
+          JSON.stringify(selectedAnswers)
+        );
+
+        anyAnswerAlreadySelected = true;
+      }
     });
+
+    if (!anyAnswerAlreadySelected) {
+      selectedAnswers.push({
+        questionId: questionId,
+        answerId: answerId,
+      });
+    }
+
+    sessionStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
+  }
+
+  deselectAnswer(questionId: number): void {
+    const stringifiedSelectedAnswers =
+      sessionStorage.getItem('selectedAnswers')!;
+    var selectedAnswers: SelectedAnswer[] = JSON.parse(
+      stringifiedSelectedAnswers
+    );
+
+    for (let i = 0; i < selectedAnswers.length; i++) {
+      if (selectedAnswers[i].questionId == questionId) {
+        selectedAnswers.splice(i, 1);
+      }
+    }
+
+    if (selectedAnswers.length < 1) {
+      sessionStorage.removeItem('selectedAnswers');
+      return;
+    }
 
     sessionStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
   }

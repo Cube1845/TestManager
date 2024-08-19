@@ -42,9 +42,11 @@ namespace Manager.User.Start
             var allQuestionList = await _context.Questions.ToListAsync();
             var allAnswerList = await _context.Answers.ToListAsync();
 
+            var allQuestionDbList = await _context.QuestionBases.ToListAsync();
+
             foreach (string questionBaseName in settings.UsedQuestionBases)
             {
-                questionDb = await _context.QuestionBases.FirstOrDefaultAsync(
+                questionDb = allQuestionDbList.First(
                     questionBase => questionBase.Name == questionBaseName &&
                     questionBase.OwnerEmail == testDb.OwnerEmail
                 );
@@ -76,7 +78,10 @@ namespace Manager.User.Start
                         });
                     }
 
-                    finalQuestion.Answers.Shuffle();
+                    var answersArray = finalQuestion.Answers.ToArray();
+                    Random.Shared.Shuffle(answersArray);
+                    finalQuestion.Answers = answersArray.ToList();
+
                     currentQuestions.Add(finalQuestion);
                 }
 
@@ -93,7 +98,6 @@ namespace Manager.User.Start
                 return Result<List<ProtectedQuestion>>.Error("Za mało pytań do wyboru w tym teście");
             }
 
-            Random random = new();
             List<int> disqualifiedIterations = [];
             int iteration;
 
@@ -101,7 +105,7 @@ namespace Manager.User.Start
             {
                 do
                 {
-                    iteration = random.Next(0, questionsToChooseFrom.Count);
+                    iteration = Random.Shared.Next(0, questionsToChooseFrom.Count);
                 }
                 while (disqualifiedIterations.Contains(iteration)); 
 

@@ -7,29 +7,29 @@
         @switch (answers.length) {
             @case (2) {
                 <div class="answer-row">
-                    <button type="button" class="answer">{{ answers[0] }}</button>
-                    <button type="button" class="answer">{{ answers[1] }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(0)" [ngStyle]="{'background-color': getValidColor(0), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(0)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[0].text }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(1)" [ngStyle]="{'background-color': getValidColor(1), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(1)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[1].text }}</button>
                 </div>
             }
 
             @case (3) {
                 <div class="answer-row">
-                    <button type="button" class="answer">{{ answers[0] }}</button>
-                    <button type="button" class="answer">{{ answers[1] }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(0)" [ngStyle]="{'background-color': getValidColor(0), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(0)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[0].text }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(1)" [ngStyle]="{'background-color': getValidColor(1), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(1)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[1].text }}</button>
                 </div>
                 <div class="answer-row">
-                    <button type="button" class="answer">{{ answers[2] }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(2)" [ngStyle]="{'background-color': getValidColor(2), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(2)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[2].text }}</button>
                 </div>
             }
 
             @case (4) {
                 <div class="answer-row">
-                    <button type="button" class="answer">{{ answers[0] }}</button>
-                    <button type="button" class="answer">{{ answers[1] }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(0)" [ngStyle]="{'background-color': getValidColor(0), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(0)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[0].text }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(1)" [ngStyle]="{'background-color': getValidColor(1), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(1)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[1].text }}</button>
                 </div>
                 <div class="answer-row">
-                    <button type="button" class="answer">{{ answers[2] }}</button>
-                    <button type="button" class="answer">{{ answers[3] }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(2)" [ngStyle]="{'background-color': getValidColor(2), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(2)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[2].text }}</button>
+                    <button type="button" class="answer" (click)="answerTileClicked(3)" [ngStyle]="{'background-color': getValidColor(3), 'transition': 'background-color 0.1s ease, transform 0.1s'}" (mouseover)="setHoveredAnswerTile(3)" (mouseleave)="setHoveredAnswerTile(-1)">{{ answers[3].text }}</button>
                 </div>
             }
         }

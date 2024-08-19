@@ -13,10 +13,10 @@
         margin: 50px;
     }
 
-    .change-page {
+    .change-page, .finish-test {
         margin: 0px 80px;
         transition: background-color $hover-transition-time ease, transform $hover-transition-time;
-        background-color: $nav-bar-color;
+        background-color: $answer-color;
         border: 0;
         color: $text-color;
         font-size: 20px;
@@ -26,12 +26,12 @@
 
         &:hover {
             transition: background-color $hover-transition-time ease, transform $hover-transition-time;
-            background-color: $foreground-hover-color;
+            background-color: $answer-hover-color;
         }
 
         &:disabled {
             transition: background-color $hover-transition-time ease, transform $hover-transition-time;
-            background-color: $function-button-disabled-color;
+            background-color: $answer-selected-color;
         }
     }
 }

@@ -6,6 +6,11 @@ import { ProtectedQuestion } from '../../models/types/protectedQuestion';
 })
 export class QuestionSetSingletonService {
   setQuestionSet(questionSet: ProtectedQuestion[] | null): void {
+    if (questionSet == null) {
+      sessionStorage.removeItem('questionSet');
+      return;
+    }
+
     sessionStorage.setItem('questionSet', JSON.stringify(questionSet));
   }
 

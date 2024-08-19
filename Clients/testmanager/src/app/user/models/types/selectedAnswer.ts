@@ -1,4 +1,4 @@
 export type SelectedAnswer = {
-  questionIndex: number;
-  answerIndex: number;
+  questionId: number;
+  answerId: number;
 };
