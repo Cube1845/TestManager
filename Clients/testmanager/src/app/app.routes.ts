@@ -17,6 +17,8 @@ import { StartComponent } from './user/components/test-page/content/start/start.
 import { TestHistoryComponent } from './manager/components/home-page/content/test-history/test-history.component';
 import { TestInterfaceComponent } from './user/components/test-page/content/test-interface/test-interface.component';
 import { questionSetMustBeLoadedGuard } from './user/guards/question-set-must-be-loaded.guard';
+import { FinishComponent } from './user/components/test-page/content/finish/finish.component';
+import { testMustBeCompletedGuard } from './user/guards/test-must-be-completed.guard';
 
 export const routes: Routes = [
   { path: 'manager', pathMatch: 'full', redirectTo: 'login' },
@@ -74,6 +76,11 @@ export const routes: Routes = [
         path: 'interface',
         component: TestInterfaceComponent,
         canActivate: [questionSetMustBeLoadedGuard],
+      },
+      {
+        path: 'finish',
+        component: FinishComponent,
+        canActivate: [testMustBeCompletedGuard],
       },
     ],
   },

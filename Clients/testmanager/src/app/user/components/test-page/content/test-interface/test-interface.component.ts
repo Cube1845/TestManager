@@ -162,4 +162,6 @@ export class TestInterfaceComponent implements OnInit {
       this.showFinishTestButton = false;
     }
   }
+
+  finishTest(): void {}
 }
