@@ -18,20 +18,20 @@ namespace Manager.User.Start
     {
         private readonly ManagerDbContext _context = dbContext;
 
-        public async Task<Result<List<ProtectedQuestion>>> GetQuesitonSet(string testCode)
+        public async Task<Result<TestData>> GetQuesitonSet(string testCode)
         {
             var testDb = await _context.Tests.FirstOrDefaultAsync(test => test.Code == testCode);
 
             if (testDb == null)
             {
-                return Result<List<ProtectedQuestion>>.Error("Taki test nie istnieje");
+                return Result<TestData>.Error("Taki test nie istnieje");
             }
 
             TestSettings settings = JsonConvert.DeserializeObject<TestSettings>(testDb.Settings)!;
 
             if (settings.UsedQuestionBases.Count < 1 || settings.UsedQuestionBases == null)
             {
-                return Result<List<ProtectedQuestion>>.Error("Ten test nie ma wybranych pytań");
+                return Result<TestData>.Error("Ten test nie ma wybranych pytań");
             }
 
             List<ProtectedQuestion> currentQuestions = [];
@@ -53,7 +53,7 @@ namespace Manager.User.Start
 
                 if (questionDb == null)
                 {
-                    return Result<List<ProtectedQuestion>>.Error("Ten test korzysta z nie istniejącej bazy pytań");
+                    return Result<TestData>.Error("Ten test korzysta z nie istniejącej bazy pytań");
                 }
 
                 var questionsDbModel = allQuestionList.Where(question => question.QuestionBaseId == questionDb.Id);
@@ -95,7 +95,7 @@ namespace Manager.User.Start
 
             if (settings.QuestionCount > questionsToChooseFrom.Count)
             {
-                return Result<List<ProtectedQuestion>>.Error("Za mało pytań do wyboru w tym teście");
+                return Result<TestData>.Error("Za mało pytań do wyboru w tym teście");
             }
 
             List<int> disqualifiedIterations = [];
@@ -113,7 +113,13 @@ namespace Manager.User.Start
                 disqualifiedIterations.Add(iteration);
             }
 
-            return Result<List<ProtectedQuestion>>.Success(finalQuestions);
+            TestData testData = new()
+            {
+                Questions = finalQuestions,
+                TestId = testDb.Id
+            };
+
+            return Result<TestData>.Success(testData);
         }
     }
 }

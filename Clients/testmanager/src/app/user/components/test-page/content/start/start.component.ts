@@ -8,7 +8,7 @@ import {
 import { StartService } from '../../../../services/start/start.service';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { UsernameSingletonService } from '../../../../services/singletons/username-singleton.service';
+import { DataSingletonService } from '../../../../services/singletons/data-singleton.service';
 
 @Component({
   selector: 'app-start',
@@ -21,13 +21,13 @@ export class StartComponent {
   constructor(
     private readonly startService: StartService,
     private readonly router: Router,
-    private readonly usernameSingleton: UsernameSingletonService
+    private readonly dataSingleton: DataSingletonService
   ) {
     this.startService.questionSetLoaded$
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
         this.router.navigateByUrl('test/interface');
-        this.usernameSingleton.setUsername(this.dataFormGroup.value.username!);
+        this.dataSingleton.setUsername(this.dataFormGroup.value.username!);
       });
   }
 

@@ -1,14 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IdentifiedAnswer } from '../../../../../models/types/identifiedAnswer';
-import { QuestionSetSingletonService } from '../../../../../services/singletons/question-set-singleton.service';
-import { UsernameSingletonService } from '../../../../../services/singletons/username-singleton.service';
-import { SelectedAnswersSingletonService } from '../../../../../services/singletons/selected-answers-singleton.service';
 import { NgStyle } from '@angular/common';
 import { AnswerTileColorService } from '../../../../../services/cosmetics/answer-tile-color.service';
 

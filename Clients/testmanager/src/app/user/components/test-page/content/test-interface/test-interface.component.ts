@@ -4,6 +4,8 @@ import { QuestionSetSingletonService } from '../../../../services/singletons/que
 import { ProtectedQuestion } from '../../../../models/types/protectedQuestion';
 import { SelectedAnswersSingletonService } from '../../../../services/singletons/selected-answers-singleton.service';
 import { AnswerTileColorService } from '../../../../services/cosmetics/answer-tile-color.service';
+import { FinishService } from '../../../../services/finish/finish.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-interface',
@@ -16,7 +18,9 @@ export class TestInterfaceComponent implements OnInit {
   constructor(
     private readonly questionSetSingleton: QuestionSetSingletonService,
     private readonly selectedAnswersSingleton: SelectedAnswersSingletonService,
-    private readonly answerTileColorService: AnswerTileColorService
+    private readonly answerTileColorService: AnswerTileColorService,
+    private readonly finishService: FinishService,
+    private readonly router: Router
   ) {}
 
   currentQuestion!: ProtectedQuestion;
@@ -163,5 +167,8 @@ export class TestInterfaceComponent implements OnInit {
     }
   }
 
-  finishTest(): void {}
+  finishTest(): void {
+    this.router.navigateByUrl('test/finish');
+    this.finishService.finishTest();
+  }
 }

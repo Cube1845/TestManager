@@ -8,9 +8,9 @@ export const testMustBeCompletedGuard: CanActivateFn = (route, state) => {
 
   const questionSet = sessionStorage.getItem('questionSet');
   const selectedAnswers = sessionStorage.getItem('selectedAnswers');
-  const username = sessionStorage.getItem('username');
+  const data = sessionStorage.getItem('data');
 
-  if (questionSet == null || selectedAnswers == null || username == null) {
+  if (questionSet == null || selectedAnswers == null || data == null) {
     router.navigateByUrl('test/start');
     return false;
   }

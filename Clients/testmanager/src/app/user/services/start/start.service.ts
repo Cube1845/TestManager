@@ -3,6 +3,7 @@ import { QuestionSetSingletonService } from '../singletons/question-set-singleto
 import { StartApiService } from './start-api.service';
 import { Subject } from 'rxjs';
 import { ToasterService } from '../../../common/services/toaster/toaster.service';
+import { DataSingletonService } from '../singletons/data-singleton.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class StartService {
   constructor(
     private readonly apiService: StartApiService,
     private readonly questionSetSingleton: QuestionSetSingletonService,
+    private readonly dataSingleton: DataSingletonService,
     private readonly toaster: ToasterService
   ) {}
 
@@ -20,7 +22,11 @@ export class StartService {
   loadQuestionSet(testCode: string): void {
     this.apiService.getQuestionSet(testCode).subscribe((response) => {
       if (response.isSuccess) {
-        this.questionSetSingleton.setQuestionSet(response.value);
+        this.questionSetSingleton.setQuestionSet(response.value.questions);
+        this.dataSingleton.setData({
+          testId: response.value.testId,
+          username: '',
+        });
         this.questionSetLoadedSubject.next(true);
       } else {
         this.toaster.displayError(response.message!);

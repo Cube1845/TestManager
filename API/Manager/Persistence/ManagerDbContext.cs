@@ -12,6 +12,7 @@ public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : Iden
     public DbSet<Tables.Test> Tests { get; set; }
     public DbSet<Question> Questions { get; set; }
     public DbSet<Answer> Answers { get; set; }
+    public DbSet<TestHistory> TestHistory { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -30,6 +31,7 @@ public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : Iden
             x.HasKey(e => e.Id);
             x.Property(e => e.OwnerEmail).IsRequired();
             x.Property(e => e.Name).IsRequired();
+            x.HasMany(e => e.TestHistories).WithOne(e => e.Test);
         });
 
         builder.Entity<Question>(x =>
@@ -42,6 +44,12 @@ public class ManagerDbContext(DbContextOptions<ManagerDbContext> options) : Iden
         {
             x.HasKey(e => e.Id);
             x.HasOne(e => e.Question);
+        });
+
+        builder.Entity<TestHistory>(x =>
+        {
+            x.HasKey(e => e.Id);
+            x.HasOne(e => e.Test);
         });
     }
 }
