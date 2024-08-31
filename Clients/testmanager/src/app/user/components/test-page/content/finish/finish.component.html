@@ -1,5 +1,9 @@
 <div class="container">
     <div class="score-info">
-        <h1>Twój wynik: {{ score.earnedPoints}} / {{ score.maximumPoints }}</h1>
+        <h1>Ukończono test!</h1>
+        <h1>Twój wynik: {{ score.earnedPoints}} / {{ score.maximumPoints }} ({{ percentage }}%)</h1>
+        <h1>Nazwa użytkownika: {{username }}</h1>
     </div>
+
+    <button type="button" class="redirect-to-test-page-button" routerLink="../..">Powrót do strony głównej</button>
 </div>

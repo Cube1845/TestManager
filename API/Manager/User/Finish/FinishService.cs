@@ -19,7 +19,9 @@ public class FinishService(ManagerDbContext dbContext)
             SelectedAnswers = JsonConvert.SerializeObject(dto.SelectedAnswers),
             TestId = dto.TestId,
             Score = JsonConvert.SerializeObject(score),
-            Username = dto.Username
+            Username = dto.Username,
+            StartDate = dto.StartDate,
+            FinishDate = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")
         };
 
         await _context.TestHistory.AddAsync(history);

@@ -8,4 +8,6 @@ public class TestHistory
     public Test Test { get; set; }
     public string SelectedAnswers { get; set; } = string.Empty;
     public string Score { get; set; } = string.Empty;
+    public string StartDate {  get; set; } = string.Empty;
+    public string FinishDate {  get; set; } = string.Empty;
 }

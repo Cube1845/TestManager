@@ -16,5 +16,28 @@
 
     .score-info {
         color: $text-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .redirect-to-test-page-button {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        color: $text-color;
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $foreground-color;
+        outline: none;
+        border: none;
+        padding: 15px;
+        font-size: 22px;
+        border-radius: 10px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $foreground-hover-color;
+        }
     }
 }
