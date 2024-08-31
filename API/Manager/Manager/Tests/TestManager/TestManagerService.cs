@@ -39,7 +39,7 @@ namespace Manager.Manager.Tests.TestManager
             {
                 Name = name,
                 OwnerEmail = ownerEmail,
-                Settings = JsonConvert.SerializeObject(new TestSettings())
+                Settings = JsonConvert.SerializeObject(new IdTestSettings())
             };
 
             await _context.Tests.AddAsync(newTest);

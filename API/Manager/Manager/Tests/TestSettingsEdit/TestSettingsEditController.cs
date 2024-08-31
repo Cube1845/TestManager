@@ -19,7 +19,7 @@ namespace Manager.Manager.Tests.TestSettingsEdit
         {
             string userEmail = User.Claims.ToList()[2].Value;
 
-            Result<TestSettings> result = await _testSettingsEditService.GetTestsSettings(userEmail, testName);
+            Result<NameTestSettings> result = await _testSettingsEditService.GetTestsSettings(userEmail, testName);
 
             if (!result.IsSuccess)
             {

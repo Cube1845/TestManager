@@ -1,4 +1,4 @@
 export type TestSettings = {
-  usedQuestionBases: string[];
+  usedQuestionBasesNames: string[];
   questionCount: number;
 };

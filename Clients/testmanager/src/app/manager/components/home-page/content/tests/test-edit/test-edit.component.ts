@@ -36,7 +36,10 @@ export class TestEditComponent implements OnInit, OnDestroy {
     this.testEditService.settingsLoaded$
       .pipe(takeUntilDestroyed())
       .subscribe((settings) => {
-        this.settingsFormGroup.setValue(settings);
+        this.settingsFormGroup.setValue({
+          questionCount: settings.questionCount,
+          usedQuestionBases: settings.usedQuestionBasesNames,
+        });
       });
 
     this.testEditService.codeLoaded$
@@ -87,7 +90,7 @@ export class TestEditComponent implements OnInit, OnDestroy {
 
     const settings: TestSettings = {
       questionCount: this.settingsFormGroup.value.questionCount!,
-      usedQuestionBases: this.settingsFormGroup.value.usedQuestionBases!,
+      usedQuestionBasesNames: this.settingsFormGroup.value.usedQuestionBases!,
     };
 
     this.testEditService

@@ -10,6 +10,6 @@ namespace Manager.Manager.Tests.Models.DTOs.SettingsEdit
     public record UpdateTestSettingsDTO
     {
         public string Name { get; set; } = "";
-        public TestSettings Settings { get; set; } = new TestSettings();
+        public NameTestSettings Settings { get; set; } = new();
     }
 }

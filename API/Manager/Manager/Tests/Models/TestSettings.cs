@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Manager.Manager.Tests.Models;
 
-namespace Manager.Manager.Tests.Models
+public class IdTestSettings
 {
-    public class TestSettings
-    {
-        public List<string> UsedQuestionBases { get; set; } = new List<string>();
-        public int QuestionCount { get; set; } = 10;
-    }
+    public List<int> UsedQuestionBasesIds { get; set; } = [];
+    public int QuestionCount { get; set; } = 10;
+}
+
+public class NameTestSettings
+{
+    public List<string> UsedQuestionBasesNames { get; set; } = [];
+    public int QuestionCount { get; set; } = 10;
 }
