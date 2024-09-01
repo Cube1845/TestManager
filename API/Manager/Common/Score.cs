@@ -1,4 +1,4 @@
-﻿namespace Manager.User.Models;
+﻿namespace Manager.Common;
 
 public record Score
 {

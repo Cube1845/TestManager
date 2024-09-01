@@ -1,5 +1,5 @@
-﻿using Manager.Persistence;
-using Manager.User.Models;
+﻿using Manager.Common;
+using Manager.Persistence;
 using Manager.User.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;

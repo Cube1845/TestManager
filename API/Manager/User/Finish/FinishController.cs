@@ -1,8 +1,8 @@
-﻿using Manager.Infrastructure;
+﻿using Manager.Common;
+using Manager.Infrastructure;
 using Manager.Manager.Tests.Models;
 using Manager.Manager.Tests.Models.DTOs.SettingsEdit;
 using Manager.User.Finish;
-using Manager.User.Models;
 using Manager.User.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

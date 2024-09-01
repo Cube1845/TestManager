@@ -1,5 +1,6 @@
 using Manager.Manager.Questions.QuestionBase;
 using Manager.Manager.Questions.QuestionEdit;
+using Manager.Manager.TestHistory.TestHistory;
 using Manager.Manager.Tests.TestManager;
 using Manager.Manager.Tests.TestSettingsEdit;
 using Manager.Persistence;
@@ -24,6 +25,7 @@ builder.Services.AddScoped<TestSettingsEditService>();
 builder.Services.AddScoped<CodeGeneratorService>();
 builder.Services.AddScoped<StartService>();
 builder.Services.AddScoped<FinishService>();
+builder.Services.AddScoped<TestHistoryService>();
 
 builder.Services.AddCors(options =>
 {

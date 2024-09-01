@@ -1,4 +1,6 @@
-﻿namespace Manager.User.Models.DTOs;
+﻿using Manager.Common;
+
+namespace Manager.User.Models.DTOs;
 
 public record FinishTestDTO
 {
