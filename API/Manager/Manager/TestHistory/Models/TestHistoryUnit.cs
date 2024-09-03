@@ -9,4 +9,5 @@ public class TestHistoryUnit
     public Score Score { get; set; }
     public string StartDate { get; set; } = string.Empty;
     public string FinishDate { get; set; } = string.Empty;
+    public int TestHistoryId { get; set; }
 }
