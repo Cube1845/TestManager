@@ -1,4 +1,4 @@
-import { SelectedAnswer } from '../types/selectedAnswer';
+import { SelectedAnswer } from '../../../common/models/types/selectedAnswer';
 
 export type FinishTestDTO = {
   startDate: string;

@@ -4,7 +4,7 @@ import { DataSingletonService } from '../singletons/data-singleton.service';
 import { SelectedAnswersSingletonService } from '../singletons/selected-answers-singleton.service';
 import { FinishTestDTO } from '../../models/DTOs/finishTestDto';
 import { Subject } from 'rxjs';
-import { Score } from '../../models/types/score';
+import { Score } from '../../../common/models/types/score';
 import { StartDateSingletonService } from '../singletons/start-date-singleton.service';
 
 @Injectable({

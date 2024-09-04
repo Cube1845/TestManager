@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { TestManagerService } from '../../../../../services/tests/manager/test-manager.service';
+import { HistoryService } from '../../../../../services/testhistory/history/history.service';
+import { TestHistory } from '../../../../../models/types/testHistory';
+import { TestHistoryUnit } from '../../../../../models/types/testHistoryUnit';
 
 @Component({
   selector: 'app-history',
@@ -9,9 +11,15 @@ import { TestManagerService } from '../../../../../services/tests/manager/test-m
   styleUrl: './history.component.scss',
 })
 export class HistoryComponent {
-  constructor(private readonly testManagerService: TestManagerService) {}
+  constructor(private readonly historyService: HistoryService) {}
 
-  getUsersTests(): string[] {
-    return this.testManagerService.getUsersTestNames();
+  getTestHistory(): TestHistoryUnit[] {
+    const testHistory = this.historyService.getTestHistory();
+
+    if (testHistory == null) {
+      return [];
+    }
+
+    return testHistory.history;
   }
 }

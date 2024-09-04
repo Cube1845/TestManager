@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SelectedAnswer } from '../../models/types/selectedAnswer';
+import { SelectedAnswer } from '../../../common/models/types/selectedAnswer';
 
 @Injectable({
   providedIn: 'root',

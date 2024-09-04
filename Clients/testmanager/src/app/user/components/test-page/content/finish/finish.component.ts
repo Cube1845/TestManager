@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Score } from '../../../../models/types/score';
+import { Score } from '../../../../../common/models/types/score';
 import { FinishService } from '../../../../services/finish/finish.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';

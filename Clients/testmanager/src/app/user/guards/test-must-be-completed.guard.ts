@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { ProtectedQuestion } from '../models/types/protectedQuestion';
-import { SelectedAnswer } from '../models/types/selectedAnswer';
+import { SelectedAnswer } from '../../common/models/types/selectedAnswer';
 
 export const testMustBeCompletedGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);

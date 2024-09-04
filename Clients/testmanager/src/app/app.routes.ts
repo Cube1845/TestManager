@@ -19,6 +19,7 @@ import { TestInterfaceComponent } from './user/components/test-page/content/test
 import { questionSetMustBeLoadedGuard } from './user/guards/question-set-must-be-loaded.guard';
 import { FinishComponent } from './user/components/test-page/content/finish/finish.component';
 import { testMustBeCompletedGuard } from './user/guards/test-must-be-completed.guard';
+import { HistoryTestDisplayComponent } from './manager/components/home-page/content/test-history/history-test-display/history-test-display.component';
 import { HistoryComponent } from './manager/components/home-page/content/test-history/history/history.component';
 
 export const routes: Routes = [
@@ -65,7 +66,10 @@ export const routes: Routes = [
       {
         path: 'test-history',
         component: TestHistoryComponent,
-        children: [{ path: 'history', component: HistoryComponent }],
+        children: [
+          { path: 'tests', component: HistoryTestDisplayComponent },
+          { path: 'history', component: HistoryComponent },
+        ],
       },
     ],
   },

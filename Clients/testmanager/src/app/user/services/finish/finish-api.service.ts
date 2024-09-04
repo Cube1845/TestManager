@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Score } from '../../models/types/score';
+import { Score } from '../../../common/models/types/score';
 import { FinishTestDTO } from '../../models/DTOs/finishTestDto';
 
 @Injectable({

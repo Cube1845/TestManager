@@ -3,19 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\selectedanswers\\selectedanswerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\testhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\selectedanswers\\selectedanswersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -24,7 +21,10 @@
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\testhistoryunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\testhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\selectedanswers\\selectedanswerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\common\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -37,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -61,45 +61,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TestHistoryController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB0AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-03T18:40:14.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "SelectedAnswersController.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvxAAAAAVAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAywBEAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-03T18:38:59.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ContentSelectedAnswers.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:58:30.184Z"
+              "WhenOpened": "2024-09-02T13:58:30.184Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ContentSelectedAnswer.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
@@ -107,32 +108,34 @@
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:56:26.224Z"
+              "WhenOpened": "2024-09-02T13:56:26.224Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SelectedAnswersService.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAIA5wDcAAABXAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAhwDcAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-02T13:45:37.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "TestHistory.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA4AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:34:52.531Z"
+              "WhenOpened": "2024-09-02T13:34:52.531Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -148,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "TestHistoryUnit.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
@@ -156,19 +159,21 @@
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:40:12.554Z"
+              "WhenOpened": "2024-09-01T20:40:12.554Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "TestHistoryService.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
               "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
               "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
               "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAsAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwBIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:36:22.092Z"
+              "WhenOpened": "2024-09-01T20:36:22.092Z",
+              "EditorCaption": ""
             }
           ]
         }

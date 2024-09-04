@@ -1,0 +1,15 @@
+<div class="test-table">
+    <table>
+        <tr>
+            <th>L.p.</th>
+            <th>Nazwa</th>
+        </tr>
+
+        @for (test of getUsersTests(); track $index) {
+            <tr (click)="goToTestHistory(test)">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ test }}</td>
+            </tr>
+        }
+    </table>
+</div>
