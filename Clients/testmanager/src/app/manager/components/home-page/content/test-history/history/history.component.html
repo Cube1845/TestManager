@@ -9,7 +9,7 @@
         </tr>
 
         @for (history of getTestHistory(); track $index) {
-            <tr>
+            <tr (click)="goToSelectedAnswers($index)">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ history.username }}</td>
                 <td>{{ history.score.earnedPoints }}/{{ history.score.maximumPoints }} ({{ ((history.score.earnedPoints / history.score.maximumPoints) * 100).toFixed(2) }}%)</td>
@@ -19,3 +19,5 @@
         }
     </table>
 </div>
+
+<h1>Kliknij w dane ukończenia testu, aby zobaczyć zaznaczone w nim odpowiedzi</h1>

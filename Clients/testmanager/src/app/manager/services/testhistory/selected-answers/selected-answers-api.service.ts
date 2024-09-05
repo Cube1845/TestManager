@@ -17,7 +17,7 @@ export class SelectedAnswersApiService {
   ): Observable<ContentSelectedAnswers> {
     return this.http.get<ContentSelectedAnswers>(
       this.apiUrl +
-        '/api/testhistory/history' +
+        '/api/testhistory/selectedanswers' +
         '?testHistoryId=' +
         testHistoryId
     );

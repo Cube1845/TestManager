@@ -21,6 +21,9 @@ import { FinishComponent } from './user/components/test-page/content/finish/fini
 import { testMustBeCompletedGuard } from './user/guards/test-must-be-completed.guard';
 import { HistoryTestDisplayComponent } from './manager/components/home-page/content/test-history/history-test-display/history-test-display.component';
 import { HistoryComponent } from './manager/components/home-page/content/test-history/history/history.component';
+import { testHistoryMustBeLoadedGuard } from './manager/guards/test-history/test-history-must-be-loaded.guard';
+import { SelectedAnswersComponent } from './manager/components/home-page/content/test-history/selected-answers/selected-answers.component';
+import { selectedAnswersMustBeLoadedGuard } from './manager/guards/test-history/selected-answers-must-be-loaded.guard';
 
 export const routes: Routes = [
   { path: 'manager', pathMatch: 'full', redirectTo: 'login' },
@@ -68,7 +71,16 @@ export const routes: Routes = [
         component: TestHistoryComponent,
         children: [
           { path: 'tests', component: HistoryTestDisplayComponent },
-          { path: 'history', component: HistoryComponent },
+          {
+            path: 'history',
+            component: HistoryComponent,
+            canActivate: [testHistoryMustBeLoadedGuard],
+          },
+          {
+            path: 'selectedanswers',
+            component: SelectedAnswersComponent,
+            canActivate: [selectedAnswersMustBeLoadedGuard],
+          },
         ],
       },
     ],

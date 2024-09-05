@@ -1,5 +1,6 @@
 using Manager.Manager.Questions.QuestionBase;
 using Manager.Manager.Questions.QuestionEdit;
+using Manager.Manager.TestHistory.SelectedAnswers;
 using Manager.Manager.TestHistory.TestHistory;
 using Manager.Manager.Tests.TestManager;
 using Manager.Manager.Tests.TestSettingsEdit;
@@ -26,6 +27,7 @@ builder.Services.AddScoped<CodeGeneratorService>();
 builder.Services.AddScoped<StartService>();
 builder.Services.AddScoped<FinishService>();
 builder.Services.AddScoped<TestHistoryService>();
+builder.Services.AddScoped<SelectedAnswersService>();
 
 builder.Services.AddCors(options =>
 {

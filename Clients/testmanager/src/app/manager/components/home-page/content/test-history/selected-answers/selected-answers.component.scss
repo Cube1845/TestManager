@@ -1,0 +1,80 @@
+:host {
+    @import "../../../../../../variables";
+    
+    margin: 0px;
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    .container {
+        margin: 30px;
+        width: 100%;
+    }
+
+    .test-table {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin: 10px 30px;
+        width: max-content;
+    }
+
+    .return-button {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+        border: none;
+        padding: 10px 25px;
+        color: $fore-text-color;
+        font-size: 18px;
+        margin: 30px;
+        margin-top: 10px;
+        border-radius: 7px;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+        }
+    }
+
+    table {
+        border: 1px solid $background-color;
+        border-collapse: collapse;
+        display: block;
+        height: 500px;
+        overflow: auto;
+        color: $text-color;
+        background-color: $table-color;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            background-color: $nav-bar-hover-color;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $nav-bar-color;
+        }
+    }
+
+    tr {
+        transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+        background-color: $nav-bar-color;
+
+        &:hover {
+            transition: background-color $hover-transition-time ease, transform $hover-transition-time;
+            background-color: $nav-bar-hover-color;
+            cursor: pointer;
+        }
+    }
+
+    td, th {
+        border: 0.5px solid $background-color;
+        padding: 7px;
+    }
+
+    th {
+        background-color: $table-color;
+    }
+}

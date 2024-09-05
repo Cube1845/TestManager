@@ -1,1 +1,21 @@
-<p>selected-answers works!</p>
+<div class="test-table">
+    <table>
+        <tr>
+            <th>L.p.</th>
+            <th>Treść pytania</th>
+            <th>Zaznaczona odpowiedź</th>
+            <th>Poprawna odpowiedź</th>
+        </tr>
+
+        @for (answers of getContentSelectedAnswers(); track $index) {
+            <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ answers.questionContent }}</td>
+                <td>{{ answers.selectedAnswerContent }}</td>
+                <td>{{ answers.correctAnswerContent }}</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<button type="button" (click)="goToTestHistory()" class="return-button">Cofnij się</button>
