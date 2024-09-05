@@ -34,7 +34,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       }
 
       authService.saveTokens(response);
-      return next(getRequestWithAuthHeader(req, response.accessToken));
+
+      const modReq = req.clone({
+        setHeaders: { skipAuth: 'true' },
+      });
+
+      return next(getRequestWithAuthHeader(modReq, response.accessToken));
     });
   }
 

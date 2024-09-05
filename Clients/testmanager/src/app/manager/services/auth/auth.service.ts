@@ -35,7 +35,7 @@ export class AuthService {
 
     let currentDate = new Date();
     let currentTimeInMilliseconds = currentDate.getTime();
-    let secondsToAdd = data.expiresIn;
+    let secondsToAdd = data.expiresIn - 10;
     let updatedTimeInMilliseconds =
       currentTimeInMilliseconds + secondsToAdd * 1000;
     let expires = new Date(updatedTimeInMilliseconds);
