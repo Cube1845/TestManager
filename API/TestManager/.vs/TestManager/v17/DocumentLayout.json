@@ -1,33 +1,27 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\TestManager\\",
+  "WorkspaceRootPath": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\TestManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\user\\models\\dtos\\finishtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\selectedanswers\\selectedanswerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\testhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\selectedanswers\\selectedanswersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\persistence\\managerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\user\\finish\\finishcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\testhistory\\testhistoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\persistence\\tables\\testhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\testhistoryunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\manager\\testhistory\\models\\contentselectedanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\jakub\\desktop\\testmanager\\testmanager\\api\\manager\\common\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECF57BEA-8FF4-44A5-AC79-7B7F8FC1566C}|..\\Manager\\Manager.csproj|c:\\users\\mihax\\onedrive\\documents\\github\\testmanager\\api\\manager\\persistence\\tables\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,8 +31,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestHistoryController.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
+              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:57:30.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ManagerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\ManagerDbContext.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Persistence\\ManagerDbContext.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\ManagerDbContext.cs",
+              "RelativeToolTip": "..\\Manager\\Persistence\\ManagerDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:55:03.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FinishTestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\User\\Models\\DTOs\\FinishTestDTO.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\User\\Models\\DTOs\\FinishTestDTO.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\User\\Models\\DTOs\\FinishTestDTO.cs",
+              "RelativeToolTip": "..\\Manager\\User\\Models\\DTOs\\FinishTestDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:22:39.309Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -61,112 +94,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestHistoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB0AAAAIAAAA",
+              "DocumentIndex": 4,
+              "Title": "FinishController.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\User\\Finish\\FinishController.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\User\\Finish\\FinishController.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\User\\Finish\\FinishController.cs",
+              "RelativeToolTip": "..\\Manager\\User\\Finish\\FinishController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T18:40:14.756Z",
+              "WhenOpened": "2024-09-05T18:22:35.465Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SelectedAnswersController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T18:38:59.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ContentSelectedAnswers.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswers.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:58:30.184Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ContentSelectedAnswer.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\ContentSelectedAnswer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:56:26.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SelectedAnswersService.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\SelectedAnswers\\SelectedAnswersService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAhwDcAAABXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:45:37.323Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TestHistory.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Title": "TestHistoryService.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
+              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAowBcAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T13:34:52.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Score.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Common\\Score.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Common\\Score.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Common\\Score.cs",
-              "RelativeToolTip": "..\\Manager\\Common\\Score.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:43:24.166Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TestHistoryUnit.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\Models\\TestHistoryUnit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:40:12.554Z"
+              "WhenOpened": "2024-09-05T18:22:03.653Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "TestHistoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
-              "RelativeDocumentMoniker": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
-              "ToolTip": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
-              "RelativeToolTip": "..\\Manager\\Manager\\TestHistory\\TestHistory\\TestHistoryService.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwBIAAAAZAAAA",
+              "Title": "TestHistory.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\Tables\\TestHistory.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Persistence\\Tables\\TestHistory.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\Tables\\TestHistory.cs",
+              "RelativeToolTip": "..\\Manager\\Persistence\\Tables\\TestHistory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:36:22.092Z"
+              "WhenOpened": "2024-09-05T18:20:56.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Test.cs",
+              "DocumentMoniker": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\Tables\\Test.cs",
+              "RelativeDocumentMoniker": "..\\Manager\\Persistence\\Tables\\Test.cs",
+              "ToolTip": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Persistence\\Tables\\Test.cs",
+              "RelativeToolTip": "..\\Manager\\Persistence\\Tables\\Test.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:20:41.142Z",
+              "EditorCaption": ""
             }
           ]
         }

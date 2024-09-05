@@ -1,23 +1,29 @@
 <div class="test-table">
-    <table>
-        <tr>
-            <th>L.p.</th>
-            <th>Wykonawca</th>
-            <th>Wynik</th>
-            <th>Data rozpoczęcia</th>
-            <th>Data zakończenia</th>
-        </tr>
+  <table>
+    <tr>
+      <th>L.p.</th>
+      <th>Wykonawca</th>
+      <th>Wynik</th>
+      <th>Data rozpoczęcia</th>
+      <th>Data zakończenia</th>
+    </tr>
 
-        @for (history of getTestHistory(); track $index) {
-            <tr (click)="goToSelectedAnswers($index)">
-                <td>{{ $index + 1 }}</td>
-                <td>{{ history.username }}</td>
-                <td>{{ history.score.earnedPoints }}/{{ history.score.maximumPoints }} ({{ ((history.score.earnedPoints / history.score.maximumPoints) * 100).toFixed(2) }}%)</td>
-                <td>{{ history.startDate }}</td>
-                <td>{{ history.finishDate }}</td>
-            </tr>
-        }
-    </table>
+    @for (h of (history$ | async).history; track $index) {
+    <tr (click)="goToSelectedAnswers(h.testHistoryId)">
+      <td>{{ $index + 1 }}</td>
+      <td>{{ h.username }}</td>
+      <td>
+        {{ h.score.earnedPoints }}/{{ h.score.maximumPoints }} ({{
+          ((h.score.earnedPoints / h.score.maximumPoints) * 100).toFixed(2)
+        }}%)
+      </td>
+      <td>{{ h.startDate }}</td>
+      <td>{{ h.finishDate }}</td>
+    </tr>
+    }
+  </table>
 </div>
 
-<h1>Kliknij w dane ukończenia testu, aby zobaczyć zaznaczone w nim odpowiedzi</h1>
+<h1>
+  Kliknij w dane ukończenia testu, aby zobaczyć zaznaczone w nim odpowiedzi
+</h1>

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { QuestionSetSingletonService } from '../singletons/question-set-singleton.service';
-import { StartApiService } from './start-api.service';
 import { Subject } from 'rxjs';
 import { ToasterService } from '../../../common/services/toaster/toaster.service';
 import { DataSingletonService } from '../singletons/data-singleton.service';
+import { QuestionSetSingletonService } from '../singletons/question-set-singleton.service';
 import { StartDateSingletonService } from '../singletons/start-date-singleton.service';
-import moment from 'moment';
+import { StartApiService } from './start-api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,9 +30,7 @@ export class StartService {
           username: '',
         });
 
-        this.startDateSingleton.setStartDate(
-          moment().format('DD.MM.yyyy HH:mm:ss')
-        );
+        this.startDateSingleton.setStartDate(new Date().toISOString());
 
         this.questionSetLoadedSubject.next(true);
       } else {
