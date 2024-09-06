@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Question } from '../../../models/types/question';
 import { QuestionApiService } from './question-api.service';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -44,13 +45,13 @@ export class QuestionService {
   removeQuestionFromQuestionBaseAndLoadQuestions(
     baseName: string,
     questionToRemoveIndex: number
-  ): void {
-    this.apiService
+  ): Observable<Question[]> {
+    return this.apiService
       .removeQuestionFromQuestionBaseAndGetQuestions(
         baseName,
         questionToRemoveIndex
       )
-      .subscribe((response) => (this.questions = response));
+      .pipe(map((response) => (this.questions = response)));
   }
 
   //Non API

@@ -15,8 +15,6 @@ import { HomePageComponent } from './manager/components/home-page/home-page.comp
 import { mustBeLoggedInGuard } from './manager/guards/auth/must-be-logged-in.guard';
 import { mustNotBeLoggedInGuard } from './manager/guards/auth/must-not-be-logged-in.guard';
 import { questionBaseMustBeSelectedGuard } from './manager/guards/questions/question-base-must-be-selected.guard';
-import { selectedAnswersMustBeLoadedGuard } from './manager/guards/test-history/selected-answers-must-be-loaded.guard';
-import { testHistoryMustBeLoadedGuard } from './manager/guards/test-history/test-history-must-be-loaded.guard';
 import { testMustBeSelectedGuard } from './manager/guards/tests/test-must-be-selected.guard';
 import { FinishComponent } from './user/components/test-page/content/finish/finish.component';
 import { StartComponent } from './user/components/test-page/content/start/start.component';
@@ -74,12 +72,10 @@ export const routes: Routes = [
           {
             path: 'history/:testName',
             component: HistoryComponent,
-            canActivate: [testHistoryMustBeLoadedGuard],
           },
           {
             path: 'selectedanswers',
             component: SelectedAnswersComponent,
-            canActivate: [selectedAnswersMustBeLoadedGuard],
           },
         ],
       },

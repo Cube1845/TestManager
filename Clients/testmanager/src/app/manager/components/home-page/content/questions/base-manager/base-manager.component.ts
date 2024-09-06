@@ -100,8 +100,9 @@ export class BaseManagerComponent implements OnInit {
 
   removeSelectedQuestionBase() {
     var index = Number(this.baseFormGroup.controls.index.value!) - 1;
-    this.questionBaseService.removeQuestionBaseAndLoadBasesNames(index);
-    this.baseFormGroup.reset();
+    this.questionBaseService
+      .removeQuestionBaseAndLoadBasesNames(index)
+      .subscribe(() => this.baseFormGroup.reset());
   }
 
   isAnyQuestionBaseSelected(): boolean {

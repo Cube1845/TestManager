@@ -4,11 +4,12 @@ import { map, Observable, switchMap } from 'rxjs';
 import { TestHistory } from '../../../../../models/types/testHistory';
 import { HistoryApiService } from '../../../../../services/testhistory/history/history-api.service';
 import { SelectedAnswersService } from '../../../../../services/testhistory/selected-answers/selected-answers.service';
+import { AsyncPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, DatePipe],
   templateUrl: './history.component.html',
   styleUrl: './history.component.scss',
 })
@@ -28,5 +29,9 @@ export class HistoryComponent {
 
   goToSelectedAnswers(testHistoryId: number): void {
     this.selectedAnswersService.goToSelectedAnswers(testHistoryId);
+
+    var x: string[] = [];
+
+    var y = x.map((x) => x + 2);
   }
 }

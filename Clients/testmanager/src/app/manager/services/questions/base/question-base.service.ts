@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { QuestionBaseApiService } from './question-base-api.service';
 import { SelectedQuesitonBaseSingletonService } from '../../singletons/selected-quesiton-base-singleton.service';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -40,14 +41,12 @@ export class QuestionBaseService {
       });
   }
 
-  removeQuestionBaseAndLoadBasesNames(index: number) {
+  removeQuestionBaseAndLoadBasesNames(index: number): Observable<string[]> {
     var baseName = this.getQuestionBasesNames()[index];
 
-    this.apiService
+    return this.apiService
       .removeQuestionBaseAndGetAllUsersBases(baseName)
-      .subscribe((response) => {
-        this.questionBaseNames = response;
-      });
+      .pipe(map((response) => (this.questionBaseNames = response)));
   }
 
   //Non API

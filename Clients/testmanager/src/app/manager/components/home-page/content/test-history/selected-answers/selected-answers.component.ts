@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SelectedAnswersService } from '../../../../../services/testhistory/selected-answers/selected-answers.service';
 import { ContentSelectedAnswer } from '../../../../../models/types/contentSelectedAnswer';
 import { SelectedTestNameService } from '../../../../../services/testhistory/selected-test-name.service';
-import { HistoryService } from '../../../../../services/testhistory/history/history.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selected-answers',
@@ -15,7 +15,7 @@ export class SelectedAnswersComponent {
   constructor(
     private readonly selectedAnswersService: SelectedAnswersService,
     private readonly selectedTestNameService: SelectedTestNameService,
-    private readonly historyService: HistoryService
+    private readonly router: Router
   ) {}
 
   getContentSelectedAnswers(): ContentSelectedAnswer[] {
@@ -31,6 +31,6 @@ export class SelectedAnswersComponent {
 
   goToTestHistory(): void {
     const testName = this.selectedTestNameService.getSelectedTestName();
-    this.historyService.goToTestHistory(testName);
+    this.router.navigateByUrl('home/test-history/history/' + testName);
   }
 }

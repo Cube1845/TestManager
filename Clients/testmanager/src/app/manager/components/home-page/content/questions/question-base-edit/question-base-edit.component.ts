@@ -181,11 +181,14 @@ export class QuestionBaseEditComponent implements OnInit, OnDestroy {
     var selectedQuestionBaseName =
       this.questionBaseService.getSelectedQuestionBase()!;
 
-    this.questionService.removeQuestionFromQuestionBaseAndLoadQuestions(
-      selectedQuestionBaseName,
-      index - 1
-    );
-    this.questionFormGroup.reset();
+    this.questionService
+      .removeQuestionFromQuestionBaseAndLoadQuestions(
+        selectedQuestionBaseName,
+        index - 1
+      )
+      .subscribe(() => {
+        this.questionFormGroup.reset();
+      });
   }
 
   isAnyQuestionSelected(): boolean {

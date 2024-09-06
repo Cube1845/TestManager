@@ -8,7 +8,7 @@
       <th>Data zakończenia</th>
     </tr>
 
-    @for (h of (history$ | async).history; track $index) {
+    @for (h of (history$ | async)?.history; track $index) {
     <tr (click)="goToSelectedAnswers(h.testHistoryId)">
       <td>{{ $index + 1 }}</td>
       <td>{{ h.username }}</td>
@@ -17,7 +17,7 @@
           ((h.score.earnedPoints / h.score.maximumPoints) * 100).toFixed(2)
         }}%)
       </td>
-      <td>{{ h.startDate }}</td>
+      <td>{{ h.startDate | date:'dd.MM.yyyy HH:mm:ss' }} x {{ h.startDate }}</td>
       <td>{{ h.finishDate }}</td>
     </tr>
     }

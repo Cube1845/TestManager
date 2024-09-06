@@ -5328,23 +5328,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mihax\\.nuget\\packages\\": {},
+    "C:\\Users\\Jakub\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager.csproj",
+      "projectUniqueName": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager.csproj",
       "projectName": "Manager",
-      "projectPath": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\Manager.csproj",
-      "packagesPath": "C:\\Users\\mihax\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mihax\\OneDrive\\Documents\\GitHub\\TestManager\\API\\Manager\\obj\\",
+      "projectPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\Manager.csproj",
+      "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jakub\\Desktop\\TestManager\\TestManager\\API\\Manager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mihax\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5352,6 +5352,7 @@
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5423,7 +5424,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TestManagerService } from '../../../../../services/tests/manager/test-manager.service';
-import { HistoryService } from '../../../../../services/testhistory/history/history.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history-test-display',
@@ -12,7 +12,7 @@ import { HistoryService } from '../../../../../services/testhistory/history/hist
 export class HistoryTestDisplayComponent {
   constructor(
     private readonly testManagerService: TestManagerService,
-    private readonly historyService: HistoryService
+    private readonly router: Router
   ) {}
 
   getUsersTests(): string[] {
@@ -20,6 +20,6 @@ export class HistoryTestDisplayComponent {
   }
 
   goToTestHistory(testName: string): void {
-    this.historyService.goToTestHistory(testName);
+    this.router.navigateByUrl('home/test-history/history/' + testName);
   }
 }
