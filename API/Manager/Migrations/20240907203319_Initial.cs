@@ -207,6 +207,30 @@ namespace Manager.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TestHistory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TestId = table.Column<int>(type: "int", nullable: false),
+                    SelectedAnswers = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Score = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FinishDate = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TestHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TestHistory_Tests_TestId",
+                        column: x => x.TestId,
+                        principalTable: "Tests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
@@ -275,6 +299,11 @@ namespace Manager.Migrations
                 name: "IX_Questions_QuestionBaseId",
                 table: "Questions",
                 column: "QuestionBaseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TestHistory_TestId",
+                table: "TestHistory",
+                column: "TestId");
         }
 
         /// <inheritdoc />
@@ -299,7 +328,7 @@ namespace Manager.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Tests");
+                name: "TestHistory");
 
             migrationBuilder.DropTable(
                 name: "Questions");
@@ -309,6 +338,9 @@ namespace Manager.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Tests");
 
             migrationBuilder.DropTable(
                 name: "QuestionBases");

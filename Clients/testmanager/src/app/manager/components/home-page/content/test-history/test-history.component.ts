@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { TestManagerService } from '../../../../services/tests/manager/test-manager.service';
-import { SelectedTestNameService } from '../../../../services/testhistory/selected-test-name.service';
+import { SelectedTestNameSessionService } from '../../../../services/singletons/selected-test-name-session.service';
 
 @Component({
   selector: 'app-test-history',
@@ -14,7 +14,7 @@ export class TestHistoryComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly testManagerService: TestManagerService,
-    private readonly selectedTestNameService: SelectedTestNameService
+    private readonly selectedTestNameService: SelectedTestNameSessionService
   ) {}
 
   ngOnInit(): void {

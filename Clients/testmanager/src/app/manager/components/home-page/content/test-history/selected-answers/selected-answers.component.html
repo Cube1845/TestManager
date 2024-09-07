@@ -7,7 +7,7 @@
             <th>Poprawna odpowiedź</th>
         </tr>
 
-        @for (answers of getContentSelectedAnswers(); track $index) {
+        @for (answers of (selectedAnswers$ | async)?.answers; track $index) {
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ answers.questionContent }}</td>

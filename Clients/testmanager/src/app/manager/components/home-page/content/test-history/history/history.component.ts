@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
 import { TestHistory } from '../../../../../models/types/testHistory';
 import { HistoryApiService } from '../../../../../services/testhistory/history/history-api.service';
-import { SelectedAnswersService } from '../../../../../services/testhistory/selected-answers/selected-answers.service';
 import { AsyncPipe, DatePipe } from '@angular/common';
+import { SelectedAnswersApiService } from '../../../../../services/testhistory/selected-answers/selected-answers-api.service';
 
 @Component({
   selector: 'app-history',
@@ -17,9 +17,9 @@ export class HistoryComponent {
   history$: Observable<TestHistory>;
 
   constructor(
-    private readonly selectedAnswersService: SelectedAnswersService,
     private readonly historyApiService: HistoryApiService,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {
     this.history$ = this.route.paramMap.pipe(
       map((params) => params.get('testName')!),
@@ -28,10 +28,8 @@ export class HistoryComponent {
   }
 
   goToSelectedAnswers(testHistoryId: number): void {
-    this.selectedAnswersService.goToSelectedAnswers(testHistoryId);
-
-    var x: string[] = [];
-
-    var y = x.map((x) => x + 2);
+    this.router.navigateByUrl(
+      'home/test-history/selectedanswers/' + testHistoryId
+    );
   }
 }

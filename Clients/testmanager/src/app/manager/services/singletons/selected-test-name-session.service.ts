@@ -3,14 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class SelectedTestNameService {
-  private selectedTestName: string = '';
-
+export class SelectedTestNameSessionService {
   getSelectedTestName(): string {
-    return this.selectedTestName;
+    return sessionStorage.getItem('selectedTestName')!;
   }
 
   setSelectedTestName(testName: string): void {
-    this.selectedTestName = testName;
+    sessionStorage.setItem('selectedTestName', testName);
   }
 }

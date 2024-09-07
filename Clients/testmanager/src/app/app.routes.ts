@@ -74,7 +74,7 @@ export const routes: Routes = [
             component: HistoryComponent,
           },
           {
-            path: 'selectedanswers',
+            path: 'selectedanswers/:testHistoryId',
             component: SelectedAnswersComponent,
           },
         ],

@@ -17,8 +17,8 @@
           ((h.score.earnedPoints / h.score.maximumPoints) * 100).toFixed(2)
         }}%)
       </td>
-      <td>{{ h.startDate | date:'dd.MM.yyyy HH:mm:ss' }} x {{ h.startDate }}</td>
-      <td>{{ h.finishDate }}</td>
+      <td>{{ h.startDate | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+      <td>{{ h.finishDate | date:'dd.MM.yyyy HH:mm:ss' }}</td>
     </tr>
     }
   </table>

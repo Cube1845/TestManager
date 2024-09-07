@@ -1,32 +1,33 @@
 import { Component } from '@angular/core';
-import { SelectedAnswersService } from '../../../../../services/testhistory/selected-answers/selected-answers.service';
-import { ContentSelectedAnswer } from '../../../../../models/types/contentSelectedAnswer';
-import { SelectedTestNameService } from '../../../../../services/testhistory/selected-test-name.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SelectedTestNameSessionService } from '../../../../../services/singletons/selected-test-name-session.service';
+import { ContentSelectedAnswers } from '../../../../../models/types/contentSelectedAnswers';
+import { map, Observable, switchMap } from 'rxjs';
+import { SelectedAnswersApiService } from '../../../../../services/testhistory/selected-answers/selected-answers-api.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-selected-answers',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './selected-answers.component.html',
   styleUrl: './selected-answers.component.scss',
 })
 export class SelectedAnswersComponent {
+  selectedAnswers$: Observable<ContentSelectedAnswers>;
+
   constructor(
-    private readonly selectedAnswersService: SelectedAnswersService,
-    private readonly selectedTestNameService: SelectedTestNameService,
-    private readonly router: Router
-  ) {}
-
-  getContentSelectedAnswers(): ContentSelectedAnswer[] {
-    const selectedAnswers =
-      this.selectedAnswersService.getContentSelectedAnswers();
-
-    if (selectedAnswers == null) {
-      return [];
-    }
-
-    return selectedAnswers.answers;
+    private readonly selectedAnswersApiService: SelectedAnswersApiService,
+    private readonly selectedTestNameService: SelectedTestNameSessionService,
+    private readonly router: Router,
+    private readonly route: ActivatedRoute
+  ) {
+    this.selectedAnswers$ = this.route.paramMap.pipe(
+      map((params) => params.get('testHistoryId')!),
+      switchMap((testHistoryId) =>
+        this.selectedAnswersApiService.getSelectedAnswers(Number(testHistoryId))
+      )
+    );
   }
 
   goToTestHistory(): void {
